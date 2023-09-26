@@ -4,3 +4,4 @@
 			fenghuangWings:"hidden",
 			fenghuangTail:"hidden",
 			fenghuangEyes:"hidden",
+			fenghuangPendant:"hidden",

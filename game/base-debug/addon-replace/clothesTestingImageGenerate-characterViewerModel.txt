@@ -4,3 +4,5 @@
 	<<set _modeloptions.fenghuang_wings_type to $characterViewer.bodyState.fenghuangWings>>
 	<<set _modeloptions.fenghuang_tail_type to $characterViewer.bodyState.fenghuangTail>>
 	<<set _modeloptions.fenghuang_eyes_type to $characterViewer.bodyState.fenghuangEyes>>
+	<<set _modeloptions.fenghuang_pendant_type to $characterViewer.bodyState.fenghuangPendant>>
+

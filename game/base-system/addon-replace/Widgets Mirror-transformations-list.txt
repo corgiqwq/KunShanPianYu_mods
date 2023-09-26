@@ -3,6 +3,16 @@
 				<<if $fenghuang gte 1>>
 					__凤凰__
 					<br>
+					<<if _fenghuang.pendant isnot "disabled">>
+						<div class='tf-part-item'>
+							腰坠:
+							<<listbox "_fenghuang.pendant" autoselect>>
+								<<option "隐藏" "hidden">>
+								<<option "默认" "default">>
+							<</listbox>>
+						</div>
+						<br>
+					<</if>>
 					<<if _fenghuang.crest isnot "disabled">>
 						<div class='tf-part-item'>
 							头羽:

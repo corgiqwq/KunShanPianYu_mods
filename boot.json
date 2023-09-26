@@ -13,7 +13,8 @@
   "patch-ingame.js-combatActionColours.js"
  ],
  "tweeFileList": [
-  "game/overworld-forest/loc-forest/mod_change/parasol-tree.twee"
+  "game/overworld-forest/loc-forest/mod_change/parasol-tree.twee",
+  "game/overworld-forest/loc-lake/mod_change/lake-pendant.twee"
  ],
  "imgFileList": [
   "img/transformations/fenghuang/crest/default.png",
@@ -25,7 +26,8 @@
   "img/transformations/fenghuang/rightover/default.png",
   "img/transformations/fenghuang/rightwing/default.png",
   "img/transformations/fenghuang/tail/default.png",
-  "img/transformations/fenghuang/tattoo/default.png"
+  "img/transformations/fenghuang/tattoo/default.png",
+  "img/transformations/fenghuang/pendant/default.png"
  ],
  "additionFile": [
   "readme.md",
@@ -223,6 +225,16 @@
      "passage": "Forest",
      "findString": "<<if $edenfreedom gte 1>>",
      "replace": "<<link [[靠近古树(0:10)|Parasol Tree]]>><<pass 10>><</link>>\n\t\t\t<br>\n\t\t\t<<if $edenfreedom gte 1>>"
+    },
+    {
+        "passage": "Museum",
+        "findString": "<<if $worn.feet.type.includes("shackle")>>",
+        "replace": "<<link [[靠近古树(0:10)|Parasol Tree]]>><<pass 10>><</link>>\n\t\t\t<br>\n\t\t\t<<if $edenfreedom gte 1>>"
+    },
+    {
+        "passage": "Lake Ruin",
+        "findString": "<<if $nextPassageCheck is "Lake Ruin Prison Intro">>",
+        "replace": "<<if $fhPendant isnot 1>>\n\t\t<<link [[四处探索|Lake Pendant]]>><<set $fhPendant to 1>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is "Lake Ruin Prison Intro">>"
     },
     {
      "passage": "Scarlet Widgets",

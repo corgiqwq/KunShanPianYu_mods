@@ -1,0 +1,15 @@
+:: Lake Pendant
+
+<<set $outside to 0>><<set $location to "lake_ruin">><<set $bus to "lake_ruin">><<underwater>><<effects>><<lakeeffects>>
+	你看到废墟里闪过一道微光。
+	<br><br>
+
+	好奇心使你游了过去。罐子里静静躺着一枚白色带有不知名纹路的坠子，
+	<br><br>
+
+	你将它拿在手中，或许博物馆馆长知道这是什么。
+<br><br>
+<<link [[离开|Lake Ruin]]>><<wateraction>><</link>><<loxygen>>
+
+:: Lake Pendant Winter
+

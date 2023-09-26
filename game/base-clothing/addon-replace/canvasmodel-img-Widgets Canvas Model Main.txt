@@ -3,4 +3,5 @@
 	<<set _modeloptions.fenghuang_crest_type to $transformationParts.fenghuang.crest>>
 	<<set _modeloptions.fenghuang_tattoo_type to $transformationParts.fenghuang.tattoo>>
 	<<set _modeloptions.fenghuang_eyes_type to $transformationParts.fenghuang.eyes>>
+	<<set _modeloptions.fenghuang_pendant_type to $transformationParts.fenghuang.pendant>>
 	<!-- Calculate blend pattern for demon TF here. -->

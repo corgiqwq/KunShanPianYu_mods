@@ -19,3 +19,7 @@
 		<<if !_disabled.includes($transformationParts.fenghuang.eyes)>>
 			<img class="layer-over_head-back anim-idle-2f" @src="'img/transformations/fenghuang/eyes/'+$transformationParts.fenghuang.eyes+'.png'">
 		<</if>>
+
+		<<if !_disabled.includes($transformationParts.fenghuang.pendant)>>
+			<img class="layer-over_head-back anim-idle-2f" @src="'img/transformations/fenghuang/pendant/'+$transformationParts.fenghuang.pendant+'.png'">
+		<</if>>
