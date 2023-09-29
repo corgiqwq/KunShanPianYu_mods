@@ -4,12 +4,64 @@
 	你看到废墟里闪过一道微光。
 	<br><br>
 
-	好奇心使你游了过去。罐子里静静躺着一枚白色带有不知名纹路的坠子，
+	好奇心使你游了过去。
+	<span class="gold">罐子里静静躺着一枚白色带有不知名纹路的坠子，</span>
 	<br><br>
 
-	你将它拿在手中，或许博物馆馆长知道这是什么。
+	<span class="gold">你将它拿在手中，或许博物馆馆长知道这是什么。</span>
+	<br><br>
 <br><br>
 <<link [[离开|Lake Ruin]]>><<wateraction>><</link>><<loxygen>>
 
 :: Lake Pendant Winter
+
+<<set $outside to 0>><<set $location to "museum">><<effects>>
+<<npc Winter>><<person1>>
+	
+	你看到温特正在擦拭展柜，当<<he>>转过头看向你时，<<he>>的目光被你手中的坠子牢牢吸引住。
+	<br><br>
+
+	“你从哪里搞到这个的？” <<he>>快步走上来，想近距离观察你的坠子。
+	<br><br>
+
+	你下意识后退一步，温特发现了<<he>>的失态，“抱歉，我只是有点激动 ”。<br><br>
+	<<he>>看向你手中的坠子，“我在书上见到过这个图案，它来自于遥远东方的神秘古国 ”。
+	<<he>>四处望了望，“不过我也只在书里看见过这个图案，用东方人的话说，这是通往神秘处的钥匙 ”。<br><br>
+	温特看着你说，“我愿意以<span class="gold">$50000</span>的价格买下这枚坠子。”
+	<br><br>
+	
+	<br><br>
+	<<link [[卖|Lake Pendant Sell]]>><</link>><br>
+	<<link [[继续|Lake Pendant 2]]>><</link>>
+
+:: Lake Pendant Sell
+
+<<set $outside to 0>><<set $location to "museum">><<effects>>
+	
+	温特摩擦着坠子上的纹路，爱惜地看着它：“很好，它是完美的。”
+	<br><br>
+
+	<<he>>把<span class="gold">$50000</span>放在了桌子上。
+	<br><br>
+	<<set $money += 5000000>>
+	<<set $fhPendant = 99>>
+
+	<<link [[离开|Museum]]>><<pass 10>><</link>>
+	
+	
+:: Lake Pendant 2
+<<set $outside to 0>><<set $location to "museum">><<effects>>
+	
+	温特顿了顿，“如果你不打算把它给我，那你就离开。”
+	<br><br><br>
+
+	<span class="purple">“坠子在你手心里发热，不知为何你突然想到了森林深处那进不去的地方，有空去看看吧”</span>
+	<br><br>
+	
+	<span class="gold">你现在可以去到森林深处-梧桐树了！</span>
+	<br><br>
+
+	<<set $fhPendant = 2>>
+	
+	<<link [[离开|Museum]]>><<pass 10>><</link>>
 

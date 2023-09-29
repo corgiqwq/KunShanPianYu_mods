@@ -228,13 +228,13 @@
     },
     {
         "passage": "Museum",
-        "findString": "<<if $worn.feet.type.includes("shackle")>>",
-        "replace": "<<link [[靠近古树(0:10)|Parasol Tree]]>><<pass 10>><</link>>\n\t\t\t<br>\n\t\t\t<<if $edenfreedom gte 1>>"
+        "findString": "<<if $museumhorseintro is 0>>",
+        "replace": "<<if $fhPendant is 1>>\n\t\t<<link [[询问坠子来历|Lake Pendant Winter]]>><</link>>\n\t\t<br>\n\t<</if>>\n\t<<if $museumhorseintro is 0>>"
     },
     {
         "passage": "Lake Ruin",
         "findString": "<<if $nextPassageCheck is "Lake Ruin Prison Intro">>",
-        "replace": "<<if $fhPendant isnot 1>>\n\t\t<<link [[四处探索|Lake Pendant]]>><<set $fhPendant to 1>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is "Lake Ruin Prison Intro">>"
+        "replace": "<<if $fhPendant is 0>>\n\t\t<<link [[四处探索|Lake Pendant]]>><<set $fhPendant to 1>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is "Lake Ruin Prison Intro">>"
     },
     {
      "passage": "Scarlet Widgets",

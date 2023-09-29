@@ -13,16 +13,16 @@
          *
          *
          */
-        "fenghuang_pendant": {
-            srcfn(options) {
-                return `img/transformations/fenghuang/pendant/${options.fenghuang_pendant_type}.png`;
-            },
-            showfn(options) {
-                return options.show_tf && isPartEnabled(options.fenghuang_pendant_type);
-            },
-            z: ZIndices.over_upper,
-            animation: "idle"
-        },
+        // "fenghuang_pendant": {
+        //     srcfn(options) {
+        //         return `img/transformations/fenghuang/pendant/${options.fenghuang_pendant_type}.png`;
+        //     },
+        //     showfn(options) {
+        //         return options.show_tf && isPartEnabled(options.fenghuang_pendant_type);
+        //     },
+        //     z: ZIndices.over_upper,
+        //     animation: "idle"
+        // },
         "fenghuang_crest": {
             srcfn(options) {
                 return `img/transformations/fenghuang/crest/${options.fenghuang_crest_type}.png`;
