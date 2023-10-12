@@ -1,18 +1,16 @@
 		<div id='transformations-list' class='list'>
 		<div class='tf-fenghuang'>
-				<<if $fenghuang gte 1>>
+				<<if $fenghuang gte 1 or $fhPendant is 2>>
 					__凤凰__
 					<br>
-					<<if _fenghuang.pendant isnot "disabled">>
-						<div class='tf-part-item'>
-							腰坠:
+					<div class='tf-part-item'>
+							凤凰腰坠:
 							<<listbox "_fenghuang.pendant" autoselect>>
-								<<option "隐藏" "hidden">>
-								<<option "默认" "default">>
+								<<option "摘下" "hidden">>
+								<<option "佩戴" "default">>
 							<</listbox>>
 						</div>
-						<br>
-					<</if>>
+					<br>
 					<<if _fenghuang.crest isnot "disabled">>
 						<div class='tf-part-item'>
 							头羽:

@@ -1,43 +1,61 @@
 :: Parasol Tree
 
 <<location "forest">><<effects>><<wPersist "forest">><<getTarget true>>
-    坠子正在发热，你抬头看向一旁，四周的空间奇异地扭曲了一刹那。
+<<if $transformationParts.fenghuang.pendant is "default">>
+	
+	<<if ($transformationParts.fenghuang.pendant is "default") or ($fenghuang gte 6)>>	
+		坠子正在发热，你抬头看向一旁，四周的空间奇异地扭曲了一刹那。
+		<br><br>
+
+		经过一阵头晕眼花，你进入了一个小小的中空地带。
+		<br><br>
+
+		你抬头看向中心处的梧桐树，你被它动人心魄的美所打动。
+		<br><br><br>	
+		<<link [[抚摸古树(0:10)|Stroke Parasol Tree]]>><<set $daily.parasolTree to 1>><<pass 10>><<set $molestationstart to 1>><<stress -12>><<transform fenghuang 2>><</link>><<llstress>>
+		
+	<<else>>
+		<span class="red">隐隐约约看见有一棵巨树，但怎么也走不过去。</span>
+	<</if>>
+
 	<br><br>
 
-	经过一阵头晕眼花，你进入了一个小小的中空地带。
-	<br><br>
-
-	你抬头看向中心处的梧桐树，你被它动人心魄的美所打动。
-<br><br>
-
-<<link [[抚摸古树(0:10)|Stroke Parasol Tree]]>><<pass 10>><<set $molestationstart to 1>><<stress -12>><<transform fenghuang 1>><</link>><<llstress>>
-<br>
-<<link [[离开(0:10)|Forest]]>><<pass 10>><</link>>
+<<link [[离开(0:10)|Forest]]>><<pass 10>>
 
 :: Stroke Parasol Tree
 
 <<location "forest">><<effects>>
+
 	你感觉身上的坠子在接近这棵树时传来一阵阵暖意。
 	<br><br>
 
 	你不由自主地伸出手触碰树干，你感觉到树干上的纹路让你安心。
-	<br><br>
-
-<br><br>
-
-<<link [[在树下唱歌(0:30)|Parasol Tree Singing]]>><<pass 30>><<set $molestationstart to 1>><<stress -8>><<trauma -8>><<transform fenghuang 2>><</link>><<lstress>><<ltrauma>>
-<br>
+	<br><br><br>
+	
+	<<if $fenghuangbuild gte 20>>
+		<<link [[在树下唱歌(0:30)|Parasol Tree Singing]]>><<pass 30>><<set $molestationstart to 1>><<stress -8>><<trauma -8>><<transform fenghuang 1>><</link>><<lstress>><<ltrauma>>
+		<br>
+	<</if>><br>
 <<link [[离开(0:10)|Forest]]>><<pass 10>><</link>>
 
 :: Parasol Tree Singing
  
 <<location "forest">><<effects>>
+
 	你的尾羽在树下舒适地伸展开。
 	<br><br>
 
 	你听着林间传来的沙沙声，忍不住轻吟。
 	<br><br>
 
-	你听见树叶上传来的回声，你感觉到心旷神怡。
+	<<if $rng gte 71>>
+		森林里的鸟儿听见你婉转的歌声后停留在你的身边或是古树上，鸟儿们也在和你一起歌唱。<br><br>
+		你感觉到很放松。
+		<<lstress>><<stress -6>>
+		<<ltrauma>><<trauma -6>>
+	<<else>>
+		你听见树叶上传来的回声，你感觉到心旷神怡。
+	<</if>><br>
+
 <br><br>
 <<link [[离开(0:10)|Forest]]>><<pass 10>><</link>>

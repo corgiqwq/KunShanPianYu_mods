@@ -1,0 +1,4 @@
+            <<fallenButNotOut $fallenangel>>
+		<<elseif ($fenghuangbuild gte 5 and $specialTransform isnot 1) or ($fenghuang gte 1 and $specialTransform is 1)>>
+			<<fenghuangTransform $fenghuang>>
+		<</if>>

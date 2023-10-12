@@ -1,6 +1,6 @@
 {
- "name": "fenghuangTF",
- "version": "1.0.3",
+ "name": "KunShanPianYu_mods",
+ "version": "1.0.5",
  "styleFileList": [],
  "scriptFileList_earlyload": [],
  "scriptFileList_inject_early": [],
@@ -164,7 +164,7 @@
     {
      "passage": "Statistics",
      "findRegex": "<span class=\"gold\">([^<>]+)</span>",
-     "replace": "<span class=\"gold\">$1</span>\n\t\t\t凤凰化: <<print Math.trunc($fenghuangbuild)>> (65+ 完成变形)\n\t\t\t<br>\n\t\t\t涅槃阶段: <<print Math.trunc($fenghuang)>>\n\t\t\t<br>"
+     "replace": "<span class=\"gold\">$1</span>\n\t\t\t凤凰化: <<print Math.trunc($fenghuangbuild)>> (65+ 完成变形)\n\t\t\t<br>\n\t\t\t涅磐重生: <<print Math.trunc($fenghuang)>>\n\t\t\t<br>"
     },
     {
      "passage": "Traits",
@@ -224,7 +224,7 @@
     {
      "passage": "Forest",
      "findString": "<<if $edenfreedom gte 1>>",
-     "replace": "<<link [[靠近古树(0:10)|Parasol Tree]]>><<pass 10>><</link>>\n\t\t\t<br>\n\t\t\t<<if $edenfreedom gte 1>>"
+     "replace": "<<if $daily.parasolTree isnot 1>>\n\t\t\t\t<<link [[靠近古树(0:10)|Parasol Tree]]>><<pass 10>><</link>>\n\t\t\t\t<br>\n\t\t\t<</if>>\n\t\t\t<<if $edenfreedom gte 1>>"
     },
     {
         "passage": "Museum",
@@ -233,13 +233,53 @@
     },
     {
         "passage": "Lake Ruin",
-        "findString": "<<if $nextPassageCheck is "Lake Ruin Prison Intro">>",
-        "replace": "<<if $fhPendant is 0>>\n\t\t<<link [[四处探索|Lake Pendant]]>><<set $fhPendant to 1>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is "Lake Ruin Prison Intro">>"
+        "findString": "<<if $nextPassageCheck is \"Lake Ruin Prison Intro\">>",
+        "replace": "<<if $fhPendant is 0>>\n\t\t<<link [[四处探索|Lake Pendant]]>><<set $fhPendant to 1>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is \"Lake Ruin Prison Intro\">>"
     },
     {
      "passage": "Scarlet Widgets",
      "findString": "<<hideTransformations>>",
      "replace": "<<set $fenghuang to 0>>\n\t<<hideTransformations>>"
+    },
+    {
+        "passage": "Widgets Mirror",
+        "findString": "stares back.",
+        "replace": "stares back.\n\t<<if $transformationParts.fenghuang.pendant is \"default\">>\n\t\t<br>你的腰上挂着来自某神秘东方古国的神秘腰坠，刻有神兽凤凰的图腾，不清晰具体作用，但对人体似乎无害，可以当作装饰使用。\n\t<</if>>"
+    },
+    {
+        "passage": "Widgets Mirror",
+        "findString": "<<if $specialTransform is 1 or $physicalTransform is 1>>",
+        "replace": "<<if $specialTransform is 1 or $physicalTransform is 1 or $fhPendant is 2>>"
+    },
+    {
+        "passage": "Transformation Widgets",
+        "findString": "<<widget \"transformationStateUpdate\">>",
+        "replace": "<<widget \"transformationStateUpdate\">>\n\t<<if $transformationParts.fenghuang.pendant isnot \"default\">>\n\t\t<<transform fenghuang -1>>\n\t<</if>>"
+    },
+    {
+        "passage": "Transformation Widgets",
+        "findString": "<<fallenButNotOut $fallenangel>>",
+        "replace": "game/base-system/addon-replace/Transformation Widgets-widget-transformationAlteration.txt"
+    },
+    {
+        "passage": "Transformation Widgets",
+        "findString": "<<fallenButNotOut 99>>",
+        "replace": "<<fallenButNotOut 99>>\n\t<<fenghuangTransform 99>>"
+    },
+    {
+        "passage": "Widgets Schism",
+        "findString": "<<hideTransformations>>",
+        "replace": "<<set $fenghuang to 0>>\n\t<<hideTransformations>>"
+    },
+    {
+        "passage": "gameStartOnly",
+        "findString": "<<set $alluretest to 0>>",
+        "replace": "<<set $alluretest to 0>>\n\t<<set $fhPendant to 0>>"
+    },
+    {
+        "passage": "Widgets Museum",
+        "findString": "<<if $museumhorseintro is 0>>",
+        "replace": "<<if $fhPendant is 1>>\n\t\t<<link [[问问坠子的事|Lake Pendant Winter]]>><</link>>\n\t\t<br>\n\t<</if>>\n\t<<if $museumhorseintro is 0>>"
     }
    ]
   },
@@ -253,7 +293,7 @@
       "TODO": "canvasmodel-editor.js",
       "fileName": "canvasmodel-editor.js",
       "from": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),",
-      "to": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_wings_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tail_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_crest_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tattoo_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_eyes_type\", [\"disabled\", \"hidden\", \"default\"]),"
+      "to": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_wings_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tail_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_crest_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tattoo_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_eyes_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_pendant_type\", [\"disabled\", \"hidden\", \"default\"]),"
      },
      {
       "TODO": "ingame.js",

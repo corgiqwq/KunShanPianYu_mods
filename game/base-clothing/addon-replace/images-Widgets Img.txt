@@ -4,22 +4,22 @@
 		<</if>>
 
 		<<if !_disabled.includes($transformationParts.fenghuang.crest)>>
-			<img class="layer-horns anim-idle-2f" @src="'img/transformations/fenghuang/crest/'+$transformationParts.fenghuang.crest+'.png'">
-			<img class="layer-horns anim-idle-2f" @src="'img/transformations/fenghuang/crestover/'+$transformationParts.fenghuang.crest+'.png'">
+			<img class="layer-horns anim-idle-2f" @src="'img/transformations/paril/fenghuang/crest/'+$transformationParts.fenghuang.crest+'.png'">
+			<img class="layer-horns anim-idle-2f" @src="'img/transformations/paril/fenghuang/crestover/'+$transformationParts.fenghuang.crest+'.png'">
 		<</if>>
 
 		<<if !_disabled.includes($transformationParts.fenghuang.tattoo)>>
-			<img class="layer-sexlashes anim-idle-2f" @src="'img/transformations/fenghuang/tattoo/'+$transformationParts.fenghuang.tattoo+'.png'">
+			<img class="layer-sexlashes anim-idle-2f" @src="'img/transformations/paril/fenghuang/tattoo/'+$transformationParts.fenghuang.tattoo+'.png'">
 		<</if>>
 
 		<<if !_disabled.includes($transformationParts.fenghuang.tail)>>
-			<img class="layer-sexwings anim-idle-2f" @src="'img/transformations/fenghuang/tail/'+$transformationParts.fenghuang.tail+'.png'">
+			<img class="layer-sexwings anim-idle-2f" @src="'img/transformations/paril/fenghuang/tail/'+$transformationParts.fenghuang.tail+'.png'">
 		<</if>>
 
 		<<if !_disabled.includes($transformationParts.fenghuang.eyes)>>
-			<img class="layer-over_head-back anim-idle-2f" @src="'img/transformations/fenghuang/eyes/'+$transformationParts.fenghuang.eyes+'.png'">
+			<img class="layer-over_head-back anim-idle-2f" @src="'img/transformations/paril/fenghuang/eyes/'+$transformationParts.fenghuang.eyes+'.png'">
 		<</if>>
 
 		<<if !_disabled.includes($transformationParts.fenghuang.pendant)>>
-			<img class="layer-over_head-back anim-idle-2f" @src="'img/transformations/fenghuang/pendant/'+$transformationParts.fenghuang.pendant+'.png'">
+			<img class="layer-over_head-back anim-idle-2f" @src="'img/transformations/paril/fenghuang/pendant/'+$transformationParts.fenghuang.pendant+'.png'">
 		<</if>>

@@ -93,11 +93,10 @@
 				<<set $transformationParts.fenghuang.crest to "disabled">>
 				<<set $transformationParts.fenghuang.tattoo to "disabled">>
 				<<set $transformationParts.fenghuang.eyes to "disabled">>
-
 		<</switch>>
 	<<else>>
 		<<clearDivineTransformations>>
-		<<set $specialTransform to 1>>
+		<<set $physicalTransform to 1>>
 		<<set $fenghuang to 6>>
 		<<set $fenghuangbuild to 100>>
 		<<set $transformationParts.traits.fenghuang_eyes to "default">>
