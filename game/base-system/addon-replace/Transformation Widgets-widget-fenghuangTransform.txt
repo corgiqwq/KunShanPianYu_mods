@@ -49,6 +49,7 @@
 					<<set $fenghuang to 4>>
 					<span class="gold">你的额头感觉到了一丝说不清道不明的痒意，你忍不住伸手去触碰，触及到的是一片柔软。</span>
 					<<set $transformationParts.fenghuang.crest to "default">>
+					<<set $birdFly = 1>>
 					<br><br>
 				<<elseif $fenghuangbuild lt 30>>
 					<<set $fenghuang to 2>>

@@ -1,13 +1,5 @@
 :: Widgets Flying [widget]
 
-<<widget "mooricon1">>
-	<<icon "moor1.png">>
-<</widget>>
-
-<<widget "mooricon2">>
-	<<icon "moor2.png">>
-<</widget>>
-
 <<widget "parasolicon">>
 	<<icon "parasolTree.png">>
 <</widget>>
@@ -60,8 +52,10 @@
 
 	镇外
 	<br>
-	<<if ($fenghuang gte 6) or ($transformationParts.fenghuang.pendant is "default")>>
+	<<if ($fenghuang gte 6)>>
 		<<parasolicon>><<link [[古树 (0:15)|Parasol Tree]]>><<pass 15>><</link>><br>
+	<<elseif ($transformationParts.fenghuang.pendant is "default") and ($daily.parasolTree isnot 1)>>
+	    <<parasolicon>><<link [[古树 (0:15)|Parasol Tree]]>><<pass 15>><</link>><br>
 	<</if>>
 	<<foresticon>><<link [[森林 (0:15)|Forest]]>><<pass 15>><</link>><br>
 	<<lakeicon>><<link [[森林湖 (0:15)|Lake Shore]]>><<pass 15>><</link>><br>
@@ -72,11 +66,7 @@
 		<<dogicon>><<link [[狼穴 (0:30)|Wolf Cave Clearing]]>><<pass 30>><</link>><br>
 	<</if>>
 	<<cowicon>><<link [[农场 (0:30)|Farmland]]>><<pass 30>><</link>><br>
-	<<if $farm_stage gte 5 or isPubfameTaskAccepted("wren")>>
-		<<mooricon2>><<link [[荒原 (0:35)|Moor]]>><<pass 35>><<estate_init gate>><</link>><br>
-	<<else>>
-	<<mooricon1>><<link [[荒原 (0:35)|Moor]]>><<pass 35>><<estate_init gate>><</link>><br>
-	<</if>>
+	<<mooricon>><<link [[荒原 (0:35)|Moor]]>><<pass 35>><<estate_init gate>><</link>><br>
 	<<if $syndromebird gte 1>>
 		<<chickenicon>><<link [[鹰塔 (0:50)|Bird Tower]]>><<pass 50>><</link>><br>
 	<</if>>

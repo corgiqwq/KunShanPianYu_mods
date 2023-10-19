@@ -17,23 +17,7 @@
   "game/overworld-forest/loc-lake/mod_change/lake-pendant.twee",
   "game/flying-system/flying.twee"
  ],
- "imgFileList": [
-  "img/transformations/paril/fenghuang/crest/default.png",
-  "img/transformations/paril/fenghuang/crestover/default.png",
-  "img/transformations/paril/fenghuang/eyes/default.png",
-  "img/transformations/paril/fenghuang/leftover/default.png",
-  "img/transformations/paril/fenghuang/leftwing/default.png",
-  "img/transformations/paril/fenghuang/pendant/default.png",
-  "img/transformations/paril/fenghuang/rightover/default.png",
-  "img/transformations/paril/fenghuang/rightwing/default.png",
-  "img/transformations/paril/fenghuang/tail/default.png",
-  "img/transformations/paril/fenghuang/tattoo/default.png",
-  "img/transformations/paril/fenghuang/pendant/default.png",
-  "img/misc/icon/flying.png",
-  "img/misc/icon/parasolTree.png",
-  "img/misc/icon/moor1.png",
-  "img/misc/icon/moor2.png"
- ],
+ "imgFileList": [],
  "additionFile": [
   "readme.md",
   "game/base-clothing/addon-replace/canvasmodel-img-Widgets Canvas Model Main.txt",
@@ -49,7 +33,8 @@
   "game/base-system/addon-replace/Transformation Widgets-transformationParts.txt",
   "game/base-system/addon-replace/Transformation Widgets-widget-fenghuangTransform.txt",
   "game/base-system/addon-replace/Widgets Mirror-transformations-list.txt",
-  "game/base-system/images-Icon Img.txt"
+  "path/to/upper.json",
+  "path/to/lower.json"
  ],
  "addonPlugin": [
   {
@@ -61,6 +46,11 @@
      "passage": "gameStartOnly",
      "findString": "<<set $stray_happiness to 50>>",
      "replace": "<<set $fenghuangbuild to 0>>\n\t<<set $fenghuang to 0>>\n\t<<set $stray_happiness to 50>>"
+    },
+    {
+     "passage": "Statistics",
+     "findString": "<<print Math.trunc($fox)>>\n\t\t\t<br>",
+     "replace": "<<print Math.trunc($fox)>>\n\t\t\t<br><br>\n\t\t\t凤凰化: <<print Math.trunc($fenghuangbuild)>> (65+ 完成变形)\n\t\t\t<br>\n\t\t\t涅槃阶段: <<print Math.trunc($fenghuang)>>\n\t\t\t<br>"
     },
     {
      "passage": "Widgets variablesVersionUpdate",
@@ -119,7 +109,7 @@
     },
     {
      "passage": "Widgets Effects Man",
-     "findString": "/*Stalked actions */",
+     "findString": "<<if $mouthaction is \"ask\" and $askAction is \"removeStrapon\">>",
      "replaceFile": "game/base-combat/addon-replace/effects-Widgets Effects Man.txt"
     },
     {
@@ -130,7 +120,7 @@
     {
      "passage": "Widgets Combat Man-Combat",
      "findString": "<<elseif $speechcum is 1 and $rng gte 61 and $speechorgasmrepeat lte 1 and $speechorgasmcount lte 6>>",
-     "replace": "<<elseif $speechfengming is 1>>\n\t\t\t\t<<He>><<print either(\"尖叫着\",\"抽泣着\",\"大喊着\",\"呼喊着\")>><<print either(`：\"什么声音！\"`,`陷入狂乱。`)>>\n\t\t\t<<elseif $speechcum is 1 and $rng gte 61 and $speechorgasmrepeat lte 1 and $speechorgasmcount lte 6>>"
+     "replace": "<<elseif $speechfengming is 1>>\n\t\t\t\t<<He>><<print either(\"尖叫着\",\"抽泣着\",\"大喊着\",\"呼喊着\")>><<print either(：\"什么声音！\",陷入狂乱。)>>\n\t\t\t<<elseif $speechcum is 1 and $rng gte 61 and $speechorgasmrepeat lte 1 and $speechorgasmcount lte 6>>"
     },
     {
      "passage": "clothesTestingImageGenerate",
@@ -230,17 +220,12 @@
     {
      "passage": "Forest",
      "findString": "<<if $edenfreedom gte 1>>",
-     "replace": "<<if $daily.parasolTree isnot 1>>\n\t\t\t\t<<link [[靠近古树(0:10)|Parasol Tree]]>><<pass 10>><</link>>\n\t\t\t\t<br>\n\t\t\t<</if>>\n\t\t\t<<if $edenfreedom gte 1>>"
-    },
-    {
-        "passage": "Museum",
-        "findString": "<<if $museumhorseintro is 0>>",
-        "replace": "<<if $fhPendant is 1>>\n\t\t<<link [[询问坠子来历|Lake Pendant Winter]]>><</link>>\n\t\t<br>\n\t<</if>>\n\t<<if $museumhorseintro is 0>>"
+     "replace": "<<if $daily.parasolTree isnot 1 or $fenghuang gte 6>>\n\t\t\t\t<<link [[靠近古树(0:10)|Parasol Tree]]>><<pass 10>><</link>>\n\t\t\t\t<br>\n\t\t\t<</if>>\n\t\t\t<<if $edenfreedom gte 1>>"
     },
     {
         "passage": "Lake Ruin",
         "findString": "<<if $nextPassageCheck is \"Lake Ruin Prison Intro\">>",
-        "replace": "<<if $fhPendant is 0>>\n\t\t<<link [[四处探索|Lake Pendant]]>><<set $fhPendant to 1>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is \"Lake Ruin Prison Intro\">>"
+        "replace": "<<if $fhPendant is 0>>\n\t\t<<ind>><<link [[四处探索|Lake Pendant]]>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is \"Lake Ruin Prison Intro\">>"
     },
     {
      "passage": "Scarlet Widgets",
@@ -363,9 +348,74 @@
      "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
     },
     {
-     "passage": "Statistics",
-     "findString": "<<print Math.trunc($fox)>>\n\t\t\t<br>",
-     "replace": "<<print Math.trunc($fox)>>\n\t\t\t<br>\n\t\t\t凤凰化: <<print Math.trunc($fenghuangbuild)>> (65+ 完成变形)\n\t\t\t<br>\n\t\t\t涅槃阶段: <<print Math.trunc($fenghuang)>>\n\t\t\t<br><br>"
+     "passage": "Forest",
+     "findString": "<<if $historytrait gte 2 and $thicket_tunnel_intro is 1>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><<set $foresthunt to 0>><</link>><br>\n\t\t\t<</if>><br>\n\t\t\t<<if $historytrait gte 2 and $thicket_tunnel_intro is 1>>"
+    },
+    {
+     "passage": "Lake Shore",
+     "findString": "<<set $eventskip to 0>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t<</if>>\n\t<<set $eventskip to 0>>"
+    },
+    {
+     "passage": "Farmland",
+     "findString": "<<set $phase to 0>><<pass 5>><</link>>\n\t<br>",
+     "replace": "<<set $phase to 0>><<pass 5>><</link>>\n\t<br>\n\t<<if $fenghuang gte 4>>\n\t<br><<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t<</if>>"
+    },
+    {
+     "passage": "Moor",
+     "findString": "<<bird_pass 30>><<set $moor -= 5>><<set $forestmod to 0.5>><<set $moormove to \"careful\">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>",
+     "replace": "<<bird_pass 30>><<set $moor -= 5>><<set $forestmod to 0.5>><<set $moormove to \"careful\">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>\n\t\t\t<<if $fenghuang gte 4>>\n\t\t\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><<set $moor to 0>><<unset $moor_hunt>><</link>><br>\n\t\t\t<</if>>"
+    },
+    {
+     "passage": "Moor",
+     "findString": "<<bird_pass 5>><<set $moor to 0>><<unset $moor_hunt>><<set $forestmod to 1>><</link>>\n\t\t<br>",
+     "replace": "<<bird_pass 5>><<set $moor to 0>><<unset $moor_hunt>><<set $forestmod to 1>><</link>>\n\t\t<br>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><<set $moor to 0>><<unset $moor_hunt>><</link>><br>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Commercial alleyways",
+     "findString": "<<if $options.mapTop isnot true>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t<br><<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t\t<</if>>\n\t\t<<if $options.mapTop isnot true>>"
+    },
+    {
+     "passage": "Commercial rooftops",
+     "findString": "<</if>>\n<</if>>",
+     "replace": "<</if>>\n\t<<if $fenghuang gte 4>>\n\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t<</if>>\n<</if>>"
+    },
+    {
+     "passage": "Industrial alleyways",
+     "findString": "<<if $options.mapTop isnot true>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t<br><<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t\t<</if>>\n\t\t<<if $options.mapTop isnot true>>"
+    },
+    {
+     "passage": "Park",
+     "findString": "<<if $options.mapTop isnot true>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t<br><<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t\t<</if>>\n\t\t<<if $options.mapTop isnot true>>"
+    },
+    {
+     "passage": "Residential alleyways",
+     "findString": "<<if $options.mapTop isnot true>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t<br><<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t\t<</if>>\n\t\t<<if $options.mapTop isnot true>>"
+    },
+    {
+     "passage": "School Front Courtyard",
+     "findString": "School Gate Exit]]>><<schoolclothesreset>><</link>>\n\t\t\t<br>\n\t\t<</if>>",
+     "replace": "School Gate Exit]]>><<schoolclothesreset>><</link>>\n\t\t\t<br>\n\t\t<</if>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Widgets Shop",
+     "findString": "\"witchdress\":\"locked\",",
+     "replace": "\"BaiNiaoChaoFeng\":\"locked\",\n\t\t\t\"witchdress\":\"locked\","
+    },
+    {
+     "passage": "Widgets Shop",
+     "findString": "<<if $headdrive is 1>>",
+     "replace": "<<if $fenghuang gte 6>>\n\t\t<<set $specialClothes[\"BaiNiaoChaoFeng\"] to \"unlocked\">>\n\t<</if>>\n\t<<if $headdrive is 1>>"
+    },
+    {
+     "passage": "Widgets Shop",
+     "findString": "<<set _specialClothesHint to {",
+     "replace": "<<set _specialClothesHint to {\n\t\t\t\"BaiNiaoChaoFeng\":\"获得神兽的祝福。\","
     }
    ]
   },
@@ -411,6 +461,23 @@
    }
   },
   {
+   "modName": "ModdedClothesAddon",
+   "addonName": "ModdedClothesAddon",
+   "modVersion": "^1.0.0",
+   "params": {
+    "clothes": [
+     {
+      "key": "upper",
+      "filePath": "path/to/upper.json"
+     },
+     {
+      "key": "lower",
+      "filePath": "path/to/lower.json"
+     }
+    ]
+   }
+  },
+  {
    "modName": "ModLoader DoL ImageLoaderHook",
    "addonName": "ImageLoaderAddon",
    "modVersion": "^2.3.1",
@@ -433,6 +500,10 @@
   {
    "modName": "ModLoader DoL ImageLoaderHook",
    "version": "^2.3.1"
+  },
+  {
+   "modName": "ModdedClothesAddon",
+   "version": "^1.0.0"
   }
  ]
 }

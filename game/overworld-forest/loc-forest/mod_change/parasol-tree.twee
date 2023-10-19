@@ -1,7 +1,6 @@
 :: Parasol Tree
 
 <<location "forest">><<effects>><<wPersist "forest">><<getTarget true>>
-<<if $transformationParts.fenghuang.pendant is "default">>
 	
 	<<if ($transformationParts.fenghuang.pendant is "default") or ($fenghuang gte 6)>>	
 		坠子正在发热，你抬头看向一旁，四周的空间奇异地扭曲了一刹那。
@@ -20,7 +19,7 @@
 
 	<br><br>
 
-<<link [[离开(0:10)|Forest]]>><<pass 10>>
+<<link [[离开(0:10)|Forest]]>><<pass 10>><</link>>
 
 :: Stroke Parasol Tree
 

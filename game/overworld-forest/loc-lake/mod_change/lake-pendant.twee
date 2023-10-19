@@ -1,8 +1,8 @@
 :: Lake Pendant
 
 <<set $outside to 0>><<set $location to "lake_ruin">><<set $bus to "lake_ruin">><<underwater>><<effects>><<lakeeffects>>
-	<<rng>>
-	<<if $rng gte 94>>
+
+	<<if random(0,100) gte 94>>
 	你看到废墟里闪过一道微光。
 	<br><br>
 
@@ -11,8 +11,7 @@
 	<br><br>
 
 	<span class="gold">你将它拿在手中，或许博物馆馆长知道这是什么。</span>
-
-	<<set $fhPendant to 1>>
+	<<set $fhPendant = 1>>
 
 	<<else>>
 		你什么都没发现。
@@ -40,7 +39,7 @@
 		
 	<br><br>
 	<<link [[卖|Lake Pendant Sell]]>><</link>><br>
-	<<link [[继续|Lake Pendant Not Sell]]>><</link>>
+	<<link [[不卖|Lake Pendant Not Sell]]>><</link>>
 
 :: Lake Pendant Sell
 
@@ -61,7 +60,7 @@
 <<set $outside to 0>><<set $location to "museum">><<effects>>
 	
 	温特顿了顿，“如果你不打算把它给我，那你就离开。”
-	<br><br><br>
+	<br><br>
 
 	<span class="purple">“坠子在你手心里发热，不知为何你突然想到了森林深处那进不去的地方，有空去看看吧”</span>
 	<br><br>
