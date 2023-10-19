@@ -1,0 +1,17 @@
+<<widget "mooricon1">>
+	<<icon "moor1.png">>
+<</widget>>
+
+<<widget "mooricon2">>
+	<<icon "moor2.png">>
+<</widget>>
+
+<<widget "parasolicon">>
+	<<icon "parasolTree.png">>
+<</widget>>
+
+<<widget "flyingicon">>
+	<<icon "flying.png">>
+<</widget>>
+
+<<widget "barbicon">>

@@ -2,7 +2,14 @@
 	<h4>转化：</h4>
 	<span class="gold">凤凰化：</span>
 	<br>
-
+	<div class=&#39;tf-part-item&#39;>
+	凤凰腰坠:
+	<<listbox "_fenghuang.pendant" autoselect>>
+		<<option "摘下" "hidden">>
+		<<option "佩戴" "default">>
+	<</listbox>>
+	</div>
+	<br>
 	头羽：
 	<<listbox "$characterViewer.bodyState.fenghuangCrest"autoselect>>
 		<<option "隐藏" "hidden">>

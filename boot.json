@@ -1,6 +1,6 @@
 {
  "name": "KunShanPianYu_mods",
- "version": "1.0.5",
+ "version": "1.1.0",
  "styleFileList": [],
  "scriptFileList_earlyload": [],
  "scriptFileList_inject_early": [],
@@ -14,20 +14,25 @@
  ],
  "tweeFileList": [
   "game/overworld-forest/loc-forest/mod_change/parasol-tree.twee",
-  "game/overworld-forest/loc-lake/mod_change/lake-pendant.twee"
+  "game/overworld-forest/loc-lake/mod_change/lake-pendant.twee",
+  "game/flying-system/flying.twee"
  ],
  "imgFileList": [
-  "img/transformations/fenghuang/crest/default.png",
-  "img/transformations/fenghuang/crestover/default.png",
-  "img/transformations/fenghuang/eyes/default.png",
-  "img/transformations/fenghuang/leftover/default.png",
-  "img/transformations/fenghuang/leftwing/default.png",
-  "img/transformations/fenghuang/pendant/default.png",
-  "img/transformations/fenghuang/rightover/default.png",
-  "img/transformations/fenghuang/rightwing/default.png",
-  "img/transformations/fenghuang/tail/default.png",
-  "img/transformations/fenghuang/tattoo/default.png",
-  "img/transformations/fenghuang/pendant/default.png"
+  "img/transformations/paril/fenghuang/crest/default.png",
+  "img/transformations/paril/fenghuang/crestover/default.png",
+  "img/transformations/paril/fenghuang/eyes/default.png",
+  "img/transformations/paril/fenghuang/leftover/default.png",
+  "img/transformations/paril/fenghuang/leftwing/default.png",
+  "img/transformations/paril/fenghuang/pendant/default.png",
+  "img/transformations/paril/fenghuang/rightover/default.png",
+  "img/transformations/paril/fenghuang/rightwing/default.png",
+  "img/transformations/paril/fenghuang/tail/default.png",
+  "img/transformations/paril/fenghuang/tattoo/default.png",
+  "img/transformations/paril/fenghuang/pendant/default.png",
+  "img/misc/icon/flying.png",
+  "img/misc/icon/parasolTree.png",
+  "img/misc/icon/moor1.png",
+  "img/misc/icon/moor2.png"
  ],
  "additionFile": [
   "readme.md",
@@ -43,7 +48,8 @@
   "game/base-system/addon-replace/Transformation Widgets-specialTransform.txt",
   "game/base-system/addon-replace/Transformation Widgets-transformationParts.txt",
   "game/base-system/addon-replace/Transformation Widgets-widget-fenghuangTransform.txt",
-  "game/base-system/addon-replace/Widgets Mirror-transformations-list.txt"
+  "game/base-system/addon-replace/Widgets Mirror-transformations-list.txt",
+  "game/base-system/images-Icon Img.txt"
  ],
  "addonPlugin": [
   {
@@ -99,7 +105,7 @@
     {
      "passage": "Widgets Img",
      "findString": "<<if !_disabled.includes($transformationParts.bird.wings)>>\n\t\t\t\t\t<img class=\"layer-backhair colour-hair anim-idle-2f\" @src=\"'img/transformations/bird/leftwing/'+$transformationParts.bird.wings+'.png'\">\n\t\t\t\t<</if>>",
-     "replace": "<<if !_disabled.includes($transformationParts.bird.wings)>>\n\t\t\t\t\t<img class=\"layer-backhair colour-hair anim-idle-2f\" @src=\"'img/transformations/bird/leftwing/'+$transformationParts.bird.wings+'.png'\">\n\t\t\t\t<</if>>\n\t\t\t\t<<if !_disabled.includes($transformationParts.fenghuang.wings)>>\n\t\t\t\t\t<img class=\"layer-backhair anim-idle-2f\" @src=\"'img/transformations/fenghuang/leftover/'+$transformationParts.fenghuang.wings+'.png'\">\n\t\t\t\t\t<img class=\"layer-backhair anim-idle-2f\" @src=\"'img/transformations/fenghuang/leftwing/'+$transformationParts.fenghuang.wings+'.png'\">\n\t\t\t\t<</if>>"
+     "replace": "<<if !_disabled.includes($transformationParts.bird.wings)>>\n\t\t\t\t\t<img class=\"layer-backhair colour-hair anim-idle-2f\" @src=\"'img/transformations/bird/leftwing/'+$transformationParts.bird.wings+'.png'\">\n\t\t\t\t<</if>>\n\t\t\t\t<<if !_disabled.includes($transformationParts.fenghuang.wings)>>\n\t\t\t\t\t<img class=\"layer-backhair anim-idle-2f\" @src=\"'img/transformations/paril/fenghuang/leftover/'+$transformationParts.fenghuang.wings+'.png'\">\n\t\t\t\t\t<img class=\"layer-backhair anim-idle-2f\" @src=\"'img/transformations/paril/fenghuang/leftwing/'+$transformationParts.fenghuang.wings+'.png'\">\n\t\t\t\t<</if>>"
     },
     {
      "passage": "Widgets Img",
@@ -219,7 +225,7 @@
     {
      "passage": "Transformation Widgets",
      "findString": "<<set $transformationParts to {\n\t\t\ttraits: {fangs:\"disabled\", sharpEyes:\"disabled\", mateForLife:\"disabled\", flaunting:\"disabled\"},",
-     "replace": "<<set $transformationParts to {\n\t\t\ttraits: {fangs:\"disabled\", sharpEyes:\"disabled\", mateForLife:\"disabled\", flaunting:\"disabled\", fenghuang_eyes:\"disabled\"},\n\t\t\tfenghuang: {crest:\"disabled\", tail:\"disabled\", wings:\"disabled\", tattoo:\"disabled\", eyes:\"disabled\"},"
+     "replace": "<<set $transformationParts to {\n\t\t\ttraits: {fangs:\"disabled\", sharpEyes:\"disabled\", mateForLife:\"disabled\", flaunting:\"disabled\", fenghuang_eyes:\"disabled\"},\n\t\t\tfenghuang: {crest:\"disabled\", tail:\"disabled\", wings:\"disabled\", tattoo:\"disabled\", eyes:\"disabled\", pendant:\"disabled\"},"
     },
     {
      "passage": "Forest",
@@ -243,8 +249,8 @@
     },
     {
         "passage": "Widgets Mirror",
-        "findString": "stares back.",
-        "replace": "stares back.\n\t<<if $transformationParts.fenghuang.pendant is \"default\">>\n\t\t<br>你的腰上挂着来自某神秘东方古国的神秘腰坠，刻有神兽凤凰的图腾，不清晰具体作用，但对人体似乎无害，可以当作装饰使用。\n\t<</if>>"
+        "findString": "<<if [\"haunt\", \"despair\"].includes($wraith.state) and $hallucinations gte 1 and random(1, 100) is 1>>",
+        "replace": "<<if $transformationParts.fenghuang.pendant is \"default\">>\n\t<br>你的腰上挂着来自某神秘东方古国的神秘腰坠，刻有神兽凤凰的图腾，不清晰具体作用，但对人体似乎无害，可以当作装饰使用。\n<</if>>\n<<if [\"haunt\", \"despair\"].includes($wraith.state) and $hallucinations gte 1 and random(1, 100) is 1>>"
     },
     {
         "passage": "Widgets Mirror",
@@ -277,9 +283,89 @@
         "replace": "<<set $alluretest to 0>>\n\t<<set $fhPendant to 0>>"
     },
     {
-        "passage": "Widgets Museum",
+        "passage": "Museum",
         "findString": "<<if $museumhorseintro is 0>>",
         "replace": "<<if $fhPendant is 1>>\n\t\t<<link [[问问坠子的事|Lake Pendant Winter]]>><</link>>\n\t\t<br>\n\t<</if>>\n\t<<if $museumhorseintro is 0>>"
+    },
+    {
+     "passage": "Coast Path",
+     "findString": "<<if $harpy gte 6 and $birdFly gte 1>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t<<flyingwait>>\n\t<</if>>\n\t<<if $harpy gte 6 and $birdFly gte 1>>"
+    },
+    {
+     "passage": "Barb Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Cliff Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Connudatus Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Danube Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Elk Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Harvest Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Barb Exposed",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "High Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Mer Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Nightingale Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Oxford Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Starfish Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Wolf Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Domus Street",
+     "findString": "<<stormdrain>>",
+     "replace": "<<stormdrain>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingwait>>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Statistics",
+     "findString": "<<print Math.trunc($fox)>>\n\t\t\t<br>",
+     "replace": "<<print Math.trunc($fox)>>\n\t\t\t<br>\n\t\t\t凤凰化: <<print Math.trunc($fenghuangbuild)>> (65+ 完成变形)\n\t\t\t<br>\n\t\t\t涅槃阶段: <<print Math.trunc($fenghuang)>>\n\t\t\t<br><br>"
     }
    ]
   },
@@ -306,6 +392,12 @@
       "fileName": "ingame.js",
       "from": "result = Math.floor(result * modifier);",
       "to": "if (V.fenghuang >= 6) modifier += 0.10;\n\t\t\tresult = Math.floor(result * modifier);"
+     },
+     {
+      "TODO": "canvasmodel-main.js",
+      "fileName": "canvasmodel-main.js",
+      "from": "\"fox_cheeks_type\": \"disabled\",",
+      "to": "\"fox_cheeks_type\": \"disabled\",\n\t\t\t\"fenghuang_wings_type\": \"disabled\",\n\t\t\t\"fenghuang_tail_type\": \"disabled\",\n\t\t\t\"fenghuang_crest_type\": \"disabled\",\n\t\t\t\"fenghuang_tattoo_type\": \"disabled\",\t\t\t\n\t\t\t\"fenghuang_eyes_type\": \"disabled\",\n\t\t\t\"fenghuang_pendant_type\": \"disabled\","
      }
     ],
     "twee": [
@@ -317,24 +409,30 @@
      }
     ]
    }
+  },
+  {
+   "modName": "ModLoader DoL ImageLoaderHook",
+   "addonName": "ImageLoaderAddon",
+   "modVersion": "^2.3.1",
+   "params": []
   }
  ],
  "dependenceInfo": [
   {
    "modName": "ModLoader",
-   "version": ">=1.1.0"
-  },
-  {
-   "modName": "ModLoader DoL ImageLoaderHook",
-   "version": "1.0.0"
+   "version": "^1.6.0"
   },
   {
    "modName": "TweeReplacer",
-   "version": "1.0.0"
+   "version": "^1.0.0"
   },
   {
    "modName": "ReplacePatcher",
-   "version": "1.0.0"
+   "version": "^1.0.0"
+  },
+  {
+   "modName": "ModLoader DoL ImageLoaderHook",
+   "version": "^2.3.1"
   }
  ]
 }

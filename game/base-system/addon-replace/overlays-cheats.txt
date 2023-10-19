@@ -8,4 +8,3 @@
 	<span id="statsfenghuangbuild"><<print Math.trunc($fenghuangbuild)>></span>
 	| <<link ">">><<set $fenghuangbuild += 5>><<transformationAlteration>><<clamp>><<replace "#statsfenghuangbuild">><<print Math.trunc($fenghuangbuild)>><</replace>> <<updatesidebarimg>><</link>>
 	| <<link ">>">><<set $fenghuangbuild += 50>><<transformationAlteration>><<clamp>><<replace "#statsfenghuangbuild">><<print Math.trunc($fenghuangbuild)>><</replace>> <<updatesidebarimg>><</link>>
-	<br>
