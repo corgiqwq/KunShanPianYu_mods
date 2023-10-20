@@ -33,8 +33,8 @@
   "game/base-system/addon-replace/Transformation Widgets-transformationParts.txt",
   "game/base-system/addon-replace/Transformation Widgets-widget-fenghuangTransform.txt",
   "game/base-system/addon-replace/Widgets Mirror-transformations-list.txt",
-  "path/to/upper.json",
-  "path/to/lower.json"
+  "addon-clothes/upper.json",
+  "addon-clothes/lower.json"
  ],
  "addonPlugin": [
   {
@@ -468,11 +468,11 @@
     "clothes": [
      {
       "key": "upper",
-      "filePath": "path/to/upper.json"
+      "filePath": "addon-clothes/upper.json"
      },
      {
       "key": "lower",
-      "filePath": "path/to/lower.json"
+      "filePath": "addon-clothes/lower.json"
      }
     ]
    }
