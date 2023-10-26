@@ -450,7 +450,7 @@
      "replaceFile": "game/special-li/robin/robin-lemon-purchase.txt"
     },
     {
-     "passage": "Robin Chocolate Help",
+     "passage": "Robin Chocolate Purchase",
      "findString": "<<else>>\n\t<<set $robinmoney += 2>>",
      "replaceFile": "game/special-li/robin/robin-chocolate-purchase.txt"
     },

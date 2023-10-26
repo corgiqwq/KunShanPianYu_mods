@@ -86,7 +86,7 @@
 	<<else>>
         你坐在罗宾身边轻声吟唱起不知名的曲调，罗宾惊讶的发现你的歌声吸引了无数的游客。
         <br><br>
-    
+
         <<set $robinmoney += 8>>
         <<endevent>>
         <<lemonade_stand_options>>
