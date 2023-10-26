@@ -16,13 +16,13 @@
 			<</for>>
 			<<set $speechfengming to 1>>
 			<<if $enemytype is "beast">>
-				<span class='gold'>你向着<<beasttype>>发出啼叫。它感到一阵威压，不自觉地呜咽了起来。</span>
+				<span class='fenghuang'>你向着<<beasttype>>发出啼叫。它感到一阵威压，不自觉地呜咽了起来。</span>
 			<<elseif $enemyno gte 2>>
-				<span class='gold'>你向着<<group>>发出啼叫。他们感到一阵眩晕，不自觉地放松对你的控制，造成混乱。</span>
+				<span class='fenghuang'>你向着<<group>>发出啼叫。他们感到一阵眩晕，不自觉地放松对你的控制，造成混乱。</span>
 				<<if !$npc.includes("Eden") and !$npc.includes("Morgan") and !$npc.includes("Kylar") and !$npc.includes("Ivory Wraith") and !$abomination>>
 				<</if>>
 			<<else>>
-				<span class='gold'>你向着袭击者发出啼叫。<<He>>感到一阵眩晕，不自觉地放松对你的控制。</span>
+				<span class='fenghuang'>你向着袭击者发出啼叫。<<He>>感到一阵眩晕，不自觉地放松对你的控制。</span>
 				<<if !$npc.includes("Eden") and !$npc.includes("Morgan") and !$npc.includes("Kylar") and !$npc.includes("Ivory Wraith") and !$abomination>>
 				<</if>>
 			<</if>>

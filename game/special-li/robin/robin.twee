@@ -1,4 +1,4 @@
-:: Robin Fenghuang
+:: Robin Fenghuang Singing
 
 <<set _robin to statusCheck("Robin")>>
 <br><br>
@@ -55,7 +55,7 @@
 <<robinoptions>>
 
 
-:: Robin Lemon Fenghuang Singing
+:: Robin Lemon Singing
 
 <<location "beach">><<effects>>
 <<npc Robin>><<person1>>
@@ -84,16 +84,47 @@
 		<br>
 
 	<<else>>
-	你坐在罗宾身边轻声吟唱起不知名的曲调，罗宾惊讶的发现你的歌声吸引了无数的游客。
-	<br><br>
-
-	<<set $robinmoney += 8>>
-	<<endevent>>
-	<<lemonade_stand_options>>
-
+        你坐在罗宾身边轻声吟唱起不知名的曲调，罗宾惊讶的发现你的歌声吸引了无数的游客。
+        <br><br>
+    
+        <<set $robinmoney += 8>>
+        <<endevent>>
+        <<lemonade_stand_options>>
 	<</if>>
 
+:: Robin Chocolate Singing
 
+<<npc Robin>><<person1>>
+<<set _robin to statusCheck("Robin")>>
+<br><br>
+
+	<<if Time.hour gte 17>>
+	<<if _robin.trauma gte 40>>
+		"我想我要回家了，"罗宾颤抖着说道，"这太过分了。"
+	<<else>>
+		"我希望你能帮忙把我的东西搬回家，"罗宾说道，"天气越来越冷了。"
+	<</if>>
+	<br><br>
+	你跟罗宾一起回到孤儿院。
+	<br><br>
+
+	<<if $arousal gte $arousalmax>>
+		当你的身体背叛你的时候，你就快要回来了。
+		<<orgasm>>
+		虽然罗宾礼貌性地看向了别处，但其还是多多少少的受到了一点影响。<<npcincr Robin lust 1>>
+		<br>
+	<</if>>
+		<<endevent>>
+		<<link [[继续|Orphanage]]>><</link>>
+		<br>
+	<<else>>
+		你坐在罗宾身边轻声吟唱起不知名的曲调，罗宾惊讶的发现你的歌声吸引了无数的游客。
+		<br><br>
+
+		<<set $robinmoney += 10>>
+		<<endevent>>
+		<<robinChocolateOfferHelp>>
+	<</if>>
 
 
 

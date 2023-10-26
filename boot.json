@@ -35,7 +35,8 @@
   "addon-clothes/upper.json",
   "addon-clothes/lower.json",
   "addon-feats/feats.json",
-  "game/special-li/robin/robin-lemon-purchase.txt"
+  "game/special-li/robin/robin-lemon-purchase.txt",
+  "game/special-li/robin/robin-chocolate-purchase.txt"
  ],
  "addonPlugin": [
   {
@@ -441,12 +442,22 @@
     {
      "passage": "Widgets Robin",
      "findString": "\t\t<<if _robin.trauma lt 20 and $fox gte 6>>",
-     "replace": "<<if _robin.trauma lt 20 and $fox gte 4>>\n\t\t\t<<ind>><<link [[为罗宾唱歌 (0:20)|Robin Fenghuang Singing]]>><<pass 20>><<trauma -2>><<stress -2>><<npcincr Robin love 1>><<npcincr Robin trauma -6>><</link>><<fenghuang>><<gdom>><<lrtrauma>><<glove>><<ltrauma>><<lstress>>\n\t\t\t<br>\n\t\t\t<<ind>><<link [[请求顺毛 (0:20) (0:20)|Robin Fenghuang Momo]]>><<pass 20>><<trauma -2>><<stress -2>><<npcincr Robin love 1>><<npcincr Robin dom 1>><</link>><<fenghuang>><<gdom>><<glove>><<ltrauma>><<lstress>>\n\t\t\t<br>\n\t\t<</if>>\n\t\t<<if _robin.trauma lt 20 and $fox gte 6>>"
+     "replace": "<<if $fenghuang gte 4>>\n\t\t\t<<ind>><<link [[为罗宾唱歌 (0:20)|Robin Fenghuang Singing]]>><<pass 20>><<trauma -2>><<stress -2>><<npcincr Robin love 1>><<npcincr Robin trauma -6>><</link>><<fenghuang>><<gdom>><<lrtrauma>><<glove>><<ltrauma>><<lstress>>\n\t\t\t<br>\n\t\t\t<<ind>><<link [[请求顺毛 (0:20) (0:20)|Robin Fenghuang Momo]]>><<pass 20>><<trauma -2>><<stress -2>><<npcincr Robin love 1>><<npcincr Robin dom 1>><</link>><<fenghuang>><<gdom>><<glove>><<ltrauma>><<lstress>>\n\t\t\t<br>\n\t\t<</if>>\n\t\t<<if _robin.trauma lt 20 and $fox gte 6>>"
     },
     {
      "passage": "Robin's Lemonade Purchase",
      "findString": "<<else>>\n\t<<set $robinmoney += 1>>",
      "replaceFile": "game/special-li/robin/robin-lemon-purchase.txt"
+    },
+    {
+     "passage": "Robin Chocolate Help",
+     "findString": "<<else>>\n\t<<set $robinmoney += 2>>",
+     "replaceFile": "game/special-li/robin/robin-chocolate-purchase.txt"
+    },
+    {
+     "passage": "Robin Chocolate Widgets",
+     "findString": "<<endevent>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<glove>><<lrtrauma>>\n\t<br>",
+     "replace": "<<endevent>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<glove>><<lrtrauma>>\n\t<br>\n\t<<if $fenghuang gte 2>>\n\t\t<<ind>><<link [[用歌声帮罗宾招客(0:30)|Robin Chocolate Singing]]>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<fenghuang>><<glove>><<lrtrauma>>\n\t\t<br>\n\t<</if>>"
     },
     {
      "passage": "Widgets Robin",

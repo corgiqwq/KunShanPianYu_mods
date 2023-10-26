@@ -7,10 +7,10 @@
 	<br><br>
 
 	好奇心使你游了过去。
-	<span class="gold">罐子里静静躺着一枚白色带有不知名纹路的坠子，</span>
+	<span class="fenghuang">罐子里静静躺着一枚白色带有不知名纹路的坠子，</span>
 	<br><br>
 
-	<span class="gold">你将它拿在手中，或许博物馆馆长知道这是什么。</span>
+	<span class="fenghuang">你将它拿在手中，或许博物馆馆长知道这是什么。</span>
 	<<set $fhPendant = 1>>
 
 	<<else>>
@@ -64,8 +64,8 @@
 
 	<span class="purple">“坠子在你手心里发热，不知为何你突然想到了森林深处那进不去的地方，有空去看看吧”</span>
 	<br><br>
-	<span class="gold">你现在可以去到森林深处-梧桐树了！</span>
-	<span class="gold">你可以在房间的镜子前佩戴上腰坠。</span>
+	<span class="fenghuang">你现在可以去到森林深处-梧桐树了！</span>
+	<span class="fenghuang">你可以在房间的镜子前佩戴上腰坠。</span>
 	<br><br>
 	<<set $fhPendant = 2>>
 	<<set $transformationParts.fenghuang.pendant to "default">>

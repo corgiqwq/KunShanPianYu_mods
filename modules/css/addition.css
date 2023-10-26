@@ -1,0 +1,6 @@
+.fenghuang {
+	background: linear-gradient(to right,#e646c6 0%, #ffffff 100%);
+	background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
