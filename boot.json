@@ -1,16 +1,15 @@
 {
- "name": "KunShanPianYu_mods",
+ "name": "KunShanPianYu",
  "version": "1.1.0",
  "styleFileList": [],
  "scriptFileList_earlyload": [],
  "scriptFileList_inject_early": [],
  "scriptFileList_preload": [
-  "dataExport.js"
+  "patch/dataExport.js"
  ],
  "scriptFileList": [
-  "patch-setup_feats.js",
-  "patch-canvasmodel-main.js",
-  "patch-ingame.js-combatActionColours.js"
+  "patch/patch-canvasmodel-main.js",
+  "patch/patch-ingame.js-combatActionColours.js"
  ],
  "tweeFileList": [
   "game/overworld-forest/loc-forest/mod_change/parasol-tree.twee",
@@ -34,7 +33,9 @@
   "game/base-system/addon-replace/Transformation Widgets-widget-fenghuangTransform.txt",
   "game/base-system/addon-replace/Widgets Mirror-transformations-list.txt",
   "addon-clothes/upper.json",
-  "addon-clothes/lower.json"
+  "addon-clothes/lower.json",
+  "addon-feats/feats.json",
+  "game/special-li/robin/robin-lemon-purchase.txt"
  ],
  "addonPlugin": [
   {
@@ -120,7 +121,7 @@
     {
      "passage": "Widgets Combat Man-Combat",
      "findString": "<<elseif $speechcum is 1 and $rng gte 61 and $speechorgasmrepeat lte 1 and $speechorgasmcount lte 6>>",
-     "replace": "<<elseif $speechfengming is 1>>\n\t\t\t\t<<He>><<print either(\"尖叫着\",\"抽泣着\",\"大喊着\",\"呼喊着\")>><<print either(：\"什么声音！\",陷入狂乱。)>>\n\t\t\t<<elseif $speechcum is 1 and $rng gte 61 and $speechorgasmrepeat lte 1 and $speechorgasmcount lte 6>>"
+     "replace": "<<elseif $speechfengming is 1>>\n\t\t\t\t<<He>><<print either(\"尖叫着\",\"抽泣着\",\"大喊着\",\"呼喊着\")>><<print either(`：\"什么声音！\"`,`陷入狂乱。`)>>\n\t\t\t<<elseif $speechcum is 1 and $rng gte 61 and $speechorgasmrepeat lte 1 and $speechorgasmcount lte 6>>"
     },
     {
      "passage": "clothesTestingImageGenerate",
@@ -245,7 +246,7 @@
     {
         "passage": "Transformation Widgets",
         "findString": "<<widget \"transformationStateUpdate\">>",
-        "replace": "<<widget \"transformationStateUpdate\">>\n\t<<if $transformationParts.fenghuang.pendant isnot \"default\">>\n\t\t<<transform fenghuang -1>>\n\t<</if>>"
+        "replace": "<<widget \"transformationStateUpdate\">>\n\t<<if $transformationParts.fenghuang.pendant isnot \"default\">>\n\t\t<<transform fenghuang -1>>\n\t<</if>>\n\t<<if $transformationParts.fenghuang.pendant is \"default\">>\n\t\t<<if $angelbuild gt 0>>\n\t\t\t<<transform angel -3>>\n\t\t<</if>>\t\t\n\t<</if>>"
     },
     {
         "passage": "Transformation Widgets",
@@ -365,12 +366,22 @@
     {
      "passage": "Moor",
      "findString": "<<bird_pass 30>><<set $moor -= 5>><<set $forestmod to 0.5>><<set $moormove to \"careful\">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>",
-     "replace": "<<bird_pass 30>><<set $moor -= 5>><<set $forestmod to 0.5>><<set $moormove to \"careful\">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>\n\t\t\t<<if $fenghuang gte 4>>\n\t\t\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><<set $moor to 0>><<unset $moor_hunt>><</link>><br>\n\t\t\t<</if>>"
+     "replace": "<<bird_pass 30>><<set $moor -= 5>><<set $forestmod to 0.5>><<set $moormove to \"careful\">><<if $moor_hunt gte 1>><<set $moor_hunt += 2>><</if>><</link>><<lharass>>\n\t\t\t<<if $fenghuang gte 4>>\n\t\t\t\t<br><br><<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><<set $moor to 0>><<unset $moor_hunt>><</link>><br>\n\t\t\t<</if>>"
+    },
+    {
+     "passage": "Moor",
+     "findString": "<<if $harpy gte 6 and $birdFly gte 1>>\n\t\t<<flight_time_check 4>>",
+     "replace": "<<if ($harpy gte 6 and $birdFly gte 1) or $fenghuang gte 4>>\n\t\t<<flight_time_check 4>>"
     },
     {
      "passage": "Moor",
      "findString": "<<bird_pass 5>><<set $moor to 0>><<unset $moor_hunt>><<set $forestmod to 1>><</link>>\n\t\t<br>",
      "replace": "<<bird_pass 5>><<set $moor to 0>><<unset $moor_hunt>><<set $forestmod to 1>><</link>>\n\t\t<br>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><<set $moor to 0>><<unset $moor_hunt>><</link>><br>\n\t\t<</if>>"
+    },
+    {
+     "passage": "Castle",
+     "findString": "<<if $harpy gte 6 and $syndromebird is 1 and $birdFly gte 1>>",
+     "replace": "<<if ($harpy gte 6 and $syndromebird is 1 and $birdFly gte 1) or ($fenghuang gte 4 and $syndromebird is 1)>>"
     },
     {
      "passage": "Commercial alleyways",
@@ -403,6 +414,11 @@
      "replace": "School Gate Exit]]>><<schoolclothesreset>><</link>>\n\t\t\t<br>\n\t\t<</if>>\n\t\t<<if $fenghuang gte 4>>\n\t\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t\t<</if>>"
     },
     {
+     "passage": "Bird Tower",
+     "findString": "<<if $bird.lock is 1>>",
+     "replace": "<<if $fenghuang gte 4>>\n\t\t<<flyingicon>><<link [[飞行 (0:02)|Flying]]>><<pass 2>><</link>><br>\n\t<</if>>\n\t<<if $bird.lock is 1>>"
+    },
+    {
      "passage": "Widgets Shop",
      "findString": "\"witchdress\":\"locked\",",
      "replace": "\"BaiNiaoChaoFeng\":\"locked\",\n\t\t\t\"witchdress\":\"locked\","
@@ -416,6 +432,26 @@
      "passage": "Widgets Shop",
      "findString": "<<set _specialClothesHint to {",
      "replace": "<<set _specialClothesHint to {\n\t\t\t\"BaiNiaoChaoFeng\":\"获得神兽的祝福。\","
+    },
+    {
+     "passage": "Widgets Text",
+     "findString": "<<widget \"angel\">>",
+     "replace": "<<widget \"fenghuang\">>\n\t<<if $statdisable is \"f\">> |\n\t\t<span class=\"gold\">凤凰</span>\n\t<</if>>\n<</widget>>\n\n<<widget \"angel\">>"
+    },
+    {
+     "passage": "Widgets Robin",
+     "findString": "\t\t<<if _robin.trauma lt 20 and $fox gte 6>>",
+     "replace": "<<if _robin.trauma lt 20 and $fox gte 4>>\n\t\t\t<<ind>><<link [[为罗宾唱歌 (0:20)|Robin Fenghuang Singing]]>><<pass 20>><<trauma -2>><<stress -2>><<npcincr Robin love 1>><<npcincr Robin trauma -6>><</link>><<fenghuang>><<gdom>><<lrtrauma>><<glove>><<ltrauma>><<lstress>>\n\t\t\t<br>\n\t\t\t<<ind>><<link [[请求顺毛 (0:20) (0:20)|Robin Fenghuang Momo]]>><<pass 20>><<trauma -2>><<stress -2>><<npcincr Robin love 1>><<npcincr Robin dom 1>><</link>><<fenghuang>><<gdom>><<glove>><<ltrauma>><<lstress>>\n\t\t\t<br>\n\t\t<</if>>\n\t\t<<if _robin.trauma lt 20 and $fox gte 6>>"
+    },
+    {
+     "passage": "Robin's Lemonade Purchase",
+     "findString": "<<else>>\n\t<<set $robinmoney += 1>>",
+     "replaceFile": "game/special-li/robin/robin-lemon-purchase.txt"
+    },
+    {
+     "passage": "Widgets Robin",
+     "findString": "<<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<glove>><<lrtrauma>>\n\t<br>",
+     "replace": "<<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<glove>><<lrtrauma>>\n\t<br>\n\t<<if $fenghuang gte 2>>\n\t\t<<ind>><<link [[用歌声帮罗宾招客(0:30)|Robin Lemon Singing]]>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<fenghuang>><<glove>><<lrtrauma>>\n\t\t<br>\n\t<</if>>"
     }
    ]
   },
@@ -456,7 +492,35 @@
       "passageName": "Widgets Tentacle Actions Generation",
       "from": "\"mouthbite\"+_tentacleMouthOption>>\n\t\t\t<</if>>",
       "to": "\"mouthbite\"+_tentacleMouthOption>>\n\t\t\t<</if>>\n\t\t\t<<if $fenghuang gte 2 or $fenghuangbuild gte 20>>\n\t\t\t\t<<set _mouthaction[\"凤鸣\"] to \"fengMing\">>\n\t\t\t<</if>>"
+     },
+     {
+      "TODO": "actionsGeneration.twee",
+      "passageName": "Widgets Actions Generation",
+      "from": "<<if $mouthstate isnot \"kiss\" and $mouthstate isnot \"kissimminent\">>\n\t\t\t\t\t<<speak>>",
+      "to": "<<if $mouthstate isnot \"kiss\" and $mouthstate isnot \"kissimminent\">>\n\t\t\t\t\t<<if $consensual isnot 1 and ($fightTargets is undefined or $fightTargets.includes($mouthtarget)) and $fenghuang gte 2>>\n\t\t\t\t\t\t<<set _mouthaction[\"凤鸣\"] to \"fengMing\">>\n\t\t\t\t\t<</if>>\t\n\t\t\t\t\t<<speak>>"
+     },
+     {
+      "TODO": "actionsGeneration.twee",
+      "passageName": "Widgets Actions Generation",
+      "from": "<<oralnew>>",
+      "to": "<<if $consensual isnot 1 and ($fightTargets is undefined or $fightTargets.includes($mouthtarget)) and $fenghuang gte 2>>\n\t\t\t\t\t<<set _mouthaction[\"凤鸣\"] to \"fengMing\">>\n\t\t\t\t<</if>>\n\t\t\t\t<<oralnew>>"
+     },
+     {
+      "TODO": "actions-mouth.twee",
+      "passageName": "Widgets Actions Mouth",
+      "from": "to \"swallow\">>\n\t\t<</if>>",
+      "to": "to \"swallow\">>\n\t\t<</if>>\n\t\t<<if $fenghuang gte 2>>\n\t\t\t<<set _mouthaction[\"凤鸣\"] to \"fengMing\">>\n\t\t<</if>>\t"
      }
+    ]
+   }
+  },
+  {
+   "modName": "ModdedFeatsAddon",
+   "addonName": "ModdedFeatsAddon",
+   "modVersion": "^1.0.0",
+   "params": {
+    "feats": [
+     "addon-feats/feats.json"
     ]
    }
   },
@@ -503,6 +567,10 @@
   },
   {
    "modName": "ModdedClothesAddon",
+   "version": "^1.0.0"
+  },
+  {
+   "modName": "ModdedFeatsAddon",
    "version": "^1.0.0"
   }
  ]
