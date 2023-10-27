@@ -1,4 +1,5 @@
-<<if $whitney.love gte 15 and ($whitneyfhseen is not 1)>>
+<<set _whitney to $NPCName[$NPCNameList.indexOf("Whitney")]>>
+<<if _whitney.love gte 15 and ($whitneyfhseen is not 1)>>
 	当惠特尼走到你前面时，你正在走廊上。<<he>>的同党从侧翼包围你，压迫着你到角落。 "你来了，荡妇，"惠特尼皱眉，看上去却很恼火。<<he>>揪着你的羽翼，把你拽到<<he>>身边。 "你这样就来上学了，淫荡成这样？"，在你回答前<<he>>就狠狠的吻住你，手揪住你的头发把你的嘴巴死死固定住。
 
 	<<he>>不停舔咬着你，手指拨弄着你羽翼的羽毛，你被挑逗最敏感的地方，身体发软，羽毛摊开散在<<he>>的手上，<<he>>把膝盖顶进你的大腿之间，把重量压在你身上。＋＋兴奋

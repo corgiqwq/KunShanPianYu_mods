@@ -45,7 +45,8 @@
   "game/special-npc/harper/park-run.txt",
   "game/special-npc/remy/riding-school-lesson.txt",
   "game/special-npc/wren/wren 21.txt",
-  "game/special-npc/wren/wren 21 cheats.txt"
+  "game/special-npc/wren/wren 21 cheats.txt",
+  "game/special-npc/whitney/whitney-hallway.txt"
  ],
  "addonPlugin": [
   {
@@ -514,7 +515,7 @@
      "replaceFile": "game/special-npc/harper/park-run.txt"
     },
     {
-     "passage": "Park Run NPC Show",
+     "passage": "Riding School Lesson",
      "findString": "\t\t\t<<set $steed to \"stallion\">>\n\t\t<</if>>\n\t<</if>>",
      "replaceFile": "game/special-npc/remy/riding-school-lesson.txt"
     },
@@ -550,13 +551,13 @@
     },
     {
      "passage": "Hallways",
-     "findString": "\t<</if>>\n<</if>>",
-     "replace": "\t<</if>>\n<</if>>"
+     "findString": "<<set $eventskip to 0>>",
+     "replace": "<</if>>\n<<set $eventskip to 0>>"
     },
     {
      "passage": "Hallways",
      "findString": "|School Toilets]]>><<pass 2>><</link>>\n\t\t<br><br>",
-     "replace": "|School Toilets]]>><<pass 2>><</link>>\n\t\t<br>\n\t\t<<ind>><<link [[天台 (0:02)|School Rooftop]]>><<pass 2>><</link>>\n\t\t<br><br>"
+     "replace": "|School Toilets]]>><<pass 2>><</link>>\n\t\t<br>\n\t\t<<icon \"Rooftop.png\">><<link [[天台 (0:02)|School Rooftop]]>><<pass 2>><</link>>\n\t\t<br><br>"
     }
    ]
   },
