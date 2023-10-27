@@ -1,0 +1,85 @@
+:: Whitney Fenghuang Kiss
+
+<br><br>
+<<if $phase is 0>>
+    "我…"你刚开口，惠特尼就掰过你的下巴，狠狠吻了上去，<<takeKissVirginity "Whitney" "loveRape">><br><br>
+    你被<<he>>咬着唇瓣，<<he>>的舌头激进地舔弄着你的内颚，
+    然后用牙齿用力顶住你的舌尖吮吸着，你被<<he>>暴力的亲吻顶得不停后退，口水从嘴角流下，又被惠特尼舔掉。<<he>>用一只手固定住你的腰，慢慢摸向你的下面。
+    <br><br><br>
+    <<link [[继续|Whitney Fenghuang Kiss]]>><<set $phase to 1>><</link>><br>
+    <<link [[推开|Whitney Fenghuang Kiss]]>><<set $phase to 2>><<npcincr Whitney love -1>><<stress -4>><</link>><<llove>><<lstress>>
+
+<<elseif $phase is 1>>
+<<npc Whitney>><<person1>>
+    你死死抓住惠特尼乱摸的手，<<he>>却反握住你，覆在你脸上咬着你的舌头时，<<he>>嗤笑了一声，你被迎面喷来的热气弄得脸红。<br><br>
+
+    <<he>>松开你，起身离开，把你一个人留在这里。"我只是需要一个人的时光，你这种荡妇偶尔也会懂的吧？"
+
+    你整理好衣服，身上的温度都消失了，羽毛湿漉漉地贴着皮肤，才发现有些冷。你正要走，发现惠特尼把<<he>>的伞落在了喷泉边。
+
+    <<set $worn.head to clone(setup.clothes.head[findClothes("umbrella hat", "head")])>>
+    <br><br><br>
+    <<link [[继续|Park]]>><<endevent>><</link>>
+
+<<elseif $phase is 2>>
+<<npc Whitney>><<person1>>
+    惠特尼有些气恼地松开了你。"妈的，是我对你太好了吗。"<<he>>把你推在树上，居高临下地看着你，"你觉得你能管我的事了吗，荡妇。"<<he>>的手不重不轻地拍打着你的脸。<br><br>
+    
+     你有些紧张地闭上了眼睛，想象中的剧烈疼痛却并没有到来，你缓慢睁开眼时，听见<<he>>冷笑一声，然后尾椎骨传来很迅速的一下刺痛，你还没反应过来，<<he>>便炫耀似的拿起一根细腻的羽毛，用尖端戳着你的脸。<br><br>
+    
+     "<<if $player.gender_appearance is "f">>小母鸡<<else>>小公鸡<</if>>，这个，我就收下了。"<<he>>说完后都不看你一眼，用力把你推到一边，捡起脚边的伞，动作流利地撑开抖了抖。离开的时候<<he>>淡淡撇了你一眼："我只是喜欢自己一个人待会儿。"
+     
+     <br><br><br>
+     <<link [[继续|Park]]>><<endevent>><</link>>
+<</if>>
+
+
+:: School Rooftop
+<<npc Whitney>><<person1>>
+<br><br>
+
+<<if $whitneyRooftopSeen isnot 1 and $whitneyfhseen is 1 and Time.schoolDay and $schoolstate is "lunch">>
+    <<switch $phase>>
+    <<case 0>>
+     你上到最高楼，天台被一扇蓝色的旧铁门挡住了，上面有很多划痕和凹陷，你握住锈迹斑驳的门把手，推开了门。<br><br>
+
+     你看见惠特尼的背影出现在眼前，<<he>>撑着最外面的围栏，脚踩在底部，前身探出去，天空和流云包围着<<he>>。
+
+     <<he>>正拿着一个包装简单的汉堡吃着，另一只手举着一根淡蓝色的羽毛对着楼下端详。羽毛很精美，在阳光下从层叠的缝隙里闪着细小的绒光，像最精雕细琢的艺术品。<br><br>
+
+     <<he>>回过头，看见是你的时候，脸上表情突然变得很不自然。<br><br><br>
+
+     <<link [[继续|School Rooftop]]>><<set $phase to 1>><</link>>
+
+<<case 1>>
+     你想离开时，<<he>>一把拽过你，把你拉到怀里。<<he>>用力按着你，却回避着你的目光。"如你所见...是很好的玩具。"<br><br>
+
+     <<he>>把羽毛收进校服口袋里，揽着你看向栏杆外，中午的车流还没有减少，变成一个个影像穿梭着，鸣笛声混着学生们的吵闹声变得模糊。<<he>>几口就解决<<he>>的午餐，然后把包装纸塞到你手里。
+
+     你看着<<he>>重重地关上了天台的门，破旧的铁门像残喘般摇晃着。你用力去推动它，却无动于衷，你被惠特尼关在了天台上。<br><br><br>
+
+     <<link [[继续|School Rooftop]]>><<set $phase to 2>><</link>>
+<<case 2>>
+     你蹲在原地，直到你以为下节课要迟到时，惠特尼踹开了铁门，带着一个棕色牛皮袋，顶部靠近<<he>>手部的位置被烟头烫出黑色的碳迹。<br><br>
+
+     <<he>>坐在你旁边的台阶上，把里面的快餐倒在你的腿上，嘲笑着你，"荡妇，别一脸蠢样了。"
+
+     <<he>>拿起一袋番茄酱，用嘴咬开，挤在你的侧脸和耳羽上，然后慢慢靠近你："还是想想要怎么还我的钱。"<br><br>
+
+     你推开<<he>>，<<he>>只是抬眼看了你一眼，低声骂了一句，然后从你腿上拿了一些大口吃着。<br><br><br>
+
+     <<link [[和惠特尼一起吃饭 (0:20)|School Rooftop]]>><<unset $phase>><<pass 20>><<set $whitneyRooftopSeen to 1>><</link>>
+<</switch>>
+
+     <<elseif $whitneyRooftopSeen is 1 and Time.schoolDay and $schoolstate is "lunch">>
+         你来到天台，惠特尼背靠着栏杆吃<<he>>的午餐，地上有很多烟头，见到你来了，<<he>>当没看见地偏过头。<br><br>
+
+         你坐在门口的台阶上拿出自己的午餐吃着，过了很久，一团烟雾直冲冲地吐在你脸上，你咳嗽着抬头，惠特尼撇了你一眼，然后蹲下凑到你旁边："婊子，别吃独食。"<br><br><br>
+    <<link [[和惠特尼一起吃饭 (0:20)|School Rooftop]]>><<pass 20>><</link>>
+
+     <<else>>
+     天台上空荡荡没有人在，地上只有被人丢弃的烟头。<br><br><br>
+
+     <<link [[离开 (0:02)|Hallways]]>><<pass 2>><</link>>
+
+     <</if>>

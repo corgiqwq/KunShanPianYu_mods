@@ -10,7 +10,7 @@
     
     <span class="green">你的请求似乎已经打动<<him>>了。</span><br><br>
     
-    "放开<<if $player.gender_appearance is "f">><<if $player.gender_appearance is "f">>她<<else>>他<</if>><<else>><<he>><</if>>。"伦恩说道，"交给我来处理。"
+    "放开<<if $player.gender_appearance is "f">>她<<else>>他<</if>><<else>><<he>><</if>>。"伦恩说道，"交给我来处理。"
     
     "我们应该把这个人送给<span class="pink"><<nnpc_him "Remy">></span>。"<<he>>的朋友们有些不满，却还是退开了。你坐在地上，羽翼散开，粘上了灰，看上去有些可怜。<br><br>
     

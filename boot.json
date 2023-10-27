@@ -44,7 +44,8 @@
   "game/special-npc/whitney/whitney-ask.txt",
   "game/special-npc/harper/park-run.txt",
   "game/special-npc/remy/riding-school-lesson.txt",
-  "game/special-npc/wren/wren 21.txt"
+  "game/special-npc/wren/wren 21.txt",
+  "game/special-npc/wren/wren 21 cheats.txt"
  ],
  "addonPlugin": [
   {
@@ -541,6 +542,21 @@
      "passage": "Estate Cards Cheating Plead",
      "findString": "<!-- estate end 3 -->",
      "replace": "<</if>>\n\t<!-- estate end 3 -->"
+    },
+    {
+     "passage": "Hallways",
+     "findString": "<<if $whitneypantiesmaths or $whitneyskirtmaths>>",
+     "replaceFile": "game/special-npc/whitney/whitney-hallway.txt"
+    },
+    {
+     "passage": "Hallways",
+     "findString": "\t<</if>>\n<</if>>",
+     "replace": "\t<</if>>\n<</if>>"
+    },
+    {
+     "passage": "Hallways",
+     "findString": "|School Toilets]]>><<pass 2>><</link>>\n\t\t<br><br>",
+     "replace": "|School Toilets]]>><<pass 2>><</link>>\n\t\t<br>\n\t\t<<ind>><<link [[天台 (0:02)|School Rooftop]]>><<pass 2>><</link>>\n\t\t<br><br>"
     }
    ]
   },
