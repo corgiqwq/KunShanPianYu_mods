@@ -35,8 +35,14 @@
   "addon-clothes/upper.json",
   "addon-clothes/lower.json",
   "addon-feats/feats.json",
-  "game/special-li/robin/robin-lemon-purchase.txt",
-  "game/special-li/robin/robin-chocolate-purchase.txt"
+  "addon-hair/fringe.txt",
+  "addon-hair/sides.txt",
+  "game/special-npc/robin/robin-lemon-purchase.txt",
+  "game/special-npc/robin/robin-chocolate-purchase.txt",
+  "game/special-npc/kylar/kylar-chat.txt",
+  "game/special-npc/whitney/whitney-chat.txt",
+  "game/special-npc/whitney/whitney-ask.txt",
+  "game/special-npc/harper/park-run.txt"
  ],
  "addonPlugin": [
   {
@@ -44,6 +50,16 @@
    "addonName": "TweeReplacerAddon",
    "modVersion": "1.0.0",
    "params": [
+    {
+     "passage": "Widgets Hair",
+     "findString": "\t\ttype: [\"loose\"],\n\t\tshop: [\"mirrorhair\"],\n\t},\n\t]>>",
+     "replaceFile": "addon-hair/sides.txt"
+    },
+    {
+     "passage": "Widgets Hair",
+     "findString": "\t\ttype: [\"loose\", \"sleek\"],\n\t\tshop: [\"mirrorhair\"],\n\t},\n\t]>>",
+     "replaceFile": "addon-hair/fringe.txt"
+    },
     {
      "passage": "gameStartOnly",
      "findString": "<<set $stray_happiness to 50>>",
@@ -230,9 +246,9 @@
         "replace": "<<if $fhPendant is 0>>\n\t\t<<ind>><<link [[四处探索|Lake Pendant]]>><<wateraction>><</link>><<loxygen>>\n\t\t<br>\n\t<</if>>\n\t<<if $nextPassageCheck is \"Lake Ruin Prison Intro\">>"
     },
     {
-     "passage": "Scarlet Widgets",
-     "findString": "<<hideTransformations>>",
-     "replace": "<<set $fenghuang to 0>>\n\t<<hideTransformations>>"
+        "passage": "Scarlet Widgets",
+        "findString": "<<hideTransformations>>",
+        "replace": "<<set $fenghuang to 0>>\n\t<<hideTransformations>>"
     },
     {
         "passage": "Widgets Mirror",
@@ -447,12 +463,12 @@
     {
      "passage": "Robin's Lemonade Purchase",
      "findString": "<<else>>\n\t<<set $robinmoney += 1>>",
-     "replaceFile": "game/special-li/robin/robin-lemon-purchase.txt"
+     "replaceFile": "game/special-npc/robin/robin-lemon-purchase.txt"
     },
     {
      "passage": "Robin Chocolate Purchase",
      "findString": "<<else>>\n\t<<set $robinmoney += 2>>",
-     "replaceFile": "game/special-li/robin/robin-chocolate-purchase.txt"
+     "replaceFile": "game/special-npc/robin/robin-chocolate-purchase.txt"
     },
     {
      "passage": "Robin Chocolate Widgets",
@@ -463,6 +479,36 @@
      "passage": "Widgets Robin",
      "findString": "<<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<glove>><<lrtrauma>>\n\t<br>",
      "replace": "<<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<glove>><<lrtrauma>>\n\t<br>\n\t<<if $fenghuang gte 2>>\n\t\t<<ind>><<link [[用歌声帮罗宾招客(0:30)|Robin Lemon Singing]]>><<npcincr Robin love 1>><<npcincr Robin trauma -1>><<pass 30>><</link>><<fenghuang>><<glove>><<lrtrauma>>\n\t\t<br>\n\t<</if>>"
+    },
+    {
+     "passage": "Kylar Chat",
+     "findString": "<<elseif _tf.birdPlumage and _tfSplit is 1>>",
+     "replace": "<<elseif (_tf.birdPlumage and _tfSplit is 1) or (_tf.fenghuangWings and _tf.fenghuangCrest and _tfSplit is 1)>>"
+    },
+    {
+     "passage": "Kylar Chat",
+     "findString": "<<elseif _tf.demonHorns and _tf.cowHorns>>",
+     "replaceFile": "game/special-npc/kylar/kylar-chat.txt"
+    },
+    {
+     "passage": "Whitney Chat",
+     "findString": "\t<<elseif $rng gte 61>>",
+     "replaceFile": "game/special-npc/whitney/whitney-chat.txt"
+    },
+    {
+     "passage": "Whitney Chat",
+     "findString": "<<set _whitney to statusCheck(\"Whitney\")>>",
+     "replace": "<<set _whitney to statusCheck(\"Whitney\")>>\n<<set _tf to checkTFparts()>>"
+    },
+    {
+     "passage": "Whitney Ask",
+     "findString": "<<elseif C.npc.Whitney.love gte 12 or $whitneyrescued>>",
+     "replaceFile": "game/special-npc/whitney/whitney-ask.txt"
+    },
+    {
+     "passage": "Park Run NPC Show",
+     "findString": "\t\t<<fameexhibitionism 1>>\n\t<<else>>",
+     "replaceFile": "game/special-npc/harper/park-run.txt"
     }
    ]
   },
@@ -495,6 +541,36 @@
       "fileName": "canvasmodel-main.js",
       "from": "\"fox_cheeks_type\": \"disabled\",",
       "to": "\"fox_cheeks_type\": \"disabled\",\n\t\t\t\"fenghuang_wings_type\": \"disabled\",\n\t\t\t\"fenghuang_tail_type\": \"disabled\",\n\t\t\t\"fenghuang_crest_type\": \"disabled\",\n\t\t\t\"fenghuang_tattoo_type\": \"disabled\",\t\t\t\n\t\t\t\"fenghuang_eyes_type\": \"disabled\",\n\t\t\t\"fenghuang_pendant_type\": \"disabled\","
+     },
+     {
+      "TODO": "canvasmodel-editor.js",
+      "fileName": "canvasmodel-editor.js",
+      "from": "selectOption(\"hair_sides_type\", [\n\t\t\t\t\t\t\t\"\",",
+      "to": "selectOption(\"hair_sides_type\", [\n\t\t\t\t\t\t\t\"\",\"huang\","
+     },
+     {
+      "TODO": "canvasmodel-editor.js",
+      "fileName": "canvasmodel-editor.js",
+      "from": "selectOption(\"hair_fringe_type\", [\n\t\t\t\t\t\t\t\"\",",
+      "to": "selectOption(\"hair_fringe_type\", [\n\t\t\t\t\t\t\t\"\",\"feng\","
+     },
+     {
+      "TODO": "hair-defs.js",
+      "fileName": "hair-defs.js",
+      "from": "hairtype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",",
+      "to": "hairtype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",\"huang\","
+     },
+     {
+      "TODO": "hair-defs.js",
+      "fileName": "hair-defs.js",
+      "from": "fringetype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",",
+      "to": "fringetype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",\"feng\","
+     },
+     {
+      "TODO": "widgets.js",
+      "fileName": "widgets.js",
+      "from": "\"mohawk\": 100,",
+      "to": "\"mohawk\": 100,\"feng\": 200,"
      }
     ],
     "twee": [
@@ -521,6 +597,12 @@
       "passageName": "Widgets Actions Mouth",
       "from": "to \"swallow\">>\n\t\t<</if>>",
       "to": "to \"swallow\">>\n\t\t<</if>>\n\t\t<<if $fenghuang gte 2>>\n\t\t\t<<set _mouthaction[\"凤鸣\"] to \"fengMing\">>\n\t\t<</if>>\t"
+     },
+     {
+      "TODO": "main.twee",
+      "passageName": "Bedroom",
+      "from": "/* Travel */",
+      "to": "<<link [[Test|Whitney Fenghuang Kiss]]>><</link>>\n/* Travel */"
      }
     ]
    }

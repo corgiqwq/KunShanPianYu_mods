@@ -1,0 +1,10 @@
+		type: ["loose"],
+		shop: ["mirrorhair"],
+	},
+	    {name: "huang",
+    		name_cap: "双编麻花盘发",
+    		variable: "huang",
+    		type: ["loose"],
+    		shop: ["mirrorhair"],
+        },
+	]>>

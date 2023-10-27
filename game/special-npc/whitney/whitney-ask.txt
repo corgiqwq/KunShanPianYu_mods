@@ -1,0 +1,20 @@
+	<<set _tf to checkTFparts()>>
+	<<elseif (C.npc.Whitney.love gte 12 or $whitneyrescued) and _tf.fenghuangCrest and _tf.fenghuangWings>>
+    "什么事让你这么沮丧?"
+        
+    <<he>>抽着烟没理你，过了一会才从树下走出来。<<he>>推搡着你走向喷泉。<br><br>
+        
+    当你靠近时，<<he>>把手臂重重搭在你的肩膀上，几乎把你禁锢在怀里，近到你能听清<<he>>每一次的呼吸声。<<he>>用一只手掰过你的脸，狠狠捏着，对着喷泉下层的水面。"
+    别用一副婊子脸，勾引着我，却对我说这种无聊的话。"
+    水面清晰地印出你的脸和绚丽的头羽，雨水在上面砸出一汪汪涟漪，你与<<he>>都没再说话，一起静静盯着水中的倒影。<br><br>
+    
+    惠特尼的金发被打湿，垂下扫在你的耳边，痒痒的。<<he>>只是搂着你，带有热度的皮肤隔着两件被淋得冰凉的上衣，与你紧挨着，
+    你的羽翼在<<he>>的怀里轻轻摆动着，断断续续地蹭着<<he>>，<<he>>没有在意。<br><br>
+        
+    你的脸被<<he>>掐得有点酸，挣扎着抬头去看<<he>>。<br><br>
+        
+    <<he>>低下头看你，很久。<br><br><br>
+
+    <<link [[说点什么|Whitney Fenghuang Kiss]]>><<set $phase to 0>><<npcincr Whitney love 3>><<npcincr Whitney lust 2>><</link>><<gglove>><<gglust>><<kissvirginitywarning>>
+
+	<<elseif C.npc.Whitney.love gte 12 or $whitneyrescued>>

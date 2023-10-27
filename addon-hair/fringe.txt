@@ -1,0 +1,10 @@
+    type: ["loose", "sleek"],
+		shop: ["mirrorhair"],
+	},
+		{name: "feng",
+		name_cap: "齐刘海",
+		variable: "feng",
+		type: ["loose", "sleek"],
+		shop: ["mirrorhair"],
+	},
+	]>>
