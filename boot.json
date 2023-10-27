@@ -42,7 +42,9 @@
   "game/special-npc/kylar/kylar-chat.txt",
   "game/special-npc/whitney/whitney-chat.txt",
   "game/special-npc/whitney/whitney-ask.txt",
-  "game/special-npc/harper/park-run.txt"
+  "game/special-npc/harper/park-run.txt",
+  "game/special-npc/remy/riding-school-lesson.txt",
+  "game/special-npc/wren/wren 21.txt"
  ],
  "addonPlugin": [
   {
@@ -509,6 +511,36 @@
      "passage": "Park Run NPC Show",
      "findString": "\t\t<<fameexhibitionism 1>>\n\t<<else>>",
      "replaceFile": "game/special-npc/harper/park-run.txt"
+    },
+    {
+     "passage": "Park Run NPC Show",
+     "findString": "\t\t\t<<set $steed to \"stallion\">>\n\t\t<</if>>\n\t<</if>>",
+     "replaceFile": "game/special-npc/remy/riding-school-lesson.txt"
+    },
+    {
+     "passage": "Estate Cards Intro",
+     "findString": "<<elseif $estate_cards_end is \"left_early\">>",
+     "replace": "<<elseif $estate_cards_end is \"left_early\">>\n\t\t<<if $fenghuang gte 4>>\n\t\t\"看看这是谁来了，一只迷路的小鸟。\"伦恩笑道，\"希望这次你能待久一点。\"\n\t\t<<else>>"
+    },
+    {
+     "passage": "Estate Cards Intro",
+     "findString": "<<elseif $estate_cards_end is \"wren_finished_early\">>",
+     "replace": "\t<</if>>\n\t<<elseif $estate_cards_end is \"wren_finished_early\">>"
+    },
+    {
+     "passage": "Estate Blackjack Win",
+     "findString": "<<if $estate.cards.steeds isnot 1>>",
+     "replaceFile": "game/special-npc/wren/wren 21.txt"
+    },
+    {
+     "passage": "Estate Cards Cheating Plead",
+     "findString": "\t\t<<set $estate_cards_end to \"cheat_moor\">>\n\t<</if>>",
+     "replaceFile": "game/special-npc/wren/wren 21 cheats.txt"
+    },
+    {
+     "passage": "Estate Cards Cheating Plead",
+     "findString": "<!-- estate end 3 -->",
+     "replace": "<</if>>\n\t<!-- estate end 3 -->"
     }
    ]
   },
