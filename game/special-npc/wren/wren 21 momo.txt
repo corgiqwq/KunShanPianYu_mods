@@ -1,7 +1,7 @@
-<<if $estate.cards.fenghuang isnot 1>>
+<<if $estate.cards.momo isnot 1>>
 	<<set _favoursRemaining += 1>>
 	<<if $estate.cards.daring gte 1>>
-		<<link [[被他摸头|Estate Cards Momo]]>><<set $estate.cards.daring += 2>><<set $estate.cards.fenghuang to 1>><<npcincr Wren love 1>><</link>><<ggdaring>><<glove>>
+		<<link [[被他摸头|Estate Cards Momo]]>><<set $estate.cards.daring += 1>><<set $estate.cards.momo to 1>><<npcincr Wren love 1>><</link>><<gdaring>><<glove>>
 		<br>
 	<<else>>
 		<span class="fenghuang">被<<he>>摸头：需要更大的勇气。</span>

@@ -44,7 +44,8 @@
   "game/special-npc/whitney/whitney-ask.txt",
   "game/special-npc/harper/park-run.txt",
   "game/special-npc/remy/riding-school-lesson.txt",
-  "game/special-npc/wren/wren 21.txt",
+  "game/special-npc/wren/wren 21 momo.txt",
+  "game/special-npc/wren/wren 21 kiss.txt",
   "game/special-npc/wren/wren 21 cheats.txt",
   "game/special-npc/whitney/whitney-hallway.txt"
  ],
@@ -532,7 +533,12 @@
     {
      "passage": "Estate Blackjack Win",
      "findString": "<<if $estate.cards.steeds isnot 1>>",
-     "replaceFile": "game/special-npc/wren/wren 21.txt"
+     "replaceFile": "game/special-npc/wren/wren 21 momo.txt"
+    },
+    {
+     "passage": "Estate Blackjack Win",
+     "findString": "<<if $estate.cards.fire isnot 1>>",
+     "replaceFile": "game/special-npc/wren/wren 21 kiss.txt"
     },
     {
      "passage": "Estate Cards Cheating Plead",

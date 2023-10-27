@@ -1,0 +1,12 @@
+<<if $estate.cards.kiss isnot 1 and $estate.cards.wren_under_bottoms is 1>>
+	<<set _favoursRemaining += 1>>
+	<<if $estate.cards.daring gte 10>>
+		<<link [[要求接吻|Estate Cards Kiss pc]]>><<set $estate.cards.daring -= 2>><<set $estate.cards.kiss to 1>><<npcincr Wren love 1>><</link>><<lldaring>><<glove>><<kissvirginitywarning>>
+		<br>
+	<<else>>
+		<span class="fenghuang">和<<he>>接吻：需要更大的勇气。</span>
+		<br>
+	<</if>>
+<</if>>
+
+<<if $estate.cards.fire isnot 1>>
