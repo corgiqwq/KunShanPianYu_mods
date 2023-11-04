@@ -19,7 +19,7 @@
 		<<link [[继续|ChouDuanZhuang]]>><<endevent>><</link>>
 		<br>
 	<<else>>
-		各种各样的华服摆放在衣庄中。
+		你正在绸缎庄里，各种各样的华服摆放在衣庄中。
 		<br><br>
 		
 		<div id="tryonstats-div"><<tryOnStats>></div>
