@@ -1,5 +1,5 @@
-function theoryChoice (num) {
-    switch(num)
+function theoryChoice (house) {
+    switch(house)
     {
         case 0: return '劣等马'
         case 1: return '中等马'
