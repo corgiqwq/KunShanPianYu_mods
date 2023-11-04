@@ -1,0 +1,28 @@
+:: Teahouse Top
+
+<br>
+你正在茶馆二楼。
+
+你看到兰殊正坐在窗边喝茶。
+<br>
+
+<<teaoptions>>
+<br>
+
+和兰殊玩游戏：
+<<teahousegame>>
+
+<br><br>
+<<link [[下楼 (0:02)|Teahouse]]>><<pass 2>><<endevent>><</link>>
+
+
+:: Teahouse Tea
+
+<br>
+<<tea>>
+
+和兰殊玩游戏：
+<<teahousegame>>
+
+<br><br>
+<<link [[下楼 (0:02)|Teahouse]]>><<pass 2>><<endevent>><</link>>

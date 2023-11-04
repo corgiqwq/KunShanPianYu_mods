@@ -1,0 +1,50 @@
+:: Teahouse Widget [widget]
+
+<<widget "foodoptions">>
+<<if $daily.foodDaily isnot 1>>
+<br>
+<<link [[点一份炒饭 (0:15)|Teahouse]]>><<set $food to 1>><<pass 15>><<stress -6>><</link>><<lstress>>
+<br>
+<</if>>
+<</widget>>
+
+<<widget "food">>
+<<switch $food>>
+    <<case 1>>
+    炒饭很好吃。<<set $daily.foodDaily to 1>>
+    <<case 2>>
+    <<default>>
+<</switch>>
+<<set $food to 0>>
+<</widget>>
+
+<<widget "teahousegame">>
+<br>
+<<link [[十五二十 (0:02)|Teahouse]]>><</link>>
+<br>
+<<link [[田忌赛马 (0:02)|Teahouse]]>><</link>>
+<br>
+<<link [[斗蛐蛐 (0:02)|Teahouse]]>><</link>>
+<br>
+<<link [[投壶 (0:02)|Teahouse]]>><</link>>
+<</widget>>
+
+<<widget "teaoptions">>
+<<if $daily.teaDaily isnot 1>>
+<br>
+<<link [[喝茶 (0:15)|Teahouse Tea]]>><<set $tea to 1>><<pass 15>><<stress -6>><</link>><<lstress>>
+<br>
+<</if>>
+<</widget>>
+
+<<widget "tea">>
+<<switch $tea>>
+    <<case 1>>
+    茶很好喝。
+    <<case 2>>
+    <<default>>
+<</switch>>
+<br><br>
+<<set $daily.teaDaily to 1>>
+<<set $tea to 0>>
+<</widget>>

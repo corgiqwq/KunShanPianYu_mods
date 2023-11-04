@@ -56,7 +56,7 @@
 		<br>
 		<<roadicon>><<link [[茶楼 (0:05)|Teahouse]]>><<set $phase to 0>><<pass 5>><</link>>
         <br>
-        <<roadicon>><<link [[制衣坊 (0:05)|ZhiYiFang]]>><<set $phase to 0>><<pass 5>><</link>>
+        <<roadicon>><<link [[绸缎庄 (0:05)|ChouDuanZhuang]]>><<set $phase to 0>><<pass 5>><</link>>
         <br><br>
 		<<if $exposed gte 1 and Time.dayState isnot "night">>
 		<<else>>

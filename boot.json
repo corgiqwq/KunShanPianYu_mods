@@ -618,30 +618,6 @@
      {
       "TODO": "canvasmodel-editor.js",
       "fileName": "canvasmodel-editor.js",
-      "from": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),",
-      "to": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_wings_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tail_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_crest_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tattoo_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_eyes_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_pendant_type\", [\"disabled\", \"hidden\", \"default\"]),"
-     },
-     {
-      "TODO": "ingame.js",
-      "fileName": "ingame.js",
-      "from": "this.addMany(type, \"Defiant\", \"mouthaction\", [\"pullaway\", \"bite\", \"breastbite\", \"headbutt\"",
-      "to": "this.addMany(type, \"Defiant\", \"mouthaction\", [\"pullaway\", \"bite\", \"breastbite\", \"headbutt\", \"fengMing\""
-     },
-     {
-      "TODO": "ingame.js",
-      "fileName": "ingame.js",
-      "from": "result = Math.floor(result * modifier);",
-      "to": "if (V.fenghuang >= 6) modifier += 0.10;\n\t\t\tresult = Math.floor(result * modifier);"
-     },
-     {
-      "TODO": "canvasmodel-main.js",
-      "fileName": "canvasmodel-main.js",
-      "from": "\"fox_cheeks_type\": \"disabled\",",
-      "to": "\"fox_cheeks_type\": \"disabled\",\n\t\t\t\"fenghuang_wings_type\": \"disabled\",\n\t\t\t\"fenghuang_tail_type\": \"disabled\",\n\t\t\t\"fenghuang_crest_type\": \"disabled\",\n\t\t\t\"fenghuang_tattoo_type\": \"disabled\",\t\t\t\n\t\t\t\"fenghuang_eyes_type\": \"disabled\",\n\t\t\t\"fenghuang_pendant_type\": \"disabled\","
-     },
-     {
-      "TODO": "canvasmodel-editor.js",
-      "fileName": "canvasmodel-editor.js",
       "from": "selectOption(\"hair_sides_type\", [\n\t\t\t\t\t\t\t\"\",",
       "to": "selectOption(\"hair_sides_type\", [\n\t\t\t\t\t\t\t\"\",\"huang\","
      },
@@ -668,6 +644,54 @@
       "fileName": "widgets.js",
       "from": "\"mohawk\": 100,",
       "to": "\"mohawk\": 100,\"feng\": 200,"
+     },
+     {
+      "TODO": "canvasmodel-editor.js",
+      "fileName": "canvasmodel-editor.js",
+      "from": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),",
+      "to": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_wings_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tail_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_crest_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tattoo_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_eyes_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_pendant_type\", [\"disabled\", \"hidden\", \"default\"]),"
+     },
+     {
+      "TODO": "ingame.js",
+      "fileName": "ingame.js",
+      "from": "this.addMany(type, \"Defiant\", \"mouthaction\", [\"pullaway\", \"bite\", \"breastbite\", \"headbutt\"",
+      "to": "this.addMany(type, \"Defiant\", \"mouthaction\", [\"pullaway\", \"bite\", \"breastbite\", \"headbutt\", \"fengMing\""
+     },
+     {
+      "TODO": "ingame.js",
+      "fileName": "ingame.js",
+      "from": "result = Math.floor(result * modifier);",
+      "to": "if (V.fenghuang >= 6) modifier += 0.10;\n\t\t\tresult = Math.floor(result * modifier);"
+     },
+     {
+      "TODO": "canvasmodel-main.js",
+      "fileName": "canvasmodel-main.js",
+      "from": "\"fox_cheeks_type\": \"disabled\",",
+      "to": "\"fox_cheeks_type\": \"disabled\",\n\t\t\t\"fenghuang_wings_type\": \"disabled\",\n\t\t\t\"fenghuang_tail_type\": \"disabled\",\n\t\t\t\"fenghuang_crest_type\": \"disabled\",\n\t\t\t\"fenghuang_tattoo_type\": \"disabled\",\t\t\t\n\t\t\t\"fenghuang_eyes_type\": \"disabled\",\n\t\t\t\"fenghuang_pendant_type\": \"disabled\","
+     },
+     {
+      "TODO": "teahouse tea",
+      "fileName": "ingame.js",
+      "from": "\t\t\tcafeEaten: V.cafeeaten,",
+      "to": "\t\t\tcafeEaten: V.cafeeaten,\n\t\t\tteaDaily: V.teadaily,"
+     },
+     {
+      "TODO": "teahouse tea",
+      "fileName": "ingame.js",
+      "from": "\"cafeeaten\",",
+      "to": "\"cafeeaten\", \"teadaily\","
+     },
+     {
+      "TODO": "teahouse food",
+      "fileName": "ingame.js",
+      "from": "\t\t\tcafeEaten: V.cafeeaten,",
+      "to": "\t\t\tcafeEaten: V.cafeeaten,\n\t\t\tteaDaily: V.fooddaily,"
+     },
+     {
+      "TODO": "teahouse food",
+      "fileName": "ingame.js",
+      "from": "\"cafeeaten\",",
+      "to": "\"cafeeaten\", \"fooddaily\","
      }
     ],
     "twee": [

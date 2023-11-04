@@ -1,0 +1,27 @@
+:: Teahouse
+
+<<set $outside to 0>><<set $location to "teahouse">><<effects>><<set $bus to "qingqi">>
+<<food>>
+你正在茶楼。
+
+<br>
+<<foodoptions>>
+
+<br>
+<<link [[到后厨|Teahouse Work]]>><</link>>
+<br>
+<<link [[上二楼 (0:02)|Teahouse Top]]>><<pass 2>><<endevent>><</link>>
+<br>
+<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
+<br>
+
+
+:: Teahouse Work
+
+<br>
+你正在后厨。
+九华
+
+<br><br>
+<<link [[回到大堂|Teahouse]]>><<endevent>><</link>>
+<br>
