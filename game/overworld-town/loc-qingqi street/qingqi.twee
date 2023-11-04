@@ -1,0 +1,80 @@
+:: Widget Qingqi [widget]
+
+<<widget "qingqiicon">>
+	<<icon "Qingqi.png">>
+<</widget>>
+
+<<widget "qingqi">>
+	<<if $nextPassageCheck is "Harvest Street">>
+		<<add_link "<span class='nextLink'><<qingqiicon>><<link [[青祁街 (0:05) |Qingqi Street]]>><<pass 5>><</link>></span><br>">>
+	<<else>>
+        <<add_link "<<qingqiicon>><<link [[青祁街 (0:05) |Qingqi Street]]>><<pass 5>><</link>><br>">>
+	<</if>>
+	<<hideDisplay true>>
+<</widget>>
+
+<<widget "qingqiquick">>
+	<<qingqiicon>><<link [[青祁街|Qingqi Street]]>><</link>>
+<</widget>>
+
+<<widget "qingqieventend">>
+	<<link [[继续|Qingqi Street]]>><<set $eventskip to 1>><</link>>
+<</widget>>
+
+:: Qingqi Street
+
+<<set $outside to 1>><<set $location to "town">><<effects>><<set $bus to "qingqi">><<getTarget true>>
+
+你正待在青祁街，
+
+<br><br>
+<<streeteffects>>
+<<if $exposed gte 1>>
+	<<exhibitionism "street">>
+<</if>>
+<<if $arousal gte $arousalmax>>
+	<<orgasmstreet>>
+<</if>>
+<<if $stress gte $stressmax and !$possessed>>
+	<<passoutstreet>>
+
+<<else>>
+	<<set $danger to random(1, 10000)>><<set $dangerevent to 0>>
+	<<if ($danger gte (9900 - $allure) or $eventforced) and $eventskip is 0>>
+		<<eventsstreet>>
+	<<else>>
+		<<if $options.mapTop is true>>
+			<<map "qingqi">>
+			<br>
+		<</if>>
+
+		可访问地点
+		<br>
+        <<roadicon>><<link [[古董店 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+		<br>
+		<<roadicon>><<link [[医馆 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+		<br>
+		<<roadicon>><<link [[茶楼 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+        <br>
+        <<roadicon>><<link [[制衣坊 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+        <br><br>
+		<<if $exposed gte 1 and Time.dayState isnot "night">>
+		<<else>>
+			<<add_link "其他区域<br>">><<hideDisplay>>
+			<<nightingale>>
+            <<add_link "<<foresticon>><<link [[森林 (0:10)|Forest]]>><<pass 10>><<set $forest to 0>><<set $eventskip to 1>><</link>><br>">>
+			<<if $exposed lte 0>>
+				<<buswait>>
+			<</if>>
+			<<loiter>>
+		<</if>>
+		<<add_link "<br>快捷小路<br>">><<hideDisplay>>
+		<<industrial>>
+		<<stormdrain>>
+		<<if $fenghuang gte 4>>
+			<<flyingwait>>
+		<</if>>
+		<<displayLinks>>
+
+	<</if>>
+<</if>>

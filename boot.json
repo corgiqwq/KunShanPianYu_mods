@@ -47,7 +47,9 @@
   "game/special-npc/wren/wren 21 momo.txt",
   "game/special-npc/wren/wren 21 kiss.txt",
   "game/special-npc/wren/wren 21 cheats.txt",
-  "game/special-npc/whitney/whitney-hallway.txt"
+  "game/special-npc/whitney/whitney-hallway.txt",
+  "game/special-npc/sydney/sydney-library-chat1.txt",
+  "game/special-npc/sydney/sydney-library-chats.txt"
  ],
  "addonPlugin": [
   {
@@ -458,7 +460,7 @@
     {
      "passage": "Widgets Text",
      "findString": "<<widget \"angel\">>",
-     "replace": "<<widget \"fenghuang\">>\n\t<<if $statdisable is \"f\">> |\n\t\t<span class=\"gold\">凤凰</span>\n\t<</if>>\n<</widget>>\n\n<<widget \"angel\">>"
+     "replace": "<<widget \"fenghuang\">>\n\t<<if $statdisable is \"f\">> |\n\t\t<span class=\"fenghuang\">凤凰</span>\n\t<</if>>\n<</widget>>\n\n<<widget \"angel\">>"
     },
     {
      "passage": "Widgets Robin",
@@ -488,11 +490,6 @@
     {
      "passage": "Kylar Chat",
      "findString": "<<elseif _tf.birdPlumage and _tfSplit is 1>>",
-     "replace": "<<elseif (_tf.birdPlumage and _tfSplit is 1) or (_tf.fenghuangWings and _tf.fenghuangCrest and _tfSplit is 1)>>"
-    },
-    {
-     "passage": "Kylar Chat",
-     "findString": "<<elseif _tf.demonHorns and _tf.cowHorns>>",
      "replaceFile": "game/special-npc/kylar/kylar-chat.txt"
     },
     {
@@ -516,19 +513,24 @@
      "replaceFile": "game/special-npc/harper/park-run.txt"
     },
     {
+     "passage": "Park Run NPC Show",
+     "findString": "<<set $park_run_seen_by.pushUnique(\"harper\")>>",
+     "replace": "<<set $park_run_seen_by.pushUnique(\"harper\")>><</if>>"
+    },
+    {
      "passage": "Riding School Lesson",
      "findString": "\t\t\t<<set $steed to \"stallion\">>\n\t\t<</if>>\n\t<</if>>",
      "replaceFile": "game/special-npc/remy/riding-school-lesson.txt"
     },
     {
      "passage": "Estate Cards Intro",
-     "findString": "<<elseif $estate_cards_end is \"left_early\">>",
-     "replace": "<<elseif $estate_cards_end is \"left_early\">>\n\t\t<<if $fenghuang gte 4>>\n\t\t\"看看这是谁来了，一只迷路的小鸟。\"伦恩笑道，\"希望这次你能待久一点。\"\n\t\t<<else>>"
+     "findString": "<<elseif $estate_cards_end is \"sex\">>",
+     "replace": "<<elseif $estate_cards_end is \"sex\">>\n\t\t<<if $fenghuang gte 4>>\n\t\t\"看看这是谁来了，一只贪心的小鸟。\"伦恩笑道，\"希望这次你能待久一点。\"\n\t\t<<else>>"
     },
     {
      "passage": "Estate Cards Intro",
-     "findString": "<<elseif $estate_cards_end is \"wren_finished_early\">>",
-     "replace": "\t<</if>>\n\t<<elseif $estate_cards_end is \"wren_finished_early\">>"
+     "findString": "<<elseif $estate_cards_end is \"sex_safe\">>",
+     "replace": "\t<</if>>\n\t<<elseif $estate_cards_end is \"sex_safe\">>"
     },
     {
      "passage": "Estate Blackjack Win",
@@ -564,6 +566,41 @@
      "passage": "Hallways",
      "findString": "|School Toilets]]>><<pass 2>><</link>>\n\t\t<br><br>",
      "replace": "|School Toilets]]>><<pass 2>><</link>>\n\t\t<br>\n\t\t<<icon \"Rooftop.png\">><<link [[天台 (0:02)|School Rooftop]]>><<pass 2>><</link>>\n\t\t<br><br>"
+    },
+    {
+     "passage": "Sydney Chat",
+     "findString": "<<elseif $angel gte 4 and $transformationParts.angel.halo isnot \"hidden\">>",
+     "replaceFile": "game/special-npc/sydney/sydney-library-chat1.txt"
+    },
+    {
+     "passage": "Sydney Chat",
+     "findString": "<</if>>\n\t\t\t<<default>>",
+     "replaceFile": "game/special-npc/sydney/sydney-library-chats.txt"
+    },
+    {
+     "passage": "Sydney Chat",
+     "findString": "<<switch random(1, _sydneyChats)>>",
+     "replace": "<<switch random(1, _sydneyChats + 3)>>"
+    },
+    {
+     "passage": "Nightingale Street",
+     "findString": "<<high>>",
+     "replace": "<<high>>\n\t\t\t<<qingqi>>"
+    },
+    {
+     "passage": "Widgets Destination",
+     "findString": "\t\t<<nightingalequick>>",
+     "replace": "\t\t<<nightingalequick>>\n\t<<case \"qingqi\">>\n\t\t<<qingqiquick>>"
+    },
+    {
+     "passage": "Widgets Destination",
+     "findString": "\t\t<<nightingale>>",
+     "replace": "\t\t<<nightingale>>\n\t<<case \"qingqi\">>\n\t\t<<qingqi>>"
+    },
+    {
+     "passage": "Widgets Destination",
+     "findString": "\t\t<<nightingaleeventend>>",
+     "replace": "\t\t<<nightingaleeventend>>\n\t<<case \"qingqi\">>\n\t\t<<qingqieventend>>"
     }
    ]
   },
@@ -657,7 +694,13 @@
       "TODO": "main.twee",
       "passageName": "Bedroom",
       "from": "/* Travel */",
-      "to": "<<link [[Test|Whitney Fenghuang Kiss]]>><</link>>\n/* Travel */"
+      "to": "<<link [[Test|Sydney Chat]]>><</link>>\n/* Travel */"
+     },
+     {
+      "TODO": "main.twee",
+      "passageName": "Bedroom",
+      "from": "/* Travel */",
+      "to": "[[农田++|$passage][$farm.clearing -= 100]]\n"
      }
     ]
    }
@@ -699,7 +742,7 @@
  "dependenceInfo": [
   {
    "modName": "ModLoader",
-   "version": "^1.6.0"
+   "version": "^2.0.0"
   },
   {
    "modName": "TweeReplacer",
