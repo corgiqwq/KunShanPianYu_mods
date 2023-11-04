@@ -583,9 +583,14 @@
      "replace": "<<switch random(1, _sydneyChats + 3)>>"
     },
     {
+     "passage": "Bus",
+     "findString": "<<set $bus to \"nightingale\">><<set $money -= 100>><</link>>\n<br>",
+     "replace": "<<set $bus to \"nightingale\">><<set $money -= 100>><</link>>\n<br>\n\n<<qingqiicon>><<link [[在青祁街(茶楼)下车 |Bus seat]]>><<set $bus to \"qingqi\">><<set $money -= 100>><</link>>\n<br>"
+    },
+    {
      "passage": "Nightingale Street",
-     "findString": "<<high>>",
-     "replace": "<<high>>\n\t\t\t<<qingqi>>"
+     "findString": "<<wolf>>",
+     "replace": "<<wolf>>\n\t\t\t<<qingqi>>"
     },
     {
      "passage": "Widgets Destination",

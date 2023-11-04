@@ -50,13 +50,13 @@
 
 		可访问地点
 		<br>
-        <<roadicon>><<link [[古董店 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+        <<roadicon>><<link [[古董店 (0:05)|Antique Shop]]>><<set $phase to 0>><<pass 5>><</link>>
 		<br>
-		<<roadicon>><<link [[医馆 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+		<<roadicon>><<link [[医馆 (0:05)|ZhongYiGuan]]>><<set $phase to 0>><<pass 5>><</link>>
 		<br>
-		<<roadicon>><<link [[茶楼 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+		<<roadicon>><<link [[茶楼 (0:05)|Teahouse]]>><<set $phase to 0>><<pass 5>><</link>>
         <br>
-        <<roadicon>><<link [[制衣坊 (0:05)|Farm Road 1]]>><<set $phase to 0>><<pass 5>><</link>>
+        <<roadicon>><<link [[制衣坊 (0:05)|ZhiYiFang]]>><<set $phase to 0>><<pass 5>><</link>>
         <br><br>
 		<<if $exposed gte 1 and Time.dayState isnot "night">>
 		<<else>>
