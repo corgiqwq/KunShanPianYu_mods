@@ -41,7 +41,7 @@
 
 <<hotspringicon>><<link [[泡温泉 (1:00) |Hot Spring]]>><<pass 1 hour>><<endevent>><<stress -30>><<tiredness -30>><</link>><<lltiredness>><<llstress>>
 <br>
-<<wineicon>><<link [[烧酒 (0:05 £10) |Hot Spring]]>><<set $money -= 1000>><<pass 5>><<endevent>><<trauma -10>><<alcohol 80>><</link>><<galcohol>><<ltrauma>>
+<<wineicon>><<link [[烧酒 (0:05 £10) |Hot Spring]]>><<set $money -= 1000>><<pass 5>><<endevent>><<trauma -100>><<alcohol 80>><</link>><<galcohol>><<ltrauma>>
 <br>
 <<towelicon>><<link [[结束 |Hot Spring Finish]]>><<endevent>><</link>>
 
