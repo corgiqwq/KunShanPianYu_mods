@@ -1,0 +1,83 @@
+:: Fifteen Twenty
+
+<<set $outside to 0>><br>
+兰殊："十五二十是一种类似于猜拳的游戏。两个人一起玩，每个人两只手，可以任意伸出0、5、10个手指头，喊出的猜拳的数字分别是0，5，10，15，20 中的一个。"
+<br>
+"根据两个人伸出的手指数总和，与喊出的数字一起比对，谁喊出的数字等于两个人的的手指数总和，则胜出，另一方则败。"
+<br>
+"这<span class="gold">£10</span>就作为彩头吧，准备好开始就告诉我一声。"
+<br>
+
+<br>
+<<link [[准备好了|Fifteen Twenty Choose Num]]>><<set $my1520 to 0>><</link>><br>
+<<link [[再等等|Teahouse Top]]>><</link>>
+
+
+:: Fifteen Twenty Choose Num
+
+<br>
+"从 0，5，10，15，20 中选一个作为你的数字"
+<br><br>
+选择你的数字:
+<<textbox "$my1520" $my1520>>
+
+<<set _nums to [0, 5, 10]>>
+<<set $lanChoice to chooseNum(_nums)>>
+
+<br><br>
+<<link [[确定|Fifteen Twenty Choose Num Finish]]>><</link>>
+
+:: Fifteen Twenty Choose Num Finish
+
+<<switch $my1520>>
+    <<case 0>>
+        <<set _nums to [5, 10, 15, 20]>>
+        <<set $lan1520 to chooseNum(_nums)>>
+    <<case 5>>
+        <<set _nums to [0, 10, 15, 20]>>
+        <<set $lan1520 to chooseNum(_nums)>>
+    <<case 10>>
+        <<set _nums to [0, 5, 15, 20]>>
+        <<set $lan1520 to chooseNum(_nums)>>
+    <<case 15>>
+        <<set _nums to [0, 5, 10, 20]>>
+        <<set $lan1520 to chooseNum(_nums)>>
+    <<case 20>>
+        <<set _nums to [0, 5, 10, 15]>>
+        <<set $lan1520 to chooseNum(_nums)>>
+<</switch>>
+<br>
+"好，我的数字是 <span class="gold">$lan1520</span>。"
+<br>
+
+<br>你选择：<br>
+<<link [[双手握拳|Fifteen Twenty Battle]]>><<set $sum1520 to 0>><</link>><br>
+<<link [[单手握拳，单手张开|Fifteen Twenty Battle]]>><<set $sum1520 to 5>><</link>><br>
+<<link [[双手张开|Fifteen Twenty Battle]]>><<set $sum1520 to 10>><</link>><br>
+
+:: Fifteen Twenty Battle
+
+<br><<switch $lanChoice>>
+    <<case 0>>
+        他双手握拳。
+    <<case 5>>
+        他单手握拳，单手张开。
+    <<case 10>>
+        他双手张开。
+<</switch>><br>
+
+<<set $sum1520 += $lanChoice>>
+<br><<if $sum1520 is $my1520>>
+    <span class="gold">"你赢了。"</span><<set $money += 1000>>
+<<elseif $sum1520 is $lan1520>>
+    <span class="red">"你输了。"</span><<set $money -= 1000>>
+<<else>>
+    "平手。"
+<</if>>
+
+<br><br>
+<<link [[再来一局|Fifteen Twenty Choose Num]]>><<pass 5>><<set $my1520 to 0>><<set $sum1520 to 0>><</link>><br>
+<<link [[不玩了|Teahouse Top]]>><<pass 5>><</link>>
+
+
+
