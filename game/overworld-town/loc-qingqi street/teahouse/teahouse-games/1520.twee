@@ -7,7 +7,6 @@
 <br>
 "这<span class="gold">£10</span>就作为彩头吧，准备好开始就告诉我一声。"
 <br>
-
 <br>
 <<link [[准备好了|Fifteen Twenty Choose Num]]>><<set $my1520 to 0>><</link>><br>
 <<link [[再等等|Teahouse Top]]>><</link>>
