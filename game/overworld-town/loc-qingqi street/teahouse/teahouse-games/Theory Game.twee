@@ -1,0 +1,83 @@
+:: Widget Theory [widget]
+
+<<widget "theorybattle">>
+	<<if $houseChoice gt $lanHouse>>
+	    <span class="gold">"你赢了。"</span><<set $theorywin += 1>>
+	<<elseif $lanHouse gt $houseChoice>>
+	    <span class="red">"你输了。"</span><<set $theorywin -= 1>>
+	<<else>>
+	    "平手。"
+	<</if>>
+	<br><br>
+<</widget>>
+
+<<widget "theoryfinish">>
+<br><br>
+	<<if $theorywin gte 1>>
+	    <span class="gold">"你赢了。"</span><<set $money += 1000>>
+	<<elseif $theorywin is 0>>
+	    "平手。"
+	<<else>>
+	    <span class="red">"你输了。"</span><<set $money -= -1000>>
+	<</if>>
+<</widget>>
+
+:: Theory Game
+
+<br>
+兰殊："'田忌赛马'起源东方的一段历史故事。双方开局时手中有'上等马'、'中等马'和'劣等马'。每次比赛共设三局，每局中双方各选择派出一匹马，通过优劣决定胜负，胜两次以上者为赢家。"
+<br><br>
+"这<span class="gold">£10</span>就作为彩头吧，准备好开始就告诉我一声。"
+<br>
+<br>
+<<link [[准备好了|Theory Game Battle]]>><<set $round to 1>><</link>><br>
+<<link [[再等等|Teahouse Top]]>><</link>>
+
+
+:: Theory Game Battle
+
+<<if $round is 1>>
+<br>"第一局"<br>
+<<set $house to [0, 1, 2]>>
+<<set $house0 to 1>>
+<<set $house1 to 1>>
+<<set $house2 to 1>>
+<<elseif $round is 1>>
+<br>"第二局"<br>
+<<else>>
+<br>"第三局"<br>
+<</if>>
+<br>
+你选择派出：
+<br>
+<<if $house2 is 1>><<link [[上等马|Theory Game Battle Result]]>><<set $houseChoice to 2>><<set $house2 to 0>><</link>><br><</if>>
+<<if $house1 is 1>><<link [[中等马|Theory Game Battle Result]]>><<set $houseChoice to 1>><<set $house1 to 0>><</link>><br><</if>>
+<<if $house0 is 1>><<link [[劣等马|Theory Game Battle Result]]>><<set $houseChoice to 0>><<set $house0 to 0>><</link>><br><</if>>
+
+:: Theory Game Battle Result
+
+<br>
+<<set $lanHouse to chooseNum($house)>>
+<<set _lantext to theoryChoice($lanHouse)>>
+<<set _mytext to theoryChoice($houseChoice)>>
+兰殊派出了 _lantext。你派出了 _mytext。
+<br><br>
+<<theorybattle>>
+<<run theoryChoiceDelete($house, $lanHouse)>>
+
+<<if $round is 3>>
+    <<link [[继续|Theory Game Finish]]>><</link>><br>
+<<else>>
+    <<link [[继续|Theory Game Battle]]>><<set $round += 1>><</link>><br>
+<</if>>
+
+
+:: Theory Game Finish
+
+<br>
+游戏结束。
+<<theoryfinish>>
+
+<br><br>
+<<link [[再来一局|Theory Game Battle]]>><<pass 5>><<set $round to 1>><<set $theorywin to 0>><</link>><br>
+<<link [[不玩了|Teahouse Top]]>><<pass 5>><<set $round to 1>><<set $theorywin to 0>><</link>>
