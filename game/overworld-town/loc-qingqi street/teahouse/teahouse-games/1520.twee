@@ -67,9 +67,9 @@
 
 <<set $sum1520 += $lanChoice>>
 <br><<if $sum1520 is $my1520>>
-    <span class="gold">"你赢了。"</span><<set $money += 1000>>
+    <span class="gold">"你赢了。"</span><<set $money += 1000>><<set $teahouse += 1>>
 <<elseif $sum1520 is $lan1520>>
-    <span class="red">"你输了。"</span><<set $money -= 1000>>
+    <span class="red">"你输了。"</span><<set $money -= 1000>><<set $teahouse -= 1>>
 <<else>>
     "平手。"
 <</if>>

@@ -14,11 +14,11 @@
 <<widget "theoryfinish">>
 <br><br>
 	<<if $theorywin gte 1>>
-	    <span class="gold">"你赢了。"</span><<set $money += 1000>>
+	    <span class="gold">"你赢了。"</span><<set $money += 1000>><<set $teahouse += 1>>
 	<<elseif $theorywin is 0>>
 	    "平手。"
 	<<else>>
-	    <span class="red">"你输了。"</span><<set $money -= -1000>>
+	    <span class="red">"你输了。"</span><<set $money -= -1000>><<set $teahouse -= 1>>
 	<</if>>
 <</widget>>
 

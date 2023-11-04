@@ -49,7 +49,8 @@
   "game/special-npc/wren/wren 21 cheats.txt",
   "game/special-npc/whitney/whitney-hallway.txt",
   "game/special-npc/sydney/sydney-library-chat1.txt",
-  "game/special-npc/sydney/sydney-library-chats.txt"
+  "game/special-npc/sydney/sydney-library-chats.txt",
+  "game/overworld-town/loc-qingqi street/teahouse/teahouse-social.txt"
  ],
  "addonPlugin": [
   {
@@ -611,6 +612,16 @@
      "passage": "Widgets Wardrobe",
      "findString": "\t\t<<case \"Strip Club Wardrobe\">>",
      "replace": "\t\t<<case \"ZhongYiGuan Wardrobe\">>\n\t\t\t<<if $exhibitionism gte 75 or $exposed lte 0 or ($exhibitionism gte 55 and $exposed lte 1)>>\n\t\t\t\t<<link [[结束|ZhongYiGuan]]>><<cleanupOnWardrobeExit>><</link>>\n\t\t\t<<else>>\n\t\t\t\t你不能这样光着身子!\n\t\t\t<</if>>\n\t\t<<case \"Strip Club Wardrobe\">>"
+    },
+    {
+     "passage": "Social",
+     "findString": "description : '<<relation-text _dockRepConfig>>'}>>\n\t\t\t\t<</if>>",
+     "replaceFile": "game/overworld-town/loc-qingqi street/teahouse/teahouse-social.txt"
+    },
+    {
+     "passage": "Social",
+     "findString": "<<relation-box-simple _studentBoxConfig>>",
+     "replace": "<<relation-box-simple _studentBoxConfig>>\n\t\t\t<<if $lanshu_intro is 1>>\n\t\t\t\t<<relation-box-simple _teahouseBoxConfig>>\n\t\t\t<</if>>"
     }
    ]
   },
