@@ -1,0 +1,105 @@
+:: ChouDuanZhuang [exitCheckBypass]
+
+<div id="clothingShop-div" class="main-shop-div">
+	<<yizhuangShop-main>>
+</div>
+
+:: ChouDuanZhuang Widgets [widget]
+
+<<widget "yizhuangShop-main">>
+	<<set $outside to 0>><<set $location to "yizhuang">><<effects>>
+	<<set $shopName = "yizhuang">>
+	<<if $tryOn.autoReset isnot false>><<tryOnReset>><</if>>
+	<<if $yizhuang_intro isnot 1>>
+		<<set $yizhuang_intro to 1>>
+
+        月浅初见。
+
+		<br><br>
+		<<link [[继续|ChouDuanZhuang]]>><<endevent>><</link>>
+		<br>
+	<<else>>
+		各种各样的华服摆放在衣庄中。
+		<br><br>
+		
+		<div id="tryonstats-div"><<tryOnStats>></div>
+		<<unset $shopListStartCount>>
+		<<unset $clothes_choice>>
+		<<set $shopPage = 0>>
+
+		<span>保暖度:</span>
+		<<warmthscale>>
+		<div id="warmth-description">
+			<<warmth_description>>
+		</div>
+		<br><br>
+
+		<<clothingcategoryicon "all">>
+		<<link "浏览全部">><<replace "#clothingShop-div">><<AllShop>><</replace>><</link>>
+		<br><br>
+		<<if $debug is 1>>
+			<<clothingcategoryicon "overoutfit">>
+			<<link "浏览外套">><<replace "#clothingShop-div">><<OverOutfitShop>><</replace>><</link>>
+			<br><br>
+		<</if>>
+		/*
+		*<<clothingcategoryicon "outfit">>
+		*<<link "View outfits">><<replace "#clothingShop-div">><<OutfitShop>><</replace>><</link>>
+		*<br>
+		*/
+		<<clothingcategoryicon "upper">>
+		<<link "查看上装">><<replace "#clothingShop-div">><<TopShop>><</replace>><</link>>
+		<br>
+		<<clothingcategoryicon "lower">>
+		<<link "查看下装">><<replace "#clothingShop-div">><<BottomShop>><</replace>><</link>>
+		<br><br>
+		<<clothingcategoryicon "underoutfit">>
+		<<link "查看内衣（套装）">><<replace "#clothingShop-div">><<UnderOutfitShop>><</replace>><</link>>
+		<br>
+		<<clothingcategoryicon "underupper">>
+		<<link "查看内衣（上衣）">><<replace "#clothingShop-div">><<UnderTopShop>><</replace>><</link>>
+		<br>
+		<<clothingcategoryicon "underlower">>
+		<<link "查看内衣（下衣）">><<replace "#clothingShop-div">><<UnderBottomShop>><</replace>><</link>>
+		<br><br>
+		<<clothingcategoryicon "head">>
+		<<link "查看头饰">><<replace "#clothingShop-div">><<HeadShop>><</replace>><</link>>
+		<br>
+		<<clothingcategoryicon "face">>
+		<<link "查看面饰">><<replace "#clothingShop-div">><<FaceShop>><</replace>><</link>>
+		<br>
+		/*
+		*<<clothingcategoryicon "neck">>
+		*<<link "View Neck Accessories">><<replace "#clothingShop-div">><<NeckShop>><</replace>><</link>>
+		*<br>
+		*/
+		<<clothingcategoryicon "hand">>
+		<<link "查看手饰">><<replace "#clothingShop-div">><<HandsShop>><</replace>><</link>>
+		<br>
+		<<clothingcategoryicon "legs">>
+		<<link "查看袜子">><<replace "#clothingShop-div">><<LegsShop>><</replace>><</link>>
+		<br>
+		<<clothingcategoryicon "feet">>
+		<<link "查看鞋类">><<replace "#clothingShop-div">><<FeetShop>><</replace>><</link>>
+		<br><br>
+		<<run linkifyDivs('.button-back-to-shop')>>
+
+		<<if $tryOn.value gt 0 and $tryOn.value lt $money>>
+			<<sendItemsToDropdown>>
+			<<link "买下衣服并送到衣柜中">>
+				<<buyTryOnClothes "wardrobe">>
+				<<updatesidebarmoney>>
+				<<updatesidebarimg>>
+				<<updatesidebardescription>>
+				<<updateallure>>
+				<<updatewarmthscale>>
+				<<updatewarmthdescription>>
+				<<updateclothingshop>>
+			<</link>>
+			<br>
+		<<elseif $tryOn.value is 0>>
+			<<link [[离开|Qingqi Street]]>><<shopClothingFilterReset>><<ShowUnderEquip "normal">><<endnpc>><<unset $clothes_choice>><<set $tryOn.autoReset to true>><<set $eventskip to 1>><<unset $tempDisable>><<endevent>><</link>>
+			<br><br>
+		<</if>>
+	<</if>>
+<</widget>>
