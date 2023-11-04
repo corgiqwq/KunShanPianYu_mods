@@ -1,0 +1,14 @@
+:: Antique Shop
+
+<<set $outside to 0>><<set $location to "antique">><<effects>><<set $bus to "qingqi">>
+
+<<if $fhPendant lt 1 or $fhPendant is 99>>
+    <span class="red">古董店门窗紧锁，也许现在还不是来的时候。</span>
+<<else>>
+
+你正在古董店。
+<</if>>
+
+<br><br>
+<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
+<br>
