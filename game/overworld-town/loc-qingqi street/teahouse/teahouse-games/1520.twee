@@ -4,7 +4,7 @@
 兰殊："'十五二十'是一种类似于猜拳的游戏。两个人一起玩，每个人两只手，可以任意伸出0、5、10个手指头，喊出的猜拳的数字分别是0，5，10，15，20 中的一个。"
 <br>
 "根据两个人伸出的手指数总和，与喊出的数字一起比对，谁喊出的数字等于两个人的的手指数总和，则胜出，另一方则败。"
-<br>
+<br><br>
 "这<span class="gold">£10</span>就作为彩头吧，准备好开始就告诉我一声。"
 <br>
 <br>
@@ -76,7 +76,7 @@
 
 <br><br>
 <<link [[再来一局|Fifteen Twenty Choose Num]]>><<pass 5>><<set $my1520 to 0>><<set $sum1520 to 0>><</link>><br>
-<<link [[不玩了|Teahouse Top]]>><<pass 5>><</link>>
+<<link [[不玩了|Teahouse Top]]>><<pass 5>><<set $my1520 to 0>><<set $sum1520 to 0>><</link>>
 
 
 
