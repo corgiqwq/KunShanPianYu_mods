@@ -2,7 +2,7 @@
 
 <<set $outside to 0>><<set $location to "teahouse">><<effects>><<set $bus to "qingqi">>
 <<food>>
-你正在茶楼。
+你正在竹茗楼。墨香客不断在大堂和后厨间来回忙活。
 
 <br>
 <<foodoptions>>
@@ -10,7 +10,7 @@
 <br>
 <<link [[到后厨|Teahouse Work]]>><</link>>
 <br>
-<<link [[上二楼 (0:02)|Teahouse Top]]>><<pass 2>><<endevent>><</link>>
+<<link [[上二楼|Teahouse Top]]>><<endevent>><</link>>
 <br>
 <<link [[离开|Qingqi Street]]>><<endevent>><</link>>
 <br>
@@ -20,7 +20,6 @@
 
 <br>
 你正在后厨。
-墨香客正在工作。
 
 <br><br>
 <<link [[回到大堂|Teahouse]]>><<endevent>><</link>>
