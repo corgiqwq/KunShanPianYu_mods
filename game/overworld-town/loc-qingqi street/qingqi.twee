@@ -1,7 +1,15 @@
 :: Widget Qingqi [widget]
 
 <<widget "qingqiicon">>
-	<<icon "Qingqi.png">>
+	<<icon "qingqi.gif">>
+<</widget>>
+
+<<widget "hotspringicon">>
+	<<icon "hotspring.gif">>
+<</widget>>
+
+<<widget "wineicon">>
+	<<icon "wine.gif">>
 <</widget>>
 
 <<widget "qingqi">>

@@ -606,6 +606,11 @@
      "passage": "Widgets Destination",
      "findString": "\t\t<<nightingaleeventend>>",
      "replace": "\t\t<<nightingaleeventend>>\n\t<<case \"qingqi\">>\n\t\t<<qingqieventend>>"
+    },
+    {
+     "passage": "Widgets Wardrobe",
+     "findString": "\t\t<<case \"Strip Club Wardrobe\">>",
+     "replace": "\t\t<<case \"ZhongYiGuan Wardrobe\">>\n\t\t\t<<if $exhibitionism gte 75 or $exposed lte 0 or ($exhibitionism gte 55 and $exposed lte 1)>>\n\t\t\t\t<<link [[结束|ZhongYiGuan]]>><<cleanupOnWardrobeExit>><</link>>\n\t\t\t<<else>>\n\t\t\t\t你不能这样光着身子!\n\t\t\t<</if>>\n\t\t<<case \"Strip Club Wardrobe\">>"
     }
    ]
   },
@@ -692,6 +697,12 @@
       "fileName": "ingame.js",
       "from": "\"cafeeaten\",",
       "to": "\"cafeeaten\", \"fooddaily\","
+     },
+     {
+      "TODO": "hot spring",
+      "fileName": "updateClothes.js",
+      "from": "\t\t\tprison: clone(defWardrobe),",
+      "to": "\t\t\tprison: clone(defWardrobe),\n\t\t\tyiguan: clone(defWardrobe),"
      }
     ],
     "twee": [

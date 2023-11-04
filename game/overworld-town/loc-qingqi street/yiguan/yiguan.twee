@@ -1,0 +1,74 @@
+:: ZhongYiGuan
+
+<<set $outside to 0>><<set $location to "yiguan">><<effects>><<set $bus to "qingqi">>
+你正在医馆。
+
+<br><br>
+<<hotspringicon>><<link [[把脉 (£10)|Feel Pulse]]>><<set $money -= 1000>><<endevent>><</link>>
+<br>
+<<hotspringicon>><<link [[泡温泉 (£300)|Hot Spring]]>><<set $money -= 30000>><<endevent>><</link>>
+<br>
+<<icon "outfit.png">><<link [[更衣室 |Hot Spring Finish]]>><<endevent>><</link>>
+<br>
+<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
+<br>
+
+
+:: Feel Pulse
+
+<br>
+把脉剧情,
+分别对应
+<<lpain>><br>
+<<lstress>><br>
+<<ltiredness>>
+
+<br><br>
+<<link [[结束|ZhongYiGuan]]>><<endevent>><</link>>
+
+:: Hot Spring
+
+<<strip>>
+<br>
+你正在泡温泉，
+<<if $player.gender == "f" or $player.breastsize > 0>>
+	<<set $wear_upper = "large_towel">>
+<<else>>
+	<<set $wear_lower = "towel">>
+<</if>>
+<<returnCarried>>
+<<wardrobewear>>
+
+<<hotspringicon>><<link [[泡温泉 (1:00) |Hot Spring]]>><<pass 1 hour>><<endevent>><<stress -30>><<tiredness -30>><</link>><<lltiredness>><<llstress>>
+<br>
+<<wineicon>><<link [[烧酒 (0:05 £10) |Hot Spring]]>><<set $money -= 1000>><<pass 5>><<endevent>><<trauma -10>><<alcohol 80>><</link>><<galcohol>><<ltrauma>>
+<br>
+<<towelicon>><<link [[结束 |Hot Spring Finish]]>><<endevent>><</link>>
+
+:: Hot Spring Finish
+
+<br>
+<<wardrobeicon>><<link [[衣柜|ZhongYiGuan Wardrobe]]>><</link>>
+<br>
+<<mirroricon>><<link [[镜子|ZhongYiGuan Mirror]]>><<preMirror>><</link>>
+<br>
+<<getouticon>><<link [[离开|ZhongYiGuan]]>><</link>>
+<br><br>
+
+:: ZhongYiGuan Mirror
+
+<<effects>>
+<<link [[离开|ZhongYiGuan]]>><<unset $mirrorMenu>><<unset $bodywritingSet>><<postMirror>><</link>>
+<br>
+<<mirror>>
+<br><br>
+
+:: ZhongYiGuan Wardrobe [exitCheckBypass]
+<<effects>>
+<<wardrobeSelection>>
+<br><br>
+<div id="wardrobewear"><<wardrobewear>></div>
+<div id="wardrobeExits"><<wardrobeExits>></div>
+<<wardrobe>>
+
+
