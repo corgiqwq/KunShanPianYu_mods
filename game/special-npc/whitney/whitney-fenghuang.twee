@@ -1,10 +1,10 @@
 :: Whitney Fenghuang Kiss
 
 <br><br>
-<<if $phase is 0>>
+<<if $phase is 0 and $fenghuang gte 4>>
     "我…"你刚开口，惠特尼就掰过你的下巴，狠狠吻了上去，<<takeKissVirginity "Whitney" "loveRape">><br><br>
     你被<<he>>咬着唇瓣，<<he>>的舌头激进地舔弄着你的内颚，
-    然后用牙齿用力顶住你的舌尖吮吸着，你被<<he>>暴力的亲吻顶得不停后退，口水从嘴角流下，又被惠特尼舔掉。<<he>>用一只手固定住你的腰，慢慢摸向你的下面。
+    然后用牙齿用力顶住你的舌尖吮吸着，你被<<he>>暴力的亲吻顶得不停后退，口水从嘴角流下，又被惠特尼舔掉。<<he>>用一只手固定住你的腰，慢慢摸向你的<<bottom>>。
     <br><br><br>
     <<link [[继续|Whitney Fenghuang Kiss]]>><<set $phase to 1>><</link>><br>
     <<link [[推开|Whitney Fenghuang Kiss]]>><<set $phase to 2>><<npcincr Whitney love -1>><<stress -4>><</link>><<llove>><<lstress>>
@@ -49,7 +49,7 @@
 
      <<he>>回过头，看见是你的时候，脸上表情突然变得很不自然。<br><br><br>
 
-     <<link [[继续|School Rooftop]]>><<set $phase to 1>><</link>>
+     <<link [[继续|School Rooftop]]>><<set $phase to 1>><</link>><br>
 
 <<case 1>>
      你想离开时，<<he>>一把拽过你，把你拉到怀里。<<he>>用力按着你，却回避着你的目光。"如你所见...是很好的玩具。"<br><br>
@@ -58,7 +58,7 @@
 
      你看着<<he>>重重地关上了天台的门，破旧的铁门像残喘般摇晃着。你用力去推动它，却无动于衷，你被惠特尼关在了天台上。<br><br><br>
 
-     <<link [[继续|School Rooftop]]>><<set $phase to 2>><</link>>
+     <<link [[继续|School Rooftop]]>><<set $phase to 2>><</link>><br>
 <<case 2>>
      你蹲在原地，直到你以为下节课要迟到时，惠特尼踹开了铁门，带着一个棕色牛皮袋，顶部靠近<<he>>手部的位置被烟头烫出黑色的碳迹。<br><br>
 
@@ -68,18 +68,18 @@
 
      你推开<<he>>，<<he>>只是抬眼看了你一眼，低声骂了一句，然后从你腿上拿了一些大口吃着。<br><br><br>
 
-     <<link [[和惠特尼一起吃饭 (0:20)|School Rooftop]]>><<unset $phase>><<pass 20>><<set $whitneyRooftopSeen to 1>><</link>>
+     <<link [[和惠特尼一起吃饭 (0:20)|School Rooftop]]>><<unset $phase>><<pass 20>><<set $whitneyRooftopSeen to 1>><</link>><br>
 <</switch>>
 
      <<elseif $whitneyRooftopSeen is 1 and Time.schoolDay and $schoolstate is "lunch">>
          你来到天台，惠特尼背靠着栏杆吃<<he>>的午餐，地上有很多烟头，见到你来了，<<he>>当没看见地偏过头。<br><br>
 
          你坐在门口的台阶上拿出自己的午餐吃着，过了很久，一团烟雾直冲冲地吐在你脸上，你咳嗽着抬头，惠特尼撇了你一眼，然后蹲下凑到你旁边："婊子，别吃独食。"<br><br><br>
-    <<link [[和惠特尼一起吃饭 (0:20)|School Rooftop]]>><<pass 20>><</link>>
+    <<link [[和惠特尼一起吃饭 (0:20)|School Rooftop]]>><<pass 20>><</link>><br>
 
      <<else>>
-     天台上空荡荡没有人在，地上只有被人丢弃的烟头。<br><br><br>
+     天台上空荡荡没有人在，地上只有被人丢弃的烟头。
+     <br><br><br>
+     <</if>>
 
      <<link [[离开 (0:02)|Hallways]]>><<pass 2>><</link>>
-
-     <</if>>

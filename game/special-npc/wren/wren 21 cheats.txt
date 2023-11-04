@@ -1,7 +1,8 @@
 		<<set $estate_cards_end to "cheat_moor">>
 	<</if>>
+	<br><br>
 	<<if $fenghuang gte 4 and C.npc.Wren.love gte 20>>
-    "看起来，<<if $player.gender_appearance is "f">>她<<else>><<he>><</if>>没有那么爱惜<<if $player.gender_appearance is "f">>她<<else>><<he>><</if>>的羽毛啊。"<<he>>看向<<he>>的朋友，对你点头，"那我想，会有人手把手教导你的。"
+    "看起来，<<if $player.gender_appearance is "f">>她<<else>><<he>><</if>>没有那么爱惜<<if $player.gender_appearance is "f">>她<<else>>他<</if>>的羽毛啊。"<<he>>看向<<he>>的朋友，对你点头，"那我想，会有人手把手教导你的。"
       
     他们开始向你逼近。你求助地看着伦恩，<<he>>玩弄着手上的纸牌，一言不发地回视着你。
       
@@ -10,7 +11,7 @@
     
     <span class="green">你的请求似乎已经打动<<him>>了。</span><br><br>
     
-    "放开<<if $player.gender_appearance is "f">>她<<else>>他<</if>><<else>><<he>><</if>>。"伦恩说道，"交给我来处理。"
+    "放开<<if $player.gender_appearance is "f">>她<<else>>他<</if>>。"伦恩说道，"交给我来处理。"
     
     "我们应该把这个人送给<span class="pink"><<nnpc_him "Remy">></span>。"<<he>>的朋友们有些不满，却还是退开了。你坐在地上，羽翼散开，粘上了灰，看上去有些可怜。<br><br>
     
@@ -21,4 +22,3 @@
     "这只是点小惩罚而已，能接受吧？"<<he>>用胳膊固定住你的腰，手指用力握着你的大腿，腿肉从指缝里被挤出来，尾羽在细细颤抖，<<he>>笑着瞄了你一眼，才用手臂挡住你的隐私部位。你们在别人的注视下走到庄园门口，门卫看见你，吹了声口哨，打开了大门。<br><br>
     
     <<he>>把你放在门口的台阶上，一条浴巾盖在了你的身上，茸茸的触感让你下意识抓紧了它。"小鸟，快飞回家吧。"<<he>>站在门后，一边说着一边把那张纸牌飞出大门。直到你摇摇晃晃站起来离开，才听见一声哐当的关门声。<<clothesontowel>><br><br>
-    <<else>>

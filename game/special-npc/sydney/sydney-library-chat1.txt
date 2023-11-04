@@ -1,0 +1,4 @@
+<<elseif $fenghuang gte 4 and $transformationParts.fenghuang.crest isnot "hidden">>
+					<<He>>的目光停在你的头羽上。"好漂亮的羽毛，我不曾在任何鸟类上见过，"<<he>>说道："我可以摸摸吗？"
+					<br><br>
+				<<elseif $angel gte 4 and $transformationParts.angel.halo isnot "hidden">>

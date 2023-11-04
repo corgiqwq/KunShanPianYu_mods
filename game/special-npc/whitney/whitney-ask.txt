@@ -1,5 +1,5 @@
-	<<set _tf to checkTFparts()>>
-	<<elseif (C.npc.Whitney.love gte 12 or $whitneyrescued) and _tf.fenghuangCrest and _tf.fenghuangWings>>
+
+	<<elseif (C.npc.Whitney.love gte 12 or $whitneyrescued) and $fenghuang gte 4>>
     "什么事让你这么沮丧?"
         
     <<he>>抽着烟没理你，过了一会才从树下走出来。<<he>>推搡着你走向喷泉。<br><br>
