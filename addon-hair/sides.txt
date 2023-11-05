@@ -1,4 +1,4 @@
-		type: ["pigtails"],
+		type: ["loose"],
 		shop: ["mirrorhair"],
 	},
 	    {name: "huang",
@@ -6,4 +6,5 @@
     		variable: "huang",
     		type: ["loose"],
     		shop: ["mirrorhair"],
-    },
+        },
+	]>>

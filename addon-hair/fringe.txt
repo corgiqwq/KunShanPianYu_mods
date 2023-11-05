@@ -1,4 +1,4 @@
-		type: ["loose", "sleek"],
+    type: ["loose", "sleek"],
 		shop: ["mirrorhair"],
 	},
 		{name: "feng",
@@ -7,4 +7,4 @@
 		type: ["loose", "sleek"],
 		shop: ["mirrorhair"],
 	},
-    ]>>
+	]>>
