@@ -4,9 +4,7 @@
  "styleFileList": [],
  "scriptFileList_earlyload": [],
  "scriptFileList_inject_early": [],
- "scriptFileList_preload": [
-  "patch/dataExport.js"
- ],
+ "scriptFileList_preload": [],
  "scriptFileList": [
   "patch/patch-canvasmodel-main.js",
   "patch/patch-ingame.js-combatActionColours.js"
@@ -60,7 +58,7 @@
    "params": [
     {
      "passage": "Widgets Hair",
-     "findString": "\t\ttype: [\"loose\"],\n\t\tshop: [\"mirrorhair\"],\n\t},\n\t]>>",
+     "findString": "\t\ttype: [\"pigtails\"],\n\t\tshop: [\"mirrorhair\"],\n\t},",
      "replaceFile": "addon-hair/sides.txt"
     },
     {
