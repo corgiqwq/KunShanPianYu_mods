@@ -1,11 +1,11 @@
 :: Fifteen Twenty
 
 <br>
-兰殊："'十五二十'是一种类似于猜拳的游戏。两个人一起玩，每个人两只手，可以任意伸出0、5、10个手指头，喊出的猜拳的数字分别是0，5，10，15，20 中的一个。"
+兰殊为你解释起游戏规则："'十五二十'是一种类似于猜拳的游戏。两个人一起玩，每个人两只手，可以任意伸出0、5、10个手指头，喊出的猜拳的数字分别是0，5，10，15，20 中的一个。"
 <br>
 "根据两个人伸出的手指数总和，与喊出的数字一起比对，谁喊出的数字等于两个人的的手指数总和，则胜出，另一方则败。"
 <br><br>
-"这<span class="gold">£10</span>就作为彩头吧，准备好开始就告诉我一声。"
+"这<span class="gold">£10</span>就作为彩头吧，准备好了和说我一声吧！"
 <br>
 <br>
 <<link [[准备好了|Fifteen Twenty Choose Num]]>><<set $my1520 to 0>><</link>><br>
@@ -18,7 +18,13 @@
 "从 0，5，10，15，20 中选一个作为你的数字"
 <br><br>
 选择你的数字:
-<<textbox "$my1520" $my1520>>
+		<<listbox "$my1520" autoselect>>
+			<<option "0" 0>>
+			<<option "5" 5>>
+			<<option "10" 10>>
+			<<option "15" 15>>
+			<<option "20" 20>>
+		<</listbox>>
 
 <<set _nums to [0, 5, 10]>>
 <<set $lanChoice to chooseNum(_nums)>>
@@ -63,15 +69,18 @@
         他单手握拳，单手张开。
     <<case 10>>
         他双手张开。
-<</switch>><br>
+<</switch>>
+<br><br>
 
 <<set $sum1520 += $lanChoice>>
-<br><<if $sum1520 is $my1520>>
-    <span class="gold">"你赢了。"</span><<set $money += 1000>><<set $teahouse += 1>>
+<<if $sum1520 is $my1520>>
+    <span class="gold">兰殊输了，你赢了。</span><<set $money += 1000>><<set $teahouse += 1>><<set $teahousegame_end to 1>>
+    <<win_text>>
 <<elseif $sum1520 is $lan1520>>
-    <span class="red">"你输了。"</span><<set $money -= 1000>><<set $teahouse -= 1>>
+    <span class="red">兰殊胜了，你输了。</span><<set $money -= 1000>><<set $teahouse -= 1>><<set $teahousegame_end to -1>>
+   <<lose_text>>
 <<else>>
-    "平手。"
+    你和兰殊打成了平手，围观的客人们纷纷唏嘘着散开，茶馆又恢复了之前的宁静。<<set $teahousegame_end to 0>>
 <</if>>
 
 <br><br>

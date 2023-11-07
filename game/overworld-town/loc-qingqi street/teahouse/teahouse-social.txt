@@ -5,7 +5,7 @@ description : '<<relation-text _dockRepConfig>>'}>>
 						{ requiredValue: 0,	    color: 'purple',	description: '不见经传。'},
 						{ requiredValue: 10,	color: 'blue',		description: '初露头角。'},
 						{ requiredValue: 30,	color: 'lblue',		description: '小有名气。'},
-						{ requiredValue: 80,	color: 'teal',		description: '脱颖而出。'},
+						{ requiredValue: 80,	color: 'teal',		description: '声名大噪。'},
 						{ requiredValue: 100,	color: 'green',		description: '奉为上宾。'}
 					]}>>
 					<<set _teahouseBoxConfig = { name : "茶楼", icon : "img/misc/icon/teahouse.png", description : '<<relation-text _teahouseRepConfig>>'}>>

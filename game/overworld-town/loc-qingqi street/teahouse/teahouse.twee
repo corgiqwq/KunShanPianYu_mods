@@ -1,8 +1,30 @@
+:: Teahouse Close
+
+<br>
+<<if (Time.season is "winter" or Time.season is "spring") and Time.hour is 22>>
+    你到达茶楼门口。兰殊告诉你茶楼已经打烊了，在你手里放了一颗糖，然后开开心心地抱着书跑向一个打着伞的黑发男人。
+<<elseif (Time.season is "summer" or Time.season is "autumn") and Time.hour is 23>>
+    你到达茶楼门口。兰殊告诉你茶楼已经打烊了，在你手里放了一颗糖，然后开开心心地抱着书跑向一个打着伞的黑发男人。
+<<else>>
+你到达了茶楼，门上挂着一个"今日打烊"的挂牌，上面有着大大的涂鸦笑脸。
+<</if>>
+<br><br>
+<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
+
 :: Teahouse
 
 <<set $outside to 0>><<set $location to "teahouse">><<effects>><<set $bus to "qingqi">>
 <<food>>
-你正在竹茗楼。墨香客不断在大堂和后厨间来回忙活。
+你正在竹茗楼，茶楼中热闹喧哗。
+<<if Time.hour gte 18 and $teahouse_miao isnot 1>>
+    你注意到茶楼角落的一张桌子，
+    <<if $miao_intro isnot 1>>
+    一个白发红瞳的人独自坐在桌边，和其他桌子旁三五成群谈笑风声的客人们相比，显得格外清冷。
+    <<else>>
+    一个眼熟的人独自坐在桌边，是淼。他悠闲地端着茶盏，像在观察茶楼里的其他客人，注意到你的视线，他向你露出一个微笑。
+    <</if>>
+    <<set $teahouse_miao to 1>>
+<</if>>
 
 <br>
 <<foodoptions>>
@@ -10,9 +32,13 @@
 <br>
 <<link [[到后厨|Teahouse Work]]>><</link>>
 <br>
-<<link [[上二楼|Teahouse Top]]>><<endevent>><</link>>
+<<if $lanshu_intro is 1>>
+    <<link [[上二楼|Teahouse Top]]>><<endevent>><</link>>
+<<else>>
+    <<link [[上二楼|Lanshu Intro]]>><<endevent>><</link>>
+<</if>>
 <br>
-<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
+<<link [[离开|Qingqi Street]]>><<endevent>><<set $teahouse_miao to 0>><</link>>
 <br>
 
 

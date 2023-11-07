@@ -2,11 +2,18 @@
 
 <<widget "theorybattle">>
 	<<if $houseChoice gt $lanHouse>>
-	    <span class="gold">"你赢了。"</span><<set $theorywin += 1>>
+	    <span class="gold">你赢了。</span><<set $theorywin += 1>><br><br>
+	    兰殊默默地捏着牌，神情中透露出一丝懊丧。他凝视着手中的棋子，似乎在喃喃自语："要是刚刚放在另一个位置就好了。"
+        然而，这份失落并没有持续太久。兰殊很快抬起头，"这次获得胜利女神青睐的一定是我！"
 	<<elseif $lanHouse gt $houseChoice>>
-	    <span class="red">"你输了。"</span><<set $theorywin -= 1>>
+	    <span class="red">你输了。</span><<set $theorywin -= 1>>
+	    <br><br>
+	    兰殊兴致勃勃地拿起牌，高高举过头顶，脸上洋溢着胜利的笑容。他仔细端详着手中的牌，似乎对自己的出牌策略感到非常满意。
 	<<else>>
-	    "平手。"
+	    平手。
+	    <br><br>
+	    兰殊欣喜地拿起自己的牌，他像是想起了什么，又从某处地摸出一块点心，轻轻地放在你面前。
+        "客人和我真是心有灵犀！我们的想法一模一样。"兰殊笑呵呵地说道。
 	<</if>>
 	<br><br>
 <</widget>>
@@ -14,22 +21,24 @@
 <<widget "theoryfinish">>
 <br><br>
 	<<if $theorywin gte 1>>
-	    <span class="gold">"你赢了。"</span><<set $money += 1000>><<set $teahouse += 1>>
+	    <span class="gold">兰殊输了，你赢了。</span><<set $money += 1000>><<set $teahouse += 1>>
+	    <<win_text>>
 	<<elseif $theorywin is 0>>
-	    "平手。"
+	    你和兰殊打成了平手，围观的客人们见游戏已经结束，纷纷唏嘘着散开，茶馆又恢复了之前的宁静。
 	<<else>>
-	    <span class="red">"你输了。"</span><<set $money -= -1000>><<set $teahouse -= 1>>
+	    <span class="red">兰殊胜了，你输了。</span><<set $money -= -1000>><<set $teahouse -= 1>>
+	    <<lose_text>>
 	<</if>>
 <</widget>>
 
 :: Theory Game
 
 <br>
-兰殊："'田忌赛马'起源东方的一段历史故事。双方开局时手中有'上等马'、'中等马'和'劣等马'。每次比赛共设三局，每局中双方各选择派出一匹马，通过优劣决定胜负，胜两次以上者为赢家。"
+兰殊向你解释起游戏规则："'田忌赛马'起源东方的一段历史故事。双方开局时手中有'上等马'、'中等马'和'劣等马'。
+每次比赛共设三局，每局中双方各选择派出一匹马，通过优劣决定胜负，胜两次以上者为赢家。"
 <br><br>
-"这<span class="gold">£10</span>就作为彩头吧，准备好开始就告诉我一声。"
-<br>
-<br>
+"这<span class="gold">£10</span>就作为彩头吧，准备好了和说我一声吧！"
+<br><br>
 <<link [[准备好了|Theory Game Battle]]>><<set $round to 1>><</link>><br>
 <<link [[再等等|Teahouse Top]]>><</link>>
 

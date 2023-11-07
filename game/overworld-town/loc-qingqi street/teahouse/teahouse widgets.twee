@@ -1,9 +1,41 @@
-:: Teahouse Widget [widget]
+:: Widget Teahouse [widget]
+
+<<widget "puericon">>
+	<<icon "puer.png">>
+<</widget>>
+
+<<widget "tieguanyinicon">>
+	<<icon "tieguanyin.png">>
+<</widget>>
+
+<<widget "taohuashuicon">>
+	<<icon "taohuashu.png">>
+<</widget>>
+
+<<widget "xingrendoufuicon">>
+	<<icon "xingrendoufu.png">>
+<</widget>>
+
+<<widget "chaofanicon">>
+	<<icon "chaofan.png">>
+<</widget>>
+
+<<widget "fift-twenicon">>
+	<<icon "1520.png">>
+<</widget>>
+
+<<widget "theorygameicon">>
+	<<icon "theorygame.png">>
+<</widget>>
 
 <<widget "foodoptions">>
 <<if $daily.foodDaily isnot 1>>
 <br>
-<<link [[点一份炒饭 (0:15)|Teahouse]]>><<set $food to 1>><<pass 15>><<stress -6>><</link>><<lstress>>
+<<taohuashuicon>><<link [[点一份桃花酥 (0:05 £3)|Teahouse]]>><<set $food to 1>><<set $money -= 300>><<pass 5>><<stress -6>><</link>><<lstress>>
+<br>
+<<xingrendoufuicon>><<link [[点一份杏仁豆腐 (0:05 £5)|Teahouse]]>><<set $food to 2>><<set $money -= 500>><<pass 5>><<stress -6>><</link>><<lstress>>
+<br>
+<<chaofanicon>><<link [[点一份扬州炒饭 (0:10 £8)|Teahouse]]>><<set $food to 3>><<set $money -= 800>><<pass 10>><<stress -6>><</link>><<lstress>>
 <br>
 <</if>>
 <</widget>>
@@ -11,28 +43,23 @@
 <<widget "food">>
 <<switch $food>>
     <<case 1>>
-    炒饭很好吃。<<set $daily.foodDaily to 1>>
+    茶楼伙计放上一盘桃花酥。模拟花瓣形状做出来的粉色点心令人眼前一亮，外皮酥脆香甜，馅料细腻绵软。<<set $daily.foodDaily to 1>><br><br>
     <<case 2>>
-    <<default>>
+    茶楼伙计放上一碗杏仁豆腐。瓷白的碗里盛着润白的豆腐，红色的糖桂花点映其间。桂花的香气随风而来，取上一勺，微甜顺滑的杏仁奶豆腐入口即化。<<set $daily.foodDaily to 1>><br><br>
+    <<case 3>>
+    茶楼伙计放上一盘扬州炒饭。鸡蛋均匀包裹住了每粒米饭，整碗炒饭显现出一种诱人的金色，绿色葱花和橘色胡萝卜点缀其中。<<set $daily.foodDaily to 1>><br><br>
 <</switch>>
 <<set $food to 0>>
 <</widget>>
 
-<<widget "teahousegame">>
-<br>
-<<link [[十五二十 (0:02)|Teahouse]]>><</link>>
-<br>
-<<link [[田忌赛马 (0:02)|Teahouse]]>><</link>>
-<br>
-<<link [[斗蛐蛐 (0:02)|Teahouse]]>><</link>>
-<br>
-<<link [[投壶 (0:02)|Teahouse]]>><</link>>
-<</widget>>
 
 <<widget "teaoptions">>
-<<if $daily.teaDaily isnot 1>>
+<<if $daily.teaDaily isnot 1>><br>
+点一份茶:
 <br>
-<<link [[喝茶 (0:15)|Teahouse Tea]]>><<set $tea to 1>><<pass 15>><<stress -6>><</link>><<lstress>>
+<<puericon>><<link [[铁观音 (0:15 £5)|Teahouse Tea]]>><<set $tea to 1>><<pass 15>><<tiredness -6>><</link>><<ltiredness>>
+<br>
+<<tieguanyinicon>><<link [[普洱茶 (0:15 £5)|Teahouse Tea]]>><<set $tea to 2>><<pass 15>><<stress -6>><</link>><<lstress>>
 <br>
 <</if>>
 <</widget>>
@@ -40,11 +67,96 @@
 <<widget "tea">>
 <<switch $tea>>
     <<case 1>>
-    茶很好喝。
+    茶楼伙计放上一盏铁观音。茶汤黄绿明亮，清澈见底，茶香四溢，清醇甘爽，喉韵悠长。
     <<case 2>>
-    <<default>>
+    茶楼伙计放上一盏普洱茶。冲泡后的茶汤红艳，茶香似松柏烟香，滋味好似桂圆甜香。
 <</switch>>
 <br><br>
 <<set $daily.teaDaily to 1>>
 <<set $tea to 0>>
+<</widget>>
+
+
+<<widget "teahousegame">>
+<br>
+<<fift-twenicon>><<link [[十五二十 (0:02)|Fifteen Twenty]]>><</link>>
+<br>
+<<theorygameicon>><<link [[田忌赛马 (0:02)|Theory Game]]>><</link>>
+<br>
+<<if 0>>
+<<link [[斗蛐蛐 (0:02)|Teahouse]]>><</link>>
+<br>
+<<link [[投壶 (0:02)|Teahouse]]>><</link>>
+<</if>>
+<</widget>>
+
+
+<<widget "lanshu_text">>
+<<if $teahousegame_end is 1 and $lanshu_text is 0>>
+<br><br>
+兰殊眼神亮晶晶地看着你："客人，今天玩游戏吗？"兰殊摇了摇自己的小钱袋，钱币互相撞击发出清脆的声响。
+
+他颇为得意地晃晃脑袋："我今天把钱带够了！准备好迎接我的挑战了吗？"
+<<elseif $teahousegame_end is -1 and $lanshu_text is 0>>
+<br><br>
+兰殊一跃，跳上了一旁的小凳子，昂起头哼哼笑着，自信又得意："哈哈！又来找我玩了吗？手下败将，我接受你的挑战！"
+<<elseif $lanshu_text is 0>>
+他显然也看见了你，高兴地说："你要来和我玩游戏吗！"
+<</if>>
+<<set $lanshu_text to 1>>
+<</widget>>
+
+
+<<widget "win_text">>
+    <<switch random(0,3)>>
+    <<case 0>>
+    围观的客人们瞬间爆发出一片嘘声，此起彼伏。
+
+    兰殊有些不服气，他狠狠地把赌注拍在桌上，发出一声清脆的响声。
+<br><br>
+    他被自己吓了一跳，挠了挠头："再来一局，我一定可以赢！"
+    <<case 1>>
+    兰殊大大地叹了一口气，显得有些失落。他速度极慢地从小钱袋里掏出即将给你的赌注，看了一眼后，又望向了你。
+<br><br>
+    围观的客人们看着这一幕，纷纷笑着起哄："愿赌服输啊，小子可别舍不得了！"
+    <<case 2>>
+    兰殊耷拉着脑袋，解下腰间的钱袋，带着些许不舍，慢慢把小钱袋递给你："客人······你······可要好好对待我的钱啊！"
+<br><br>
+    你刚握住钱袋，兰殊却突然又猛地攥住，他抬头紧紧盯住你，仿佛重燃信心："客人！下次游戏，我一定能赢的！"
+
+    说完，兰殊放开钱袋，转身向柜台走去。他的衣衫迎风鼓起，那背影仿佛充满了他的斗志和期待。他突然转头向你挥了挥手，脸上露出灿烂的笑容："一定要再来找我玩儿啊！"
+    <<case 3>>
+    兰殊有些泄气地把头埋进自己的手臂里，一时间，只有他叽叽咕咕的低沉声音在空气中回荡："我真是个笨蛋......"
+
+    过了一会，他又抬头看向你，双眼放光："客人，我们再来最后一局？我一定会赢的！"
+    <</switch>>
+<</widget>>
+
+<<widget "lose_text">>
+ <<switch random(0,3)>>
+    <<case 0>>
+    围观的客人们纷纷笑着夸赞兰殊划拳的技巧。
+<br><br>
+    兰殊笑嘻嘻地抛起手中的小钱袋，它在空中划出一道优美的弧线，然后落回他的手中："客人，看起来，今天我手气更佳嘛！"
+
+    他得意地看着你，语气中充满了炫耀。
+    <<case 1>>
+    兰殊瞬间欢欣鼓舞，他提起桌上的茶盏，猛喝了一口茶，仿佛是为了平复自己激动的情绪。然后，他转过头来，看向你，脸上洋溢着得意的笑容。
+<br><br>
+    兰殊兴奋地从坐榻上跳了下来，跑到你的面前："客人！这一局我胜了！"
+
+    他极为欢欣雀跃。
+    <<case 2>>
+    兰殊欢呼雀跃地在茶楼内小跑了一圈，才回到桌旁，满脸洋溢着胜利的笑容。
+
+    围观的客人们被他的模样逗得嬉笑不已，见游戏已经结束，也纷纷回到原处，继续品味自己的茶水。
+<br><br>
+    兰殊亲自为你沏了一壶清香扑鼻的茶，又体贴地给你捶腿捶背，笑呵呵地说："客人，谢谢你来找我玩儿。已经好久没人来陪我玩了。"
+
+    突然，兰殊偷偷地从袖子里拿出一块精致的点心，悄悄地塞到你手里。他眼神闪烁，带着一丝调皮和期待："下次还要来找我玩呀！兰殊今日的运气，一定是客人带给我的！"
+    <<case 3>>
+    兰殊把自己外衫衣角上的长穗甩地前后摇摆，他转头面向围观起哄的客人们，带着挑衅和自豪说道："瞧，我就说我一定会赢的！"又回头和你说，"客人，可还来一局？"
+
+    他看起来对下一局充满了期待。
+    <</switch>>
 <</widget>>
