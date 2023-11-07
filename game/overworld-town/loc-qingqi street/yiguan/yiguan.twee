@@ -1,5 +1,17 @@
 :: Widget ZhongYiGuan [widget]
 
+<<widget "hotspringicon">>
+	<<icon "hotspring.gif">>
+<</widget>>
+
+<<widget "wineicon">>
+	<<icon "wine.png">>
+<</widget>>
+
+<<widget "feelpulseicon">>
+	<<icon "feelpulse.png">>
+<</widget>>
+
 <<widget "towel">>
 	 <<if $player.gender == "f" or $player.breastsize > 0>>
         	<<set $wear_upper = "large_towel">>
@@ -9,6 +21,18 @@
         <<returnCarried>>
         <<wardrobewear>>
 <</widget>>
+
+
+:: ZhongYiGuan Close
+
+<br>
+<<if Time.hour is 18>>
+    你进入医馆。里面的大夫正在收拾东西，发现了你。大夫们告知你，今日他们已经下班了，如果不是急症可以明日再来。
+<<else>>
+你靠近半闲堂。店门已然紧闭，只有淡淡药草香从门板下飘出。
+<</if>>
+<br><br>
+<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
 
 :: ZhongYiGuan
 
