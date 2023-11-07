@@ -1,10 +1,22 @@
+:: Widget ZhongYiGuan [widget]
+
+<<widget "towel">>
+	 <<if $player.gender == "f" or $player.breastsize > 0>>
+        	<<set $wear_upper = "large_towel">>
+        <<else>>
+        	<<set $wear_lower = "towel">>
+        <</if>>
+        <<returnCarried>>
+        <<wardrobewear>>
+<</widget>>
+
 :: ZhongYiGuan
 
 <<set $outside to 0>><<set $location to "yiguan">><<effects>><<set $bus to "qingqi">>
-你正在医馆。
+你正在半闲堂中，淼正在柜台清点草药。
 
 <br><br>
-<<hotspringicon>><<link [[把脉 (£10)|Feel Pulse]]>><<set $money -= 1000>><<endevent>><</link>>
+<<feelpulseicon>><<link [[把脉 (£10)|Feel Pulse]]>><<set $money -= 1000>><<endevent>><</link>>
 <br>
 <<hotspringicon>><<link [[泡温泉 (£300)|Hot Spring]]>><<set $money -= 30000>><<endevent>><</link>>
 <br>
@@ -28,26 +40,24 @@
 
 :: Hot Spring
 
-<<strip>>
-<br>
-你正在泡温泉，
-<<if $player.gender == "f" or $player.breastsize > 0>>
-	<<set $wear_upper = "large_towel">>
-<<else>>
-	<<set $wear_lower = "towel">>
-<</if>>
-<<returnCarried>>
-<<wardrobewear>>
+<<strip>><br>
+<<towel>>
+此处灯光氤氲，水汽萦绕，药香随着水汽缭绕周身，温泉被笼罩在柔和的光辉中。
+<<if $hotspring_text is 1>>你正在泡温泉，一股暖意从脚尖开始，如同涓涓溪流，逐渐蔓延至全身。<</if>>
+<<if $hotspring_wine is 1>>酒液清澈透明，散发出诱人的香气，令人无法抗拒。<</if>>
+<br><br>
 
-<<hotspringicon>><<link [[泡温泉 (1:00) |Hot Spring]]>><<pass 1 hour>><<endevent>><<stress -30>><<tiredness -30>><</link>><<lltiredness>><<llstress>>
+<<hotspringicon>><<link [[泡温泉 (1:00) |Hot Spring]]>><<set $hotspring_text to 1>><<pass 1 hour>><<endevent>><<stress -30>><<tiredness -30>><</link>><<lltiredness>><<llstress>>
 <br>
-<<wineicon>><<link [[烧酒 (0:05 £10) |Hot Spring]]>><<set $money -= 1000>><<pass 5>><<endevent>><<trauma -100>><<alcohol 80>><</link>><<galcohol>><<ltrauma>>
+<<wineicon>><<link [[烧酒 (0:05 £10) |Hot Spring]]>><<set $hotspring_wine to 1>><<set $money -= 1000>><<pass 5>><<endevent>><<trauma -100>><<alcohol 80>><</link>><<galcohol>><<ltrauma>>
 <br>
-<<towelicon>><<link [[结束 |Hot Spring Finish]]>><<endevent>><</link>>
+<<towelicon>><<link [[结束 |Hot Spring Finish]]>><<set $hotspring_wine to 0>><<set $hotspring_text to 0>><<endevent>><</link>>
 
 :: Hot Spring Finish
 
 <br>
+你正在医馆的后院。
+<br><br>
 <<wardrobeicon>><<link [[衣柜|ZhongYiGuan Wardrobe]]>><</link>>
 <br>
 <<mirroricon>><<link [[镜子|ZhongYiGuan Mirror]]>><<preMirror>><</link>>
