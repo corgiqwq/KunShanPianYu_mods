@@ -1,3 +1,13 @@
+:: ChouDuanZhuang Close
+<br>
+<<if Time.hour is 20>>
+    你到达绸缎庄。月浅歉意地告诉你，绸缎庄现在不营业了，并在柱子上挂上了“今日打烊”的挂牌。
+<<else>>
+    你到达绸缎庄。一直常挂在门前的琉璃灯正关着，你从门缝看去，店里黑黢黢的。
+<</if>>
+<br><br>
+<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
+
 :: ChouDuanZhuang [exitCheckBypass]
 
 <div id="clothingShop-div" class="main-shop-div">
@@ -12,14 +22,41 @@
 	<<if $tryOn.autoReset isnot false>><<tryOnReset>><</if>>
 	<<if $yizhuang_intro isnot 1>>
 		<<set $yizhuang_intro to 1>>
+        <br>
+        你进入了绸缎庄。你只看到了店内柜子倒塌，布匹散乱，仿佛刚刚经历了一场洗劫。
+        <br><br>
 
-        月浅初见。
+        "啾啾!"，一声尖细的鸟鸣从布匹下传出。
+        <br><br>
 
+        你移开层层叠叠的布匹，看到了一头白金色的头发。那头发的主人蠕动了两下，显然还活着，正努力想从布匹中离开。你继续搬开布匹，那人终于从布匹下"重见天日"。
+        <br><br>
+
+        他衣衫凌乱地坐在一片狼藉的绸缎中，白金色的头发如水般平铺在绸缎上，你隐约能从他的领口处看到裸露的锁骨。他笑容温柔地松开一直紧捂的双手，从里面跳出一只有着灰白眼圈的橄榄绿小鸟，探头探脑地小心观察着四周。
+        <br><br>
+
+        他的榛子色双眼里闪过无措，却依然温和地向你解释："这只小鸟误飞进了店里，没想到却被困住了。我想着把它引出门，结果不小心撞倒了扫帚。"你看了一眼已经被压碎的扫帚。
+        <br><br>
+
+        他维持着姿势，等待小鸟自己飞起来，带着点不好意思地笑着继续说："扫帚倒下时，似乎拉到了琉璃灯盏的拉线，那灯盏已经有些年头了，开关拉线和挂轴早已缠在了一起，结果就把灯盏拉了下来。"
+        你看了一眼碎在门口的琉璃灯盏，又看了看离门口约十步远的绸缎堆。
+        <br><br>
+
+        小鸟从他的掌心跳起，摇摇晃晃地飞走了，鸟顶的橘黄色发冠在阳光下熠熠生辉。
+        你扶起他，他倚靠着你站起来："为了躲避灯盏，我往后退了退，结果就撞在了柜子上，不下心将它拉了下来。"
+        <br><br>
+
+        他露出歉意的微笑："实在是失礼了。客人，您想要挑选什么商品呢？能否请您稍等片刻？容我稍微整理一下小店。"
+        他虽然衣衫不整，却难掩其容颜的艳丽。你点了点头，答应了他的请求。
+        <br><br>
+        
+        过了一会儿，他向你走来，举手行礼："在下月浅，客人，您想要选购哪种成衣？请随我到这边来挑选。"言辞间礼貌而谦逊，仿佛刚刚的混乱只是小插曲。
 		<br><br>
 		<<link [[继续|ChouDuanZhuang]]>><<endevent>><</link>>
 		<br>
 	<<else>>
-		你正在绸缎庄里，各种各样的华服摆放在衣庄中。
+		各种各样的华服摆放在架子上，屋内蔓延淡淡的梅花香，月浅在一旁为你挑选合适的衣服。
+
 		<br><br>
 		
 		<div id="tryonstats-div"><<tryOnStats>></div>
@@ -37,16 +74,11 @@
 		<<clothingcategoryicon "all">>
 		<<link "浏览全部">><<replace "#clothingShop-div">><<AllShop>><</replace>><</link>>
 		<br><br>
-		<<if $debug is 1>>
-			<<clothingcategoryicon "overoutfit">>
-			<<link "浏览外套">><<replace "#clothingShop-div">><<OverOutfitShop>><</replace>><</link>>
-			<br><br>
-		<</if>>
-		/*
-		*<<clothingcategoryicon "outfit">>
-		*<<link "View outfits">><<replace "#clothingShop-div">><<OutfitShop>><</replace>><</link>>
-		*<br>
-		*/
+
+		<<clothingcategoryicon "overoutfit">>
+		<<link "浏览外套">><<replace "#clothingShop-div">><<OverOutfitShop>><</replace>><</link>>
+		<br>
+
 		<<clothingcategoryicon "upper">>
 		<<link "查看上装">><<replace "#clothingShop-div">><<TopShop>><</replace>><</link>>
 		<br>
@@ -68,11 +100,9 @@
 		<<clothingcategoryicon "face">>
 		<<link "查看面饰">><<replace "#clothingShop-div">><<FaceShop>><</replace>><</link>>
 		<br>
-		/*
-		*<<clothingcategoryicon "neck">>
-		*<<link "View Neck Accessories">><<replace "#clothingShop-div">><<NeckShop>><</replace>><</link>>
-		*<br>
-		*/
+		<<clothingcategoryicon "neck">>
+		<<link "View Neck Accessories">><<replace "#clothingShop-div">><<NeckShop>><</replace>><</link>>
+		<br>
 		<<clothingcategoryicon "hand">>
 		<<link "查看手饰">><<replace "#clothingShop-div">><<HandsShop>><</replace>><</link>>
 		<br>
@@ -103,3 +133,33 @@
 		<</if>>
 	<</if>>
 <</widget>>
+
+
+:: Gift_BaiNiaoChaoFeng
+
+<<set $outside to 0>><<set $location to "yizhuang">><<effects>>
+
+你进入了绸缎庄。今天似乎有什么不同。
+月浅，那个总是温温柔柔笑着的男子，此刻正站在门口，他的笑容似乎比平日更加灿烂。
+<br>
+他向你递出一张竹片。
+你走上前接过，上面飘逸地写着"百鸟朝凤"四个字，似乎藏着什么秘密。
+<br><br>
+你放下竹片，望向月浅。他正悠然地拿起玉杖，轻轻勾起门帘，那动作优雅流畅。
+察觉到你的目光，他转过头，笑意更浓，微微躬身，伸手朝向绸缎庄的后屋："我听闻了一些消息，整理华服时，发现有一套似乎与你格外相称，你愿随我前往一探究竟吗？"
+<br><br>
+你跟随月浅来到后屋，这里的气氛与前厅截然不同。屋子里静悄悄的，只有一些尚未完工的华服静静地挂在架子上。
+穿过回廊，随着最后一间屋子的门轻轻推开，你的视线瞬间被一件华丽的衣服所吸引。
+它在木架上展开，是一件用孔雀翠羽线与金线及各色彩线巧妙地缂丝在一起的华服，缂丝出百鸟图案。这些鸟儿形态各异，有的绕着梧桐木飞鸣，有的展尾向凤凰展现自己的美丽，有的仰头望向梧桐木上的凤凰。
+<br><br>
+你一时不能挪开目光。
+<br><br>
+"穿上试试吧，"月浅眼中有着期待，"当我听闻你获得凤凰的一丝力量时，便感觉这件华服极为适合你。如今，它便托付于你了。"
+<br><br>
+<span class="fenghuang">月浅将"百鸟朝凤"交给了你。</span>
+
+<<set $worn.upper to clone(setup.clothes.upper[findClothes("BaiNiaoChaoFeng", "upper")])>>
+<<set $worn.lower to clone(setup.clothes.lower[findClothes("BaiNiaoChaoFengdress", "lower")])>>
+
+<br><br>
+<<link [[继续|ChouDuanZhuang]]>><<endevent>><</link>>
