@@ -632,36 +632,6 @@
      {
       "TODO": "canvasmodel-editor.js",
       "fileName": "canvasmodel-editor.js",
-      "from": "selectOption(\"hair_sides_type\", [\n\t\t\t\t\t\t\t\"\",",
-      "to": "selectOption(\"hair_sides_type\", [\n\t\t\t\t\t\t\t\"\",\"huang\","
-     },
-     {
-      "TODO": "canvasmodel-editor.js",
-      "fileName": "canvasmodel-editor.js",
-      "from": "selectOption(\"hair_fringe_type\", [\n\t\t\t\t\t\t\t\"\",",
-      "to": "selectOption(\"hair_fringe_type\", [\n\t\t\t\t\t\t\t\"\",\"feng\","
-     },
-     {
-      "TODO": "hair-defs.js",
-      "fileName": "hair-defs.js",
-      "from": "hairtype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",",
-      "to": "hairtype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",\"huang\","
-     },
-     {
-      "TODO": "hair-defs.js",
-      "fileName": "hair-defs.js",
-      "from": "fringetype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",",
-      "to": "fringetype: [\n\t\t{\n\t\t\tname: \"default\",\n\t\t\tlist: [\n\t\t\t\t\"default\",\"feng\","
-     },
-     {
-      "TODO": "widgets.js",
-      "fileName": "widgets.js",
-      "from": "\"mohawk\": 100,",
-      "to": "\"mohawk\": 100,\"feng\": 200,"
-     },
-     {
-      "TODO": "canvasmodel-editor.js",
-      "fileName": "canvasmodel-editor.js",
       "from": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),",
       "to": "selectOption(\"fox_cheeks_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_wings_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tail_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_crest_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_tattoo_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_eyes_type\", [\"disabled\", \"hidden\", \"default\"]),\n\t\t\t\t\t\tselectOption(\"fenghuang_pendant_type\", [\"disabled\", \"hidden\", \"default\"]),"
      },
@@ -743,13 +713,7 @@
       "TODO": "main.twee",
       "passageName": "Bedroom",
       "from": "/* Travel */",
-      "to": "<<link [[Test|Sydney Chat]]>><</link>>\n/* Travel */"
-     },
-     {
-      "TODO": "main.twee",
-      "passageName": "Bedroom",
-      "from": "/* Travel */",
-      "to": "[[农田++|$passage][$farm.clearing -= 100]]\n"
+      "to": "<<link [[Test|Gift_BaiNiaoChaoFeng]]>><</link>>\n/* Travel */"
      }
     ]
    }
