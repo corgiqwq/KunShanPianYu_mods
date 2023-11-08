@@ -4,12 +4,44 @@
 	<<icon "qingqi.gif">>
 <</widget>>
 
-<<widget "hotspringicon">>
-	<<icon "hotspring.gif">>
+<<widget "antiqueshopicon">>
+	<<icon "antiqueshop.png">>
 <</widget>>
 
-<<widget "wineicon">>
-	<<icon "wine.gif">>
+<<widget "yiguanicon">>
+    <<if Time.hour lt 10 or Time.hour gte 18>>
+	    <<icon "yiguan_close.png">>
+	<<else>>
+	    <<icon "yiguan.png">>
+	<</if>>
+<</widget>>
+
+<<widget "yizhuangicon">>
+    <<if Time.hour lt 10 or Time.hour gte 20>>
+        <<icon "yizhuang_close.png">>
+    <<else>>
+        <<icon "yizhuang.png">>
+    <</if>>
+<</widget>>
+
+<<widget "teahouseicon">>
+<<if Time.season is "winter" or Time.season is "spring">>
+	<<if Time.hour lt 10 or Time.hour gte 22>>
+        <<icon "teahouse_close.png">>
+    <<else>>
+    	<<icon "teahouse.png">>
+    <</if>>
+<<else>>
+	<<if Time.hour lt 9 or Time.hour gte 23>>
+        <<icon "teahouse_close.png">>
+    <<else>>
+    	<<icon "teahouse.png">>
+    <</if>>
+<</if>>
+<</widget>>
+
+<<widget "qingqiquick">>
+	<<qingqiicon>><<link [[青祁街|Qingqi Street]]>><</link>>
 <</widget>>
 
 <<widget "qingqi">>
@@ -21,19 +53,38 @@
 	<<hideDisplay true>>
 <</widget>>
 
-<<widget "qingqiquick">>
-	<<qingqiicon>><<link [[青祁街|Qingqi Street]]>><</link>>
-<</widget>>
-
 <<widget "qingqieventend">>
 	<<link [[继续|Qingqi Street]]>><<set $eventskip to 1>><</link>>
 <</widget>>
+
 
 :: Qingqi Street
 
 <<set $outside to 1>><<set $location to "town">><<effects>><<set $bus to "qingqi">><<getTarget true>>
 
-你正待在青祁街，
+<<if $qingqi_intro isnot 1>>
+你惊奇观察着这条路上的一切，这里的建筑与小镇上的其他建筑完全不同，带有浓烈的东方风格。<<set $qingqi_intro to 1>>
+<</if>>
+
+你正走在青祁路上。
+<<if $weather is "snow">>
+莹白的雪花从空中缓慢落下，一片片落在路边的屋舍上和路面上，路上的积雪被人清理过，露出灰沉的青砖本色。
+<<elseif $weather is "rain">>
+淅淅沥沥的雨水从天而落，将青石砖铺就而成的整条路都冲洗的干干净净，凹凸不平的路面上蓄起又小又浅的水洼。
+<</if>>
+你在青石砖铺就的路上缓步行走，
+<<if Time.dayState is "day">>
+整条街道刚从沉睡中苏醒过来，初升的太阳驱散薄雾，建筑和道路都被镀上一层阳光，看起来温暖了不少。街上行人三三两两，不多，足够让街道不再冷清。
+<<elseif Time.dayState is "dawn">>
+清晨的薄雾沉默地匍匐在街巷中，整条街道只有零星几家店面，
+均未到开门营业的时间。偶尔有一两个往来的行人，沉默寡言，没有喧闹，仿佛都被街道沉寂的氛围感染，无形中加深了街道的安静。
+<<elseif Time.dayState is "dusk">>
+夕阳的余晖给整条街道涂上一层浓郁的橙红色，天空的色彩绚丽夺目，衬得古朴的街道都明艳了些许。
+路上的行人仍旧不多不少，三三两两。
+<<elseif Time.dayState is "night">>
+不时有虫鸣声响起，在茫茫夜色中孤独回荡几圈，不知何时归于平静，也不知何时再度响起。
+万籁俱寂，你甚至能听到自己的心跳声。路边灯光昏暗，没能照亮街道，反而使街道愈发神秘和寂静。
+<</if>>
 
 <br><br>
 <<streeteffects>>
@@ -58,13 +109,42 @@
 
 		可访问地点
 		<br>
-        <<roadicon>><<link [[古董店 (0:05)|Antique Shop]]>><<set $phase to 0>><<pass 5>><</link>>
+        <<antiqueshopicon>><<link [[古琅斋 (0:05)|Antique Shop]]>><<pass 5>><</link>>
 		<br>
-		<<roadicon>><<link [[医馆 (0:05)|ZhongYiGuan]]>><<set $phase to 0>><<pass 5>><</link>>
+
+        <<if Time.hour lt 10 or Time.hour gte 18>>
+            <<yiguanicon>><<link [[半闲堂 (0:05)|ZhongYiGuan Close]]>><<pass 5>><</link>>
+        <<else>>
+            <<yiguanicon>><<link [[半闲堂 (0:05)|ZhongYiGuan]]>><<pass 5>><</link>>
+        <</if>>
 		<br>
-		<<roadicon>><<link [[茶楼 (0:05)|Teahouse]]>><<set $phase to 0>><<pass 5>><</link>>
+
+		<<if Time.season is "winter" or Time.season is "spring">>
+        	<<if Time.hour lt 10 or Time.hour gte 22>>
+                <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse Close]]>><<pass 5>><</link>>
+            <<else>>
+		        <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse]]>><<pass 5>><</link>>
+            <</if>>
+        <<else>>
+        	<<if Time.hour lt 9 or Time.hour gte 23>>
+                <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse Close]]>><<pass 5>><</link>>
+            <<else>>
+		        <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse]]>><<pass 5>><</link>>
+            <</if>>
+        <</if>>
         <br>
-        <<roadicon>><<link [[绸缎庄 (0:05)|ChouDuanZhuang]]>><<set $phase to 0>><<pass 5>><</link>>
+
+        <<if Time.hour lt 10 or Time.hour gte 20>>
+            <<yizhuangicon>><<link [[绸缎庄 (0:05)|ChouDuanZhuang Close]]>><<pass 5>><</link>>
+        <<else>>
+            <<if $fenghuang gte 6 and $gift_bainiaochaofeng isnot 1 and $yizhuang_intro is 1>>
+                <<yizhuangicon>><<link [[绸缎庄 (0:05)|Gift_BaiNiaoChaoFeng]]>><<set $gift_bainiaochaofeng to 1>><<pass 5>><</link>>
+            <<else>>
+                <<yizhuangicon>><<link [[绸缎庄 (0:05)|ChouDuanZhuang]]>><<pass 5>><</link>>
+            <</if>>
+        <</if>>
+
+
         <br><br>
 		<<if $exposed gte 1 and Time.dayState isnot "night">>
 		<<else>>
