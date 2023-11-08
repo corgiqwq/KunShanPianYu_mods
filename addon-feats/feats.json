@@ -9,5 +9,16 @@
       "Transformation"
     ],
     "softLockable": false
+  },
+  "Teahouse": {
+    "title": "头号玩家",
+    "desc": "他是个孩子你就让让他吧（笑）",
+    "difficulty": 1,
+    "series": "",
+    "filter": [
+      "All",
+      "Social"
+    ],
+    "softLockable": false
   }
 }

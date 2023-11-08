@@ -79,14 +79,14 @@
 
 <<widget "teahousegame">>
 <br>
-<<fift-twenicon>><<link [[十五二十 (0:02)|Fifteen Twenty]]>><</link>>
+<<fift-twenicon>><<link [[十五二十 |Fifteen Twenty]]>><</link>>
 <br>
-<<theorygameicon>><<link [[田忌赛马 (0:02)|Theory Game]]>><</link>>
+<<theorygameicon>><<link [[田忌赛马 |Theory Game]]>><</link>>
 <br>
 <<if 0>>
-<<link [[斗蛐蛐 (0:02)|Teahouse]]>><</link>>
+<<link [[斗蛐蛐 |Teahouse]]>><</link>>
 <br>
-<<link [[投壶 (0:02)|Teahouse]]>><</link>>
+<<link [[投壶 |Teahouse]]>><</link>>
 <</if>>
 <</widget>>
 

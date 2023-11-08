@@ -21,12 +21,15 @@
 <<widget "theoryfinish">>
 <br><br>
 	<<if $theorywin gte 1>>
-	    <span class="gold">兰殊输了，你赢了。</span><<set $money += 1000>><<set $teahouse += 1>>
+	    <span class="gold">兰殊输了，你赢了。</span><<set $money += 1000>><<set $teahouse += 1>><<set $teahousegame_end to 1>>
+	    	<<if $teahouse gte 100>>
+				<<earnFeat "Teahouse">>
+			<</if>>
 	    <<win_text>>
 	<<elseif $theorywin is 0>>
-	    你和兰殊打成了平手，围观的客人们见游戏已经结束，纷纷唏嘘着散开，茶馆又恢复了之前的宁静。
+	    你和兰殊打成了平手，围观的客人们见游戏已经结束，纷纷唏嘘着散开，茶馆又恢复了之前的宁静。<<set $teahousegame_end to 0>>
 	<<else>>
-	    <span class="red">兰殊胜了，你输了。</span><<set $money -= -1000>><<set $teahouse -= 1>>
+	    <span class="red">兰殊胜了，你输了。</span><<set $money -= -1000>><<set $teahouse -= 1>><<set $teahousegame_end to -1>>
 	    <<lose_text>>
 	<</if>>
 <</widget>>
@@ -51,7 +54,7 @@
 <<set $house0 to 1>>
 <<set $house1 to 1>>
 <<set $house2 to 1>>
-<<elseif $round is 1>>
+<<elseif $round is 2>>
 <br>"第二局"<br>
 <<else>>
 <br>"第三局"<br>
