@@ -14,38 +14,44 @@
 :: Teahouse
 
 <<set $outside to 0>><<set $location to "teahouse">><<effects>><<set $bus to "qingqi">>
-<<food>>
-你正在竹茗楼，茶楼中热闹喧哗。
-<<if Time.hour gte 18 and $teahouse_miao isnot 1>>
-    你注意到茶楼角落的一张桌子，
-    <<if $miao_intro isnot 1>>
-    一个白发红瞳的人独自坐在桌边，和其他桌子旁三五成群谈笑风声的客人们相比，显得格外清冷。
-    <<else>>
-    一个眼熟的人独自坐在桌边，是淼。他悠闲地端着茶盏，像在观察茶楼里的其他客人，注意到你的视线，他向你露出一个微笑。
-    <</if>>
-    <<set $teahouse_miao to 1>>
-<</if>>
-
-<br>
-<<foodoptions>>
-
-<br>
-<<link [[到后厨|Teahouse Work]]>><</link>>
-<br>
-<<if $lanshu_intro is 1>>
-    <<link [[上二楼|Teahouse Top]]>><<endevent>><</link>>
+<<if Time.season is "winter" or Time.season is "spring" and (Time.hour lt 10 or Time.hour gte 22)>>
+    一个黑发的男人走过来告诉你竹茗楼准备打烊，你看到兰殊从二楼奔下来跑向男人。<br>
+<<elseif (Time.season is "summer" or Time.season is "autumn") and (Time.hour lt 9 or Time.hour gte 23)>>
+    一个黑发的男人走过来告诉你竹茗楼准备打烊，你看到兰殊从二楼奔下来跑向男人。<br>
 <<else>>
-    <<link [[上二楼|Lanshu Intro]]>><<endevent>><</link>>
+    <<food>>
+    你正在竹茗楼，茶楼中热闹喧哗。
+    <<if Time.hour gte 18 and $teahouse_miao isnot 1>>
+        你注意到茶楼角落的一张桌子，
+        <<if $miao_intro isnot 1>>
+        一个白发红瞳的人独自坐在桌边，和其他桌子旁三五成群谈笑风声的客人们相比，显得格外清冷。
+        <<else>>
+        一个眼熟的人独自坐在桌边，是淼。他悠闲地端着茶盏，像在观察茶楼里的其他客人，注意到你的视线，他向你露出一个微笑。
+        <</if>>
+        <<set $teahouse_miao to 1>>
+    <</if>>
+
+    <br>
+    <<foodoptions>>
+
+    <br>
+    <<link [[到后厨|Teahouse Kitchen]]>><</link>>
+    <br>
+    <<if $lanshu_intro is 1>>
+        <<link [[上二楼|Teahouse Top]]>><<endevent>><</link>>
+    <<else>>
+        <<link [[上二楼|Lanshu Intro]]>><<endevent>><</link>>
+    <</if>>
 <</if>>
 <br>
 <<link [[离开|Qingqi Street]]>><<endevent>><<set $teahouse_miao to 0>><</link>>
 <br>
 
 
-:: Teahouse Work
+:: Teahouse Kitchen
 
 <br>
-你正在后厨。
+你来到了后厨。一个男人看到了你，对你驱赶道："这里不是小孩子来的地方，找吃的到前面去。"
 
 <br><br>
 <<link [[回到大堂|Teahouse]]>><<endevent>><</link>>

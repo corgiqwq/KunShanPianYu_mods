@@ -36,7 +36,10 @@
 
 :: ZhongYiGuan
 
-<<set $outside to 0>><<set $location to "yiguan">><<effects>><<set $bus to "qingqi">>
+<<set $outside to 0>><<set $location to "yiguan">><<effects>><<set $bus to "qingqi">><br>
+<<if Time.hour lt 10 or Time.hour gte 18>>
+大夫们告知你，他们即将下班，如果不是急症可以明日再来。
+<<else>>
 你正在半闲堂中，淼正在柜台清点草药。
 
 <br><br>
@@ -45,6 +48,7 @@
 <<hotspringicon>><<link [[泡温泉 (£300)|Hot Spring]]>><<set $money -= 30000>><<endevent>><</link>>
 <br>
 <<icon "outfit.png">><<link [[更衣室 |Hot Spring Finish]]>><<endevent>><</link>>
+<</if>>
 <br>
 <<link [[离开|Qingqi Street]]>><<endevent>><</link>>
 <br>
@@ -53,17 +57,48 @@
 :: Feel Pulse
 
 <br>
-把脉剧情,
-分别对应
-<<lpain>><br>
-<<lstress>><br>
-<<ltiredness>>
+<<if $pain gte 60>>
+"针灸，分为针法和灸法，针法顾名思义，是用针刺穴位，可以疏通经络，放松筋骨。"淼拿出两个布包，其中一个打开后里面是排列整齐、长短不一的细针，
+另一个打开后则是一些浅黄色的圆柱形长条，"灸法则是将草药制成的灸条或灸炷点燃后熏蒸穴位，可以活血化瘀，调和气血。你看，这就是针灸用的针和灸条。"
+<br><br>
 
+淼带你走到药柜后面，走进一个小房间，房间里只有一张小床和一个凳子。淼示意你直接躺在床上，不用脱衣服。
+他轻声安着抚你，手指捻着细针，陆续扎在你的额头上、肩膀上、手臂上。你能感觉到一些疼痛，不过并不严重。
+<br><br>
+扎完针，淼又点燃灸条，开始熏蒸你的穴位。草药的香味围绕在你身边，让你很舒服。
+<br><br>
+不知过了多久，灸条的炙热温度消失了，淼拔出你身上的针，轻轻扶你起身。你深吸一口气，慢慢吐出，感觉如此轻松。
+<<lpain>><<pain -4>>
+
+<<elseif $stress gte ($stressmax * 0.6)>>
+"半闲堂提供现熬中药，我会为你诊脉，根据你的情况为你抓药熬药，"淼示意你看向他身后的药柜，"一副中药对调理身体起不到很大的作用，
+最多起到宁心定悸，镇惊安神之效。中药很苦，记得做好心理准备，药熬好之后不肯喝的话，概不退款哦。"
+<br><br>
+淼仔细为你诊脉，又查看你的舌苔，问了你几个问题之后，拿出纸笔口中念念有词着写起药方来。不多时，
+他拿着药方，依次打开身后的药柜抓取中药。抓好中药后，他带着药材走到药柜后面，很快，半闲堂中弥漫起一股苦涩的味道。你又等了一会儿，淼从药柜后走出来，手中端着一碗漆黑的药汁，放在你面前。
+<br><br>
+你看着黑漆漆的药汁，有些犹豫，考虑良久后终于鼓起勇气一饮而下。药汁看起来很苦，喝起来更苦。
+你感觉自己冷静了不少，不知道是中药的药效起作用了，还是被苦到脑子清醒了。
+<<lstress>><<stress -8>>
+
+<<else>>
+"推拿是中医的一种疗法，通过用特定的手法按摩身体穴位，来进行治疗。"淼认真地向你解释，"如果你感觉很累，可以试试推拿，保证效果不会让你失望的。"
+<br><br>
+淼带你走到药柜后面，走进一个小房间，房间里只有一张小床和一个凳子。淼示意你直接趴在床上，不用脱衣服。他的手拂过你的肩膀、脊背、后腰，让你放松。
+他用一种你并不熟悉的手法在你的身体上推挤按压，这手法很有效，你的肌肉放松下来，整个身体坦然自在，甚至不知不觉睡着了。
+<br><br>
+不知过了多久，淼将你从睡梦中唤醒，你感觉很久没有睡过这么好的觉了。<<ltiredness>><<tiredness -4>>
+<</if>>
 <br><br>
 <<link [[结束|ZhongYiGuan]]>><<endevent>><</link>>
 
 :: Hot Spring
 
+<<if Time.hour lt 10 or Time.hour gte 18>>
+<br>
+    一个白发男人过来告诉你，医馆即将关门，让你别泡温泉太久免得头晕。
+<br>
+<<else>>
 <<strip>><br>
 <<towel>>
 此处灯光氤氲，水汽萦绕，药香随着水汽缭绕周身，温泉被笼罩在柔和的光辉中。
@@ -74,8 +109,10 @@
 <<hotspringicon>><<link [[泡温泉 (1:00) |Hot Spring]]>><<set $hotspring_text to 1>><<pass 1 hour>><<endevent>><<stress -30>><<tiredness -30>><</link>><<lltiredness>><<llstress>>
 <br>
 <<wineicon>><<link [[烧酒 (0:05 £10) |Hot Spring]]>><<set $hotspring_wine to 1>><<set $money -= 1000>><<pass 5>><<endevent>><<trauma -100>><<alcohol 80>><</link>><<galcohol>><<ltrauma>>
+<</if>>
 <br>
 <<towelicon>><<link [[结束 |Hot Spring Finish]]>><<set $hotspring_wine to 0>><<set $hotspring_text to 0>><<endevent>><</link>>
+
 
 :: Hot Spring Finish
 
@@ -87,7 +124,7 @@
 <<mirroricon>><<link [[镜子|ZhongYiGuan Mirror]]>><<preMirror>><</link>>
 <br>
 <<getouticon>><<link [[离开|ZhongYiGuan]]>><</link>>
-<br><br>
+
 
 :: ZhongYiGuan Mirror
 

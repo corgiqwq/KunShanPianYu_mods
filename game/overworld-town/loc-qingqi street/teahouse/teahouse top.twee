@@ -1,6 +1,11 @@
 :: Teahouse Top
 
 <br>
+<<if Time.season is "winter" or Time.season is "spring" and (Time.hour lt 10 or Time.hour gte 22)>>
+    兰殊过来告诉你茶楼准备打烊了，并在你手里放了一颗糖，然后开开心心地抱着书跑下楼梯。
+<<elseif (Time.season is "summer" or Time.season is "autumn") and (Time.hour lt 9 or Time.hour gte 23)>>
+    兰殊过来告诉你茶楼准备打烊了，并在你手里放了一颗糖，然后开开心心地抱着书跑下楼梯。
+<<else>>
 你正在竹茗楼二楼。
 你看到兰殊正坐在窗边喝茶。<<lanshu_text>>
 <br>
@@ -10,7 +15,7 @@
 
 和兰殊玩游戏：
 <<teahousegame>>
-
+<</if>>
 <br><br>
 <<link [[下楼 (0:02)|Teahouse]]>><<pass 2>><<set $lanshu_text to 0>><<endevent>><</link>>
 
@@ -51,6 +56,8 @@
 他往外走了几步，又回头轻声喊你："一定要来找我玩啊！"
 <br><br>
 <span class="gold">兰殊希望你可以来茶楼二楼找他玩小游戏。战胜兰殊可以提升你在茶楼的知名度。</span>
-<<set $lanshu_intro to 1>><br><br>
+<<set $lanshu_intro to 1>>
+<<set $teahouse to 0>>
+<br><br>
 
 <<link [[继续|Teahouse Top]]>><</link>>
