@@ -123,13 +123,21 @@
         	<<if Time.hour lt 10 or Time.hour gte 22>>
                 <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse Close]]>><<pass 5>><</link>>
             <<else>>
-		        <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse]]>><<pass 5>><</link>>
+                <<if $moxiangke_intro isnot 1>>
+                    <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse Intro]]>><<pass 5>><</link>>
+                <<else>>
+		            <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse]]>><<pass 5>><</link>>
+		        <</if>>
             <</if>>
         <<else>>
         	<<if Time.hour lt 9 or Time.hour gte 23>>
                 <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse Close]]>><<pass 5>><</link>>
             <<else>>
-		        <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse]]>><<pass 5>><</link>>
+                <<if $moxiangke_intro isnot 1>>
+                    <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse Intro]]>><<pass 5>><</link>>
+                <<else>>
+		            <<teahouseicon>><<link [[竹茗楼 (0:05)|Teahouse]]>><<pass 5>><</link>>
+		        <</if>>
             <</if>>
         <</if>>
         <br>
