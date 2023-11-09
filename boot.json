@@ -620,6 +620,11 @@
      "passage": "Social",
      "findString": "<<relation-box-simple _studentBoxConfig>>",
      "replace": "<<relation-box-simple _studentBoxConfig>>\n\t\t\t<<if $lanshu_intro is 1>>\n\t\t\t\t<<relation-box-simple _teahouseBoxConfig>>\n\t\t\t<</if>>"
+    },
+    {
+     "passage": "Widgets tryOnClothes",
+     "findString": "<<if $passage is \"Clothing Shop\" or $passage is \"School Library Shop\" or $passage is \"Forest Shop\">>",
+     "replace": "<<if $passage is \"Clothing Shop\" or $passage is \"School Library Shop\" or $passage is \"Forest Shop\" or $passage is \"ChouDuanZhuang\">>"
     }
    ]
   },
@@ -708,12 +713,6 @@
       "passageName": "Widgets Actions Mouth",
       "from": "to \"swallow\">>\n\t\t<</if>>",
       "to": "to \"swallow\">>\n\t\t<</if>>\n\t\t<<if $fenghuang gte 2>>\n\t\t\t<<set _mouthaction[\"凤鸣\"] to \"fengMing\">>\n\t\t<</if>>\t"
-     },
-     {
-      "TODO": "main.twee",
-      "passageName": "Bedroom",
-      "from": "/* Travel */",
-      "to": "<<link [[Test|Gift_BaiNiaoChaoFeng]]>><</link>>\n/* Travel */"
      }
     ]
    }
