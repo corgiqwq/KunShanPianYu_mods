@@ -103,7 +103,8 @@
 		<<eventsstreet>>
 	<<else>>
 		<<if $options.mapTop is true>>
-			<<map "qingqi">>
+			猫线团：亲亲，我们还没做这个功能
+			"< <map "qingqi"> >"
 			<br>
 		<</if>>
 
