@@ -41,8 +41,11 @@
     <br>
     <<if $lanshu_intro is 1>>
         <<link [[上二楼|Teahouse Top]]>><<endevent>><</link>>
-    <<else>>
+    <<elseif (Time.season is "winter" or Time.season is "spring") and Time.hour isnot 22>>
         <<link [[上二楼|Lanshu Intro]]>><<endevent>><</link>>
+    <<elseif (Time.season is "summer" or Time.season is "autumn") and Time.hour isnot 23>>
+        <<link [[上二楼|Lanshu Intro]]>><<endevent>><</link>>
+    <<else>>
     <</if>>
 <</if>>
 <br>

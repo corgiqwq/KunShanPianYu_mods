@@ -14,7 +14,7 @@
 
 :: Fifteen Twenty Choose Num
 
-<br>
+<br><<set $lanshu_game += 1>>
 "从 0，5，10，15，20 中选一个作为你的数字"
 <br><br>
 选择你的数字:
@@ -52,7 +52,7 @@
         <<set $lan1520 to chooseNum(_nums)>>
 <</switch>>
 <br>
-"好，我的数字是 <span class="gold">$lan1520</span>。"
+兰殊笑嘻嘻道，"那好，我的数字是 <span class="gold">$lan1520</span>。"
 <br>
 
 <br>你选择：<br>
@@ -85,10 +85,22 @@
 <<else>>
     你和兰殊打成了平手，围观的客人们纷纷唏嘘着散开，茶馆又恢复了之前的宁静。<<set $teahousegame_end to 0>>
 <</if>>
+<<pass 5>>
+<<if $lanshu_game gte 10>>
+    <<set $daily.lanshu_game_close to 1>>
+<</if>>
 
 <br><br>
-<<link [[再来一局|Fifteen Twenty Choose Num]]>><<pass 5>><<set $my1520 to 0>><<set $sum1520 to 0>><</link>><br>
-<<link [[不玩了|Teahouse Top]]>><<pass 5>><<set $my1520 to 0>><<set $sum1520 to 0>><</link>>
+<<if $daily.lanshu_game_close is 1>>
+    <<link [[再来一局|Teahouse Game Banned]]>><<set $round to 1>><<set $theorywin to 0>><<set $phase to 1>><</link>><br>
+<<elseif (Time.season is "winter" or Time.season is "spring") and Time.hour is 22>>
+    <<link [[再来一局|Teahouse Game Banned]]>><<set $round to 1>><<set $theorywin to 0>><<set $phase to 0>><</link>><br>
+<<elseif (Time.season is "summer" or Time.season is "autumn") and Time.hour is 23>>
+    <<link [[再来一局|Teahouse Game Banned]]>><<set $round to 1>><<set $theorywin to 0>><<set $phase to 0>><</link>><br>
+<<else>>
+    <<link [[再来一局|Fifteen Twenty Choose Num]]>><<set $my1520 to 0>><<set $sum1520 to 0>><</link>><br>
+    <<link [[不玩了|Teahouse Top]]>><<set $my1520 to 0>><<set $sum1520 to 0>><</link>>
+<</if>>
 
 
 

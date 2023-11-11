@@ -28,9 +28,11 @@
 	    <<win_text>>
 	<<elseif $theorywin is 0>>
 	    你和兰殊打成了平手，围观的客人们见游戏已经结束，纷纷唏嘘着散开，茶馆又恢复了之前的宁静。<<set $teahousegame_end to 0>>
-	<<else>>
+	<<elseif $theorywin is -1>>
 	    <span class="red">兰殊胜了，你输了。</span><<set $money -= -1000>><<set $teahouse -= 1>><<set $teahousegame_end to -1>>
 	    <<lose_text>>
+	<<else>>
+	    （错误提示）$theorywin不在三种结局中。
 	<</if>>
 <</widget>>
 
@@ -42,12 +44,13 @@
 <br><br>
 "这<span class="gold">£10</span>就作为彩头吧，准备好了和说我一声吧！"
 <br><br>
-<<link [[准备好了|Theory Game Battle]]>><<set $round to 1>><</link>><br>
+<<link [[准备好了|Theory Game Battle]]>><<set $round to 1>><<set $theorywin to 0>><</link>><br>
 <<link [[再等等|Teahouse Top]]>><</link>>
 
 
 :: Theory Game Battle
 
+<<set $lanshu_game += 1>>
 <<if $round is 1>>
 <br>"第一局"<br>
 <<set $house to [0, 1, 2]>>
@@ -89,7 +92,19 @@
 <br>
 游戏结束。
 <<theoryfinish>>
-
+<<pass 5>>
 <br><br>
-<<link [[再来一局|Theory Game Battle]]>><<pass 5>><<set $round to 1>><<set $theorywin to 0>><</link>><br>
-<<link [[不玩了|Teahouse Top]]>><<pass 5>><<set $round to 1>><<set $theorywin to 0>><</link>>
+<<if $lanshu_game gte 10>>
+    <<set $daily.lanshu_game_close to 1>>
+<</>if>
+
+<<if $daily.lanshu_game_close is 1>>
+    <<link [[再来一局|Teahouse Game Banned]]>><<set $round to 1>><<set $theorywin to 0>><<set $phase to 1>><</link>><br>
+<<elseif (Time.season is "winter" or Time.season is "spring") and Time.hour is 22>>
+    <<link [[再来一局|Teahouse Game Banned]]>><<set $round to 1>><<set $theorywin to 0>><<set $phase to 0>><</link>><br>
+<<elseif (Time.season is "summer" or Time.season is "autumn") and Time.hour is 23>>
+    <<link [[再来一局|Teahouse Game Banned]]>><<set $round to 1>><<set $theorywin to 0>><<set $phase to 0>><</link>><br>
+<<else>>
+    <<link [[再来一局|Theory Game Battle]]>><<set $round to 1>><<set $theorywin to 0>><</link>><br>
+    <<link [[不玩了|Teahouse Top]]>><<set $round to 1>><<set $theorywin to 0>><</link>>
+<</if>>

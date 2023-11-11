@@ -37,6 +37,8 @@
 <br>
 <<chaofanicon>><<link [[点一份扬州炒饭 (0:10 £8)|Teahouse]]>><<set $food to 3>><<set $money -= 800>><<pass 10>><<stress -6>><</link>><<lstress>>
 <br>
+<<else>>
+    <br><br>
 <</if>>
 <</widget>>
 
