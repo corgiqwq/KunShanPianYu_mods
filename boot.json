@@ -1,6 +1,6 @@
 {
  "name": "KunShanPianYu",
- "version": "1.1.0",
+ "version": "2.0.0",
  "styleFileList": [],
  "scriptFileList_earlyload": [],
  "scriptFileList_inject_early": [],
@@ -16,7 +16,7 @@
  ],
  "imgFileList": [],
  "additionFile": [
-  "readme.md",
+  "README.md",
   "game/base-clothing/addon-replace/canvasmodel-img-Widgets Canvas Model Main.txt",
   "game/base-clothing/addon-replace/images-Widgets Img.txt",
   "game/base-combat/addon-replace/effects-Widgets Effects Man.txt",
@@ -623,8 +623,13 @@
     },
     {
      "passage": "Widgets tryOnClothes",
-     "findString": "<<if $passage is \"Clothing Shop\" or $passage is \"School Library Shop\" or $passage is \"Forest Shop\">>",
-     "replace": "<<if $passage is \"Clothing Shop\" or $passage is \"School Library Shop\" or $passage is \"Forest Shop\" or $passage is \"ChouDuanZhuang\">>"
+     "findString": "or $passage is \"Forest Shop\"",
+     "replace": "or $passage is \"Forest Shop\" or $passage is \"ChouDuanZhuang\">>"
+    },
+    {
+     "passage": "Widgets Events Street",
+     "findString": "<<elseif $dangerevent lte 15 and $location isnot \"alley\" and $bus isnot \"park\">>",
+     "replace": "<<elseif $dangerevent lte 15 and $location isnot \"alley\" and $bus isnot \"park\" and $bus isnot \"qingqi\">>"
     }
    ]
   },
@@ -674,13 +679,25 @@
       "TODO": "teahouse food",
       "fileName": "ingame.js",
       "from": "\t\t\tcafeEaten: V.cafeeaten,",
-      "to": "\t\t\tcafeEaten: V.cafeeaten,\n\t\t\tteaDaily: V.fooddaily,"
+      "to": "\t\t\tcafeEaten: V.cafeeaten,\n\t\t\tfoodDaily: V.fooddaily,"
      },
      {
       "TODO": "teahouse food",
       "fileName": "ingame.js",
       "from": "\"cafeeaten\",",
       "to": "\"cafeeaten\", \"fooddaily\","
+     },
+     {
+      "TODO": "teahouse game",
+      "fileName": "ingame.js",
+      "from": "\t\t\tcafeEaten: V.cafeeaten,",
+      "to": "\t\t\tcafeEaten: V.cafeeaten,\n\t\t\tlanshu_game_close: V.lanshu_game_close,"
+     },
+     {
+      "TODO": "teahouse game",
+      "fileName": "ingame.js",
+      "from": "\"cafeeaten\",",
+      "to": "\"cafeeaten\", \"lanshu_game_close\","
      },
      {
       "TODO": "hot spring",
