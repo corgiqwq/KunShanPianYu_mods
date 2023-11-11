@@ -82,40 +82,40 @@
 		<<link "浏览全部">><<replace "#clothingShop-div">><<AllShop>><</replace>><</link>>
 		<br><br>
 
-		<<clothingcategoryicon "outfit">>
+		<<clothingcategoryicon "雕花纹实木衣架">>
 		<<link "翻看雕花纹实木衣架">><<replace "#clothingShop-div">><<OutfitShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "upper">>
+		<<clothingcategoryicon "祥云纹镂空">>
 		<<link "打开祥云纹镂空柜门">><<replace "#clothingShop-div">><<TopShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "lower">>
+		<<clothingcategoryicon "如意纹镂空">>
 		<<link "打开如意纹镂空柜门">><<replace "#clothingShop-div">><<BottomShop>><</replace>><</link>>
 		<br><br>
-		<<clothingcategoryicon "underoutfit">>
+		<<clothingcategoryicon "璎珞纹全身">>
 		<<link "绕到璎珞纹全身镜后">><<replace "#clothingShop-div">><<UnderOutfitShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "underupper">>
+		<<clothingcategoryicon "喜鹊纹浮雕抽屉">>
 		<<link "拉开喜鹊纹浮雕抽屉">><<replace "#clothingShop-div">><<UnderTopShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "underlower">>
+		<<clothingcategoryicon "蝴蝶纹浮雕">>
 		<<link "拉开蝴蝶纹浮雕抽屉">><<replace "#clothingShop-div">><<UnderBottomShop>><</replace>><</link>>
 		<br><br>
-		<<clothingcategoryicon "head">>
+		<<clothingcategoryicon "博古纹珐琅">>
 		<<link "观察博古纹珐琅冠架">><<replace "#clothingShop-div">><<HeadShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "face">>
+		<<clothingcategoryicon "蝙蝠纹梨木">>
 		<<link "查看蝙蝠纹梨木斗橱">><<replace "#clothingShop-div">><<FaceShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "neck">>
+		<<clothingcategoryicon "百花纹彩漆">>
 		<<link "查看百花纹彩漆妆奁">><<replace "#clothingShop-div">><<NeckShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "hand">>
+		<<clothingcategoryicon "缠枝纹紫檀">>
 		<<link "查看缠枝纹紫檀木匣">><<replace "#clothingShop-div">><<HandsShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "legs">>
+		<<clothingcategoryicon "鸳鸯纹百宝">>
 		<<link "查看鸳鸯纹百宝布袋">><<replace "#clothingShop-div">><<LegsShop>><</replace>><</link>>
 		<br>
-		<<clothingcategoryicon "feet">>
+		<<clothingcategoryicon "松柏纹竹制">>
 		<<link "查看松柏纹竹制箱笼">><<replace "#clothingShop-div">><<FeetShop>><</replace>><</link>>
 		<br><br>
 		<<run linkifyDivs('.button-back-to-shop')>>
