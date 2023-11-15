@@ -770,10 +770,6 @@
  ],
  "dependenceInfo": [
   {
-   "modName": "ModLoader",
-   "version": "^2.0.0"
-  },
-  {
    "modName": "TweeReplacer",
    "version": "^1.0.0"
   },
