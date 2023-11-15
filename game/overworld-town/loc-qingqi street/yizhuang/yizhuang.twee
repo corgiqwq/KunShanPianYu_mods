@@ -1,7 +1,7 @@
 :: ChouDuanZhuang Close
 <br>
 <<if Time.hour is 20>>
-    你到达绸缎庄。月浅歉意地告诉你，绸缎庄现在不营业了，并在柱子上挂上了“今日打烊”的挂牌。
+    你到达绸缎庄。月浅歉意地告诉你，绸缎庄现在不营业了，并在柱子上挂上了"今日打烊"的挂牌。
 <<else>>
     你到达绸缎庄。一直常挂在门前的琉璃灯正关着，你从门缝看去，店里黑黢黢的。
 <</if>>
@@ -12,10 +12,17 @@
 
 <<if Time.hour lt 10 or Time.hour gte 20>>
 <br>
-月浅歉意地告诉你，绸缎庄准备打烊了，并在柱子上挂上了“今日打烊”的挂牌。
+月浅歉意地告诉你，绸缎庄准备打烊了，并在柱子上挂上了"今日打烊"的挂牌。
 <br><br>
 <<link [[离开|Qingqi Street]]>><<endevent>><</link>>
 <<else>>
+<<if $worn.upper.type.includes("naked") or $worn.lower.type.includes("naked") or $upperwetstage gte 3 or $lowerwetstage gte 3>>
+<br>你进入了绸缎庄。
+<br><br>
+<span class="lewd">你察觉到来往的行人在经过店门时，他们或惊诧、或奇怪的眼神在你身上逡巡，仿佛被你吸引。这些目光，竟让你感到一丝莫名的兴奋。</span><<exhibitionist1>>
+<br><br>
+月浅此刻放下了手中正在裁剪的布匹。他抬起头，那双明亮的眼睛露出淡淡的笑意："客人，可要看看小店的华服？"他的声音温柔悦耳。
+<</if>>
 <div id="clothingShop-div" class="main-shop-div">
 	<<yizhuangShop-main>>
 </div>

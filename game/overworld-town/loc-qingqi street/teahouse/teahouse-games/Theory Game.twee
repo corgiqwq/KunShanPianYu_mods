@@ -50,13 +50,13 @@
 
 :: Theory Game Battle
 
-<<set $lanshu_game += 1>>
 <<if $round is 1>>
 <br>"第一局"<br>
 <<set $house to [0, 1, 2]>>
 <<set $house0 to 1>>
 <<set $house1 to 1>>
 <<set $house2 to 1>>
+<<set $lanshu_game += 1>>
 <<elseif $round is 2>>
 <br>"第二局"<br>
 <<else>>
@@ -96,7 +96,7 @@
 <br><br>
 <<if $lanshu_game gte 10>>
     <<set $daily.lanshu_game_close to 1>>
-<</>if>
+<</if>>
 
 <<if $daily.lanshu_game_close is 1>>
     <<link [[再来一局|Teahouse Game Banned]]>><<set $round to 1>><<set $theorywin to 0>><<set $phase to 1>><</link>><br>

@@ -22,6 +22,58 @@
         <<wardrobewear>>
 <</widget>>
 
+<<widget "hotspringclothes">>
+    <br>
+    <<if clothingInStorage("hotspring").length lt 1>>
+		你可以在收纳箱中存放你的衣服。
+		<br>
+	<</if>>
+	<<if !$possessed>>
+		<<set _store_location to "hotspring">>
+		<<storeon _store_location "check">>
+		<<if _store_check is 1>>
+			<<set _clothes to clothingInStorage(_store_location)>>
+			<<if _clothes.length gte 6>>
+					你的衣服整齐地放在收纳箱子中。
+					<br>
+				<<dressasyouwereicon>><<link [[穿上衣服|$passage]]>><<set $eventskip to 1>><<storeload _store_location>><</link>>
+				<br>
+			<</if>>
+		<</if>>
+		<<listhotspringclothes $wardrobe_location _store_location true>>
+		<<temperature>>
+		<br>
+		<<unset $wearoutfittext>>
+	<</if>>
+<</widget>>
+
+<<widget "listhotspringclothes">>
+	<<set $wardrobe_location to _args[0]>>
+	<<set _store_location to _args[1] || _args[0]>>
+	<<set $_indent to _args[2] || false>>
+	<<wardrobeSelection true>>
+	<<for _index, _outfit range $outfit>>
+		<<if (_outfit.location and _outfit.location isnot $wardrobe_location) or !_outfit.type.includes("swim")>>
+			<<continue>>
+		<</if>>
+		<<capture _index _outfit>>
+			<<if $_indent>><<ind>><</if>>
+			<<if _outfit.name is currentOutfit()>>
+				<span class="grey"><<print (_outfit.name? _outfit.name : _outfit.name)>> (穿着)</span>
+			<<else>>
+				<<link [[脱下衣服 |$passage]]>>
+					<<storesave _store_location>>
+					<<set $wearoutfittext to (_outfit.name? _outfit.name : _outfit.name)>>
+					<<set $eventskip to 1>>
+					<<set $wear_outfit to _index>>
+					<<set $storeLocation to _args[0]>>
+				<</link>>
+			<</if>>
+			<br>
+		<</capture>>
+	<</for>>
+<</widget>>
+
 
 :: ZhongYiGuan Close
 
@@ -37,20 +89,33 @@
 :: ZhongYiGuan
 
 <<set $outside to 0>><<set $location to "yiguan">><<effects>><<set $bus to "qingqi">><br>
+<<wearoutfit>>
+
 <<if Time.hour lt 10 or Time.hour gte 18>>
 大夫们告知你，他们即将下班，如果不是急症可以明日再来。
 <<else>>
+<<if $worn.upper.type.includes("naked") or $worn.lower.type.includes("naked") or $upperwetstage gte 3 or $lowerwetstage gte 3>>
+你步入医馆，一股淡淡的药香扑面而来。
+周围医师们忙碌的身影映入眼帘。他们或整理药方、或问诊把脉，并没有人在意你的到来。
+<br><br>
+你在一名医师面前坐下。当医师的手指轻轻搭在你的手腕上，<span class="lewd">你感到了一种莫名的兴奋。他沉默片刻，似乎在感受你的脉象。 </span><<exhibitionist1>>
+<br><br>
+医师给出了他的诊断结论，并为你开了一张药方。
+你接过药房，离开了问诊区。<br><br>
+<</if>>
+
 你正在半闲堂中，淼正在柜台清点草药。
 
 <br><br>
 <<feelpulseicon>><<link [[把脉 (£10)|Feel Pulse]]>><<set $money -= 1000>><<endevent>><</link>>
 <br>
-<<hotspringicon>><<link [[泡温泉 (£300)|Hot Spring]]>><<set $money -= 30000>><<endevent>><</link>>
-<br>
-<<icon "outfit.png">><<link [[更衣室 |Hot Spring Finish]]>><<endevent>><</link>>
+<<if $money gte 30000>>
+<<hotspringicon>><<link [[泡温泉 (£300)|ZhongYiGuan Backyard]]>><<set $phase to 1>><</link>><<lltiredness>><<llstress>>
+<br><</if>>
+<<icon "outfit.png">><<link [[更衣室 |ZhongYiGuan Backyard]]>><<endevent>><</link>>
 <</if>>
-<br>
-<<link [[离开|Qingqi Street]]>><<endevent>><</link>>
+<br><br>
+<<qingqiicon>><<link [[离开|Qingqi Street]]>><<endevent>><</link>>
 <br>
 
 
@@ -92,38 +157,70 @@
 <br><br>
 <<link [[结束|ZhongYiGuan]]>><<endevent>><</link>>
 
+
 :: Hot Spring
 
-<<if Time.hour lt 10 or Time.hour gte 18>>
 <br>
-    一个白发男人过来告诉你，医馆即将关门，让你别泡温泉太久免得头晕。
+<<if !$worn.lower.type.includes("swim") and !$worn.lower.type.includes("naked")>>
+	<<set $lowerwet to 200>>
+<</if>>
+<<effectswater>>
+<<if Time.hour lt 10 or Time.hour gte 18>>
+    <<if $exhibitionism gte 75>>
+        <span class="lewd">即使发现有人突然闯入了这里，你依然慵懒地趴在岸边。 </span><<exhibitionist5>>
+<br><br>
+        一手拨弄着温泉的水面，水波在你的动作下轻轻荡漾，倒映出你的身影。
+        终是察觉到来人未曾挪动，你缓缓抬起头，向着那个方向望去。
+        你冲着来人笑着点头，然后又趴回了原位，恢复到原来的慵懒姿态。
+    <<elseif $exhibitionism gte 55>>
+    <span class="lewd">你有些错愕地望向那位不速之客，双手本能地护住私密之处，这一瞬间，你和来人面面相觑。 </span><<exhibitionist3>>
+<br><br>
+    温泉的水珠顺着你的腰身滑下，水痕交织。白发男人面对这一幕，一时间顿住。
+<br><br>
+    在这令人窒息的对视中，你选择了退却。你悄然滑进水的深处，让自己完全浸没在这片温泉中。水汽逐渐升腾，缓缓包裹住你。
+    他在你动作间，仿佛惊醒，匆匆将视线移向别处。
+
+    <<else>>
+    <span class="lewd">你发现有人闯入了温泉区，发出一声短促的惊呼。对于这突如其来的闯入，你感到无所适从，尴尬不已，脸颊不自觉地泛起一抹嫣红。</span>
+<br><br>
+     慌乱之中，你迅速抓起放在岸边的浴袍，草草地裹住自己的身体，并尽可能地把自己埋进水深处，只露出头部在水面上。<<towel>>
+     你希望温泉的水汽能够起到些许遮蔽作用。
+    <</if>>
+    <br><br>
+    白发男人过来告诉你，医馆即将关门，让你别泡温泉太久免得头晕。
+
 <br>
 <<else>>
-<<strip>><br>
-<<towel>>
 此处灯光氤氲，水汽萦绕，药香随着水汽缭绕周身，温泉被笼罩在柔和的光辉中。
 <<if $hotspring_text is 1>>你正在泡温泉，一股暖意从脚尖开始，如同涓涓溪流，逐渐蔓延至全身。<</if>>
 <<if $hotspring_wine is 1>>酒液清澈透明，散发出诱人的香气，令人无法抗拒。<</if>>
 <br><br>
 
+<<if $money gte 30000>>
 <<hotspringicon>><<link [[泡温泉 (1:00) |Hot Spring]]>><<set $hotspring_text to 1>><<pass 1 hour>><<endevent>><<stress -30>><<tiredness -30>><</link>><<lltiredness>><<llstress>>
-<br>
+<br><</if>>
 <<wineicon>><<link [[烧酒 (0:05 £10) |Hot Spring]]>><<set $hotspring_wine to 1>><<set $money -= 1000>><<pass 5>><<endevent>><<trauma -100>><<alcohol 80>><</link>><<galcohol>><<ltrauma>>
 <</if>>
 <br>
-<<towelicon>><<link [[结束 |Hot Spring Finish]]>><<set $hotspring_wine to 0>><<set $hotspring_text to 0>><<endevent>><</link>>
+<<towelicon>><<link [[结束 |ZhongYiGuan Backyard]]>><<set $hotspring_wine to 0>><<set $hotspring_text to 0>><<endevent>><</link>>
 
 
-:: Hot Spring Finish
+:: ZhongYiGuan Backyard
 
 <br>
 你正在医馆的后院。
+<br>
+<<hotspringclothes>>
+
+<<if $phase is 1>>
+<<hotspringicon>><<link [[泡温泉 |Hot Spring]]>><<set $money -= 30000>><</link>>
 <br><br>
-<<wardrobeicon>><<link [[衣柜|ZhongYiGuan Wardrobe]]>><</link>>
+<</if>>
+<<wardrobeicon>><<link [[衣柜 |ZhongYiGuan Wardrobe]]>><</link>>
 <br>
-<<mirroricon>><<link [[镜子|ZhongYiGuan Mirror]]>><<preMirror>><</link>>
+<<mirroricon>><<link [[镜子 |ZhongYiGuan Mirror]]>><<preMirror>><</link>>
 <br>
-<<getouticon>><<link [[离开|ZhongYiGuan]]>><</link>>
+<<getouticon>><<link [[离开 |ZhongYiGuan]]>><<set $phase to 0>><</link>>
 
 
 :: ZhongYiGuan Mirror
@@ -137,7 +234,6 @@
 :: ZhongYiGuan Wardrobe [exitCheckBypass]
 <<effects>>
 <<wardrobeSelection>>
-<br><br>
 <div id="wardrobewear"><<wardrobewear>></div>
 <div id="wardrobeExits"><<wardrobeExits>></div>
 <<wardrobe>>
